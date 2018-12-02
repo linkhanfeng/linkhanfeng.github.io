@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>hexo | 韩枫的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new      Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd &amp;l">
+<meta name="keywords" content="dev,nodejs,packages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/index.html">
+<meta property="og:site_name" content="韩枫的博客">
+<meta property="og:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new      Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd &amp;l">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-02T11:52:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo">
+<meta name="twitter:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new      Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd &amp;l">
+  
+    <link rel="alternate" href="../../../../../../../../index.html" title="韩枫的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../../../../../css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../../../../../../index.html" id="logo">韩枫的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../../../../../../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../../../../../../../archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../../../../../../../index.html" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://linkhanfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-note/dev/nodejs/packages/hexo" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2018-12-02T11:52:29.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo-使用指南"><a href="#Hexo-使用指南" class="headerlink" title="Hexo 使用指南"></a>Hexo 使用指南</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">初始化及目录结构</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE">配置</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4">命令</a><ul>
+<li><a href="#generate-%E7%94%9F%E6%88%90">generate 生成</a></li>
+<li><a href="#deploy-%E9%83%A8%E7%BD%B2">deploy 部署</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#new">new</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+<blockquote>
+<p>Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页</p>
+</blockquote>
+<p><a id="%E5%AE%89%E8%A3%85"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装前提</p>
+<ul>
+<li>Node.js</li>
+<li>Git<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a id="%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"></a></p>
+<h2 id="初始化及目录结构"><a href="#初始化及目录结构" class="headerlink" title="初始化及目录结构"></a>初始化及目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|── _config.yml // 网站的 配置 信息</span><br><span class="line">|── package.json // 包</span><br><span class="line">|── scaffolds // 模版,新建文章时会根据 scaffold 来建立文件</span><br><span class="line">|── source // 存放用户资源的地方</span><br><span class="line">|    |── _posts // 将 markdown 文件放到下面,可以包含目录结构</span><br><span class="line">|── themes // 主题,会根据主题来生成静态页面</span><br></pre></td></tr></table></figure></p>
+<p>source 说明:<br>开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。<br>Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去</p>
+<p><a id="%E9%85%8D%E7%BD%AE"></a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Site 网站信息</span><br><span class="line">title: &quot;韩枫的博客&quot;</span><br><span class="line">description: &quot;韩枫的博客&quot;</span><br><span class="line">keywords: &quot;web开发&quot;</span><br><span class="line">author: &apos;han feng&apos;</span><br><span class="line">language: &apos;zh-CN&apos;</span><br><span class="line">timezone: &apos;Asia/Shanghai&apos;</span><br><span class="line"></span><br><span class="line"># URL 网站根目录</span><br><span class="line">url: https://linkhanfeng.github.io/</span><br><span class="line"></span><br><span class="line"># Deployment 网站 git 仓库地址</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &apos;git@github.com:linkhanfeng/linkhanfeng.github.io.git&apos;</span><br><span class="line">  branch: master</span><br><span class="line">  message: fromhexo</span><br></pre></td></tr></table></figure>
+<p><a id="%E5%91%BD%E4%BB%A4"></a></p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p><a id="generate-%E7%94%9F%E6%88%90"></a></p>
+<h3 id="generate-生成"><a href="#generate-生成" class="headerlink" title="generate 生成"></a>generate 生成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate -d</span><br></pre></td></tr></table></figure>
+<p>生成静态文件  </p>
+<ul>
+<li>-d, –deploy     文件生成后立即部署网站</li>
+<li>-w, –watch     监视文件变动</li>
+</ul>
+<p><a id="deploy-%E9%83%A8%E7%BD%B2"></a></p>
+<h3 id="deploy-部署"><a href="#deploy-部署" class="headerlink" title="deploy 部署"></a>deploy 部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
+<p>部署网站<br><code>hexo deploy -g</code> 作用等同于 <code>hexo generate -d</code></p>
+<ul>
+<li>-g, –generate  部署之前预先生成静态文件</li>
+</ul>
+<p><a id="init"></a></p>
+<h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder]</span><br></pre></td></tr></table></figure>
+<p>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</p>
+<p><a id="new"></a></p>
+<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>新建一篇文章。layout 默认使用<code>_config.yml 中的 default_layout</code>参数代替<br>如果标题包含空格的话，请使用引号括起来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/" data-id="cjp6ug3bn0026qtqrq9o7g9mx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/packages/">packages</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../../life/Music/网易云歌单/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网易云歌单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Game/">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Movies/">Movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Music/">Music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/macOs/">macOs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/草稿/">草稿</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../../../../tags/Game/" style="font-size: 10px;">Game</a> <a href="../../../../../../../../tags/Movies/" style="font-size: 10px;">Movies</a> <a href="../../../../../../../../tags/Music/" style="font-size: 10px;">Music</a> <a href="../../../../../../../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../../../../../../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../../../../../../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../../../../../../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../../../../../../../tags/life/" style="font-size: 16.67px;">life</a> <a href="../../../../../../../../tags/linux/" style="font-size: 13.33px;">linux</a> <a href="../../../../../../../../tags/macOs/" style="font-size: 13.33px;">macOs</a> <a href="../../../../../../../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../../../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../../../../tags/php/" style="font-size: 13.33px;">php</a> <a href="../../../../../../../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../../../../../../../tags/tips/" style="font-size: 10px;">tips</a> <a href="../../../../../../../../tags/数据交换/" style="font-size: 16.67px;">数据交换</a> <a href="../../../../../../../../tags/环境/" style="font-size: 13.33px;">环境</a> <a href="../../../../../../../../tags/草稿/" style="font-size: 10px;">草稿</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../../../../archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../../../../archives/2018/11/">十一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">hexo</a>
+          </li>
+        
+          <li>
+            <a href="../../../../life/Music/网易云歌单/">网易云歌单</a>
+          </li>
+        
+          <li>
+            <a href="../../../macOs/iterm2/">iterm2</a>
+          </li>
+        
+          <li>
+            <a href="../../../linux/文件系统/">文件系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../../../11/11/note/life/Game/王者荣耀刷金币/">王者荣耀刷金币脚本</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 han feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="../../../../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../../../../js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
