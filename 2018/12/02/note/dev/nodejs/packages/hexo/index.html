@@ -7,18 +7,18 @@
   
   <title>hexo | 韩枫的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new      Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd &amp;l">
+  <meta name="description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd">
 <meta name="keywords" content="dev,nodejs,packages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo">
 <meta property="og:url" content="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/index.html">
 <meta property="og:site_name" content="韩枫的博客">
-<meta property="og:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new      Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd &amp;l">
+<meta property="og:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-02T11:52:29.000Z">
+<meta property="og:updated_time" content="2018-12-03T05:41:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo">
-<meta name="twitter:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new      Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd &amp;l">
+<meta name="twitter:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd">
   
     <link rel="alternate" href="../../../../../../../../index.html" title="韩枫的博客" type="application/atom+xml">
   
@@ -26,7 +26,8 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.proxy.ustclug.org/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="../../../../../../../../css/style.css">
 </head>
@@ -89,6 +90,7 @@
 <li><a href="#new">new</a></li>
 </ul>
 </li>
+<li><a href="#%E4%BC%98%E5%8C%96">优化</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <blockquote>
@@ -127,11 +129,21 @@
 <p><a id="new"></a></p>
 <h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>新建一篇文章。layout 默认使用<code>_config.yml 中的 default_layout</code>参数代替<br>如果标题包含空格的话，请使用引号括起来。</p>
+<p><a id="%E4%BC%98%E5%8C%96"></a></p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ul>
+<li>文件夹名称, 中划线小写</li>
+<li><p>替换谷歌字体 (众所周知的原因)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 /themes/landscape/layout/_partial/head.ejs</span></span><br><span class="line"><span class="comment">// 将 fonts.googleapis.com/css?family=Source+Code+Pro 替换为:</span></span><br><span class="line">http:<span class="comment">//fonts.proxy.ustclug.org/css?family=Source+Code+Pro</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换谷歌cnd加速地址 (众所周知)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 /themes/landscape/layout/_partial/after-footer.ejs</span></span><br><span class="line"><span class="comment">// 将 jquery/2.0.3/jquery.min.js 替换为:</span></span><br><span class="line">https:<span class="comment">//cdn.staticfile.org/jquery/2.0.3/jquery.min.js</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/" data-id="cjp6ug3bn0026qtqrq9o7g9mx" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/" data-id="cjp7wa1vn0023phqrogy1r45m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/packages/">packages</a></li></ul>
@@ -141,6 +153,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="../../../../../../03/note/life/book/technology/php-mysql/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PHP和MySQL Web开发 (第5版)
+        
+      </div>
+    </a>
   
   
     <a href="../../../../life/Music/网易云歌单/" id="article-nav-older" class="article-nav-link-wrap">
@@ -165,7 +186,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Game/">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Movies/">Movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Music/">Music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/macOs/">macOs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Game/">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Movies/">Movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/Music/">Music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../../tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -175,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../../../../../../../tags/Game/" style="font-size: 10px;">Game</a> <a href="../../../../../../../../tags/Movies/" style="font-size: 10px;">Movies</a> <a href="../../../../../../../../tags/Music/" style="font-size: 10px;">Music</a> <a href="../../../../../../../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../../../../../../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../../../../../../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../../../../../../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../../../../../../../tags/life/" style="font-size: 16.67px;">life</a> <a href="../../../../../../../../tags/linux/" style="font-size: 13.33px;">linux</a> <a href="../../../../../../../../tags/macOs/" style="font-size: 13.33px;">macOs</a> <a href="../../../../../../../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../../../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../../../../tags/php/" style="font-size: 13.33px;">php</a> <a href="../../../../../../../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../../../../../../../tags/tips/" style="font-size: 10px;">tips</a> <a href="../../../../../../../../tags/数据交换/" style="font-size: 16.67px;">数据交换</a> <a href="../../../../../../../../tags/环境/" style="font-size: 13.33px;">环境</a> <a href="../../../../../../../../tags/草稿/" style="font-size: 10px;">草稿</a>
+      <a href="../../../../../../../../tags/Game/" style="font-size: 10px;">Game</a> <a href="../../../../../../../../tags/Movies/" style="font-size: 10px;">Movies</a> <a href="../../../../../../../../tags/Music/" style="font-size: 10px;">Music</a> <a href="../../../../../../../../tags/book/" style="font-size: 12px;">book</a> <a href="../../../../../../../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../../../../../../../tags/developer/" style="font-size: 10px;">developer</a> <a href="../../../../../../../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../../../../../../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../../../../../../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../../../../../../../tags/life/" style="font-size: 18px;">life</a> <a href="../../../../../../../../tags/linux/" style="font-size: 12px;">linux</a> <a href="../../../../../../../../tags/macos/" style="font-size: 12px;">macos</a> <a href="../../../../../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../../../../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../../../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../../../../tags/php/" style="font-size: 16px;">php</a> <a href="../../../../../../../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../../../../../../../tags/technology/" style="font-size: 12px;">technology</a> <a href="../../../../../../../../tags/数据交换/" style="font-size: 14px;">数据交换</a> <a href="../../../../../../../../tags/环境/" style="font-size: 12px;">环境</a> <a href="../../../../../../../../tags/草稿/" style="font-size: 14px;">草稿</a>
     </div>
   </div>
 
@@ -197,6 +218,14 @@
       <ul>
         
           <li>
+            <a href="../../../../../../03/note/life/book/technology/php-object-patterns/README/">README</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../../03/note/life/book/technology/php-mysql/README/">PHP和MySQL Web开发 (第5版)</a>
+          </li>
+        
+          <li>
             <a href="">hexo</a>
           </li>
         
@@ -206,14 +235,6 @@
         
           <li>
             <a href="../../../macOs/iterm2/">iterm2</a>
-          </li>
-        
-          <li>
-            <a href="../../../linux/文件系统/">文件系统</a>
-          </li>
-        
-          <li>
-            <a href="../../../../../../../11/11/note/life/Game/王者荣耀刷金币/">王者荣耀刷金币脚本</a>
           </li>
         
       </ul>
@@ -243,7 +264,7 @@
 </nav>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="../../../../../../../../fancybox/jquery.fancybox.css">

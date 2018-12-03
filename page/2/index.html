@@ -21,7 +21,8 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.proxy.ustclug.org/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="../../css/style.css">
 </head>
@@ -62,10 +63,157 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-note/dev/linux/硬链接与软链接" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="../../2018/11/07/note/dev/linux/硬链接与软链接/" class="article-date">
+  <time datetime="2018-11-07T14:06:06.000Z" itemprop="datePublished">2018-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="硬链接和软链接深入理解"><a href="#硬链接和软链接深入理解" class="headerlink" title="硬链接和软链接深入理解"></a>硬链接和软链接深入理解</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8">硬链接和软链接的作用</a></li>
+<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5">硬链接</a></li>
+<li><a href="#%E8%BD%AF%E9%93%BE%E6%8E%A5">软链接</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8"></a></p>
+<h3 id="硬链接和软链接的作用"><a href="#硬链接和软链接的作用" class="headerlink" title="硬链接和软链接的作用"></a>硬链接和软链接的作用</h3><p>为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: <a href="文件系统.md">linux 文件系统深入理解</a></p>
+<p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5"></a></p>
+<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名;</p>
+<p>硬链接的特性:</p>
+<ul>
+<li>文件有相同的 inode 号以及 data block</li>
+<li>不能对目录进行创建; 硬链接不能对目录创建是受限于文件系统的设计<br>现 Linux 文件系统中的目录均隐藏了两个个特殊的目录：当前目录（.）与父目录（..）<br>查看这两个特殊目录的 inode 号可知其实这两目录就是两个硬链接(链接到当前目录和父目录)<br>若系统允许对目录创建硬链接，则会产生目录环.(死循环)  </li>
+</ul>
+<p><a id="%E8%BD%AF%E9%93%BE%E6%8E%A5"></a></p>
+<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>若文件用户数据块中存放的内容是另一文件的路径名的指向，则该文件就是软连接。</p>
+<p>软链接类似于 window 系统中的快捷方式<br>软链接就是一个普通文件，只是数据块内容有点特殊。软链接有着自己的 inode 号以及用户数据块<br>因此软链接的创建与使用没有类似硬链接的诸多限制</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://linkhanfeng.github.io/2018/11/07/note/dev/linux/硬链接与软链接/" data-id="cjp7wa1v6000jphqrqbc37rol" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-note/dev/firfox/firfox插件" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="../../2018/11/06/note/dev/firfox/firfox插件/" class="article-date">
+  <time datetime="2018-11-06T14:06:06.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="火狐常用插件及配置"><a href="#火狐常用插件及配置" class="headerlink" title="火狐常用插件及配置"></a>火狐常用插件及配置</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#markdown-viewer-webext">Markdown Viewer Webext</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<p><a id="markdown-viewer-webext"></a></p>
+<h3 id="Markdown-Viewer-Webext"><a href="#Markdown-Viewer-Webext" class="headerlink" title="Markdown Viewer Webext"></a>Markdown Viewer Webext</h3><p>使浏览器支持 markdown 文件</p>
+<p>如果乱码, 需要设置一些浏览器默认的编码方式为 utf8<br>在浏览器地址栏中输入: about:config<br>搜索 intl.charset.fallback.utf8_for_file 并将它的值改为 true</p>
+<p>添加侧边栏的toc.将下面的 css 规则添加到插件中.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.markdownRoot</span> &gt; <span class="selector-tag">h1</span> + <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: scroll;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">18%</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: .<span class="number">75rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.markdownRoot</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">20%</span>;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">200vh</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://linkhanfeng.github.io/2018/11/06/note/dev/firfox/firfox插件/" data-id="cjp7wa1uu0005phqruanr3ayr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/firfox/">firfox</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-note/dev/data-interchange/yaml" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="../../2018/11/04/note/dev/data-interchange/yaml/" class="article-date">
+  <time datetime="2018-11-04T14:06:06.000Z" itemprop="datePublished">2018-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h1><p>YAML (YAML Ain’t Markup Language) (yaml 不是标记语言)</p>
+<p>参考:<br><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="noopener">YAML 语言教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://linkhanfeng.github.io/2018/11/04/note/dev/data-interchange/yaml/" data-id="cjp7wa1ut0004phqrluc4i9pm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/数据交换/">数据交换</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-note/dev/data-interchange/xml" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="../../2018/11/03/note/dev/data-interchange/xml/" class="article-date">
+  <time datetime="2018-11-03T14:06:06.000Z" itemprop="datePublished">2018-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h1><p>XML (Extensible Markup Language) (可扩展标记语言)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://linkhanfeng.github.io/2018/11/03/note/dev/data-interchange/xml/" data-id="cjp7wa1v7000lphqrbi0d4umz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/数据交换/">数据交换</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-note/dev/developer/tips" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/11/05/note/dev/developer/tips/" class="article-date">
-  <time datetime="2018-11-05T14:06:06.000Z" itemprop="datePublished">2018-11-05</time>
+    <a href="../../2018/11/03/note/dev/developer/tips/" class="article-date">
+  <time datetime="2018-11-03T03:23:59.000Z" itemprop="datePublished">2018-11-03</time>
 </a>
     
   </div>
@@ -360,71 +508,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/05/note/dev/developer/tips/" data-id="cjp6ug3bo0027qtqr8g5di1vc" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/11/03/note/dev/developer/tips/" data-id="cjp7wa1vr002cphqrez6s4n3l" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/tips/">tips</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-note/dev/data-interchange/yaml" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="../../2018/11/04/note/dev/data-interchange/yaml/" class="article-date">
-  <time datetime="2018-11-04T14:06:06.000Z" itemprop="datePublished">2018-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h1><p>YAML (YAML Ain’t Markup Language) (yaml 不是标记语言)</p>
-<p>参考:<br><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="noopener">YAML 语言教程</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/04/note/dev/data-interchange/yaml/" data-id="cjp6ug3b0000dqtqr5aupsrbb" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/数据交换/">数据交换</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-note/dev/data-interchange/xml" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="../../2018/11/03/note/dev/data-interchange/xml/" class="article-date">
-  <time datetime="2018-11-03T14:06:06.000Z" itemprop="datePublished">2018-11-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h1><p>XML (Extensible Markup Language) (可扩展标记语言)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/03/note/dev/data-interchange/xml/" data-id="cjp6ug3aq0004qtqreyzzfx6e" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/数据交换/">数据交换</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/developer/">developer</a></li></ul>
 
     </footer>
   </div>
@@ -451,7 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/02/note/dev/data-interchange/json/" data-id="cjp6ug3au0005qtqrr7sv4gz0" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/11/02/note/dev/data-interchange/json/" data-id="cjp7wa1v5000gphqryjyrxx8c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/数据交换/">数据交换</a></li></ul>
@@ -487,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/02/note/README/" data-id="cjp6ug38x0000qtqriwjvlf33" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/11/02/note/README/" data-id="cjp7wa1sf0000phqrdh4zlhgb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,10 +642,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/02/note/dev/macOs/tips/" data-id="cjp6ug3aw0008qtqrbolkz5xz" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/11/02/note/dev/macOs/tips/" data-id="cjp7wa1v4000dphqr1gqbbyse" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/macOs/">macOs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/macos/">macos</a></li></ul>
 
     </footer>
   </div>
@@ -821,7 +908,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/01/note/life/Movie/电影评分/" data-id="cjp6ug3bl0022qtqrmn04z3us" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/11/01/note/life/Movie/电影评分/" data-id="cjp7wa1vm0022phqru1p98l9e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Movies/">Movies</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/life/">life</a></li></ul>
@@ -852,7 +939,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Game/">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Movies/">Movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Music/">Music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/macOs/">macOs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Game/">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Movies/">Movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Music/">Music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -862,7 +949,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/Game/" style="font-size: 10px;">Game</a> <a href="../../tags/Movies/" style="font-size: 10px;">Movies</a> <a href="../../tags/Music/" style="font-size: 10px;">Music</a> <a href="../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../tags/life/" style="font-size: 16.67px;">life</a> <a href="../../tags/linux/" style="font-size: 13.33px;">linux</a> <a href="../../tags/macOs/" style="font-size: 13.33px;">macOs</a> <a href="../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../tags/php/" style="font-size: 13.33px;">php</a> <a href="../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../tags/tips/" style="font-size: 10px;">tips</a> <a href="../../tags/数据交换/" style="font-size: 16.67px;">数据交换</a> <a href="../../tags/环境/" style="font-size: 13.33px;">环境</a> <a href="../../tags/草稿/" style="font-size: 10px;">草稿</a>
+      <a href="../../tags/Game/" style="font-size: 10px;">Game</a> <a href="../../tags/Movies/" style="font-size: 10px;">Movies</a> <a href="../../tags/Music/" style="font-size: 10px;">Music</a> <a href="../../tags/book/" style="font-size: 12px;">book</a> <a href="../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../tags/developer/" style="font-size: 10px;">developer</a> <a href="../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../tags/life/" style="font-size: 18px;">life</a> <a href="../../tags/linux/" style="font-size: 12px;">linux</a> <a href="../../tags/macos/" style="font-size: 12px;">macos</a> <a href="../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../tags/php/" style="font-size: 16px;">php</a> <a href="../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../tags/technology/" style="font-size: 12px;">technology</a> <a href="../../tags/数据交换/" style="font-size: 14px;">数据交换</a> <a href="../../tags/环境/" style="font-size: 12px;">环境</a> <a href="../../tags/草稿/" style="font-size: 14px;">草稿</a>
     </div>
   </div>
 
@@ -884,6 +971,14 @@
       <ul>
         
           <li>
+            <a href="../../2018/12/03/note/life/book/technology/php-object-patterns/README/">README</a>
+          </li>
+        
+          <li>
+            <a href="../../2018/12/03/note/life/book/technology/php-mysql/README/">PHP和MySQL Web开发 (第5版)</a>
+          </li>
+        
+          <li>
             <a href="../../2018/12/02/note/dev/nodejs/packages/hexo/">hexo</a>
           </li>
         
@@ -893,14 +988,6 @@
         
           <li>
             <a href="../../2018/12/02/note/dev/macOs/iterm2/">iterm2</a>
-          </li>
-        
-          <li>
-            <a href="../../2018/12/02/note/dev/linux/文件系统/">文件系统</a>
-          </li>
-        
-          <li>
-            <a href="../../2018/11/11/note/life/Game/王者荣耀刷金币/">王者荣耀刷金币脚本</a>
           </li>
         
       </ul>
@@ -930,7 +1017,7 @@
 </nav>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
