@@ -7,18 +7,18 @@
   
   <title>hexo | 韩枫的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd">
+  <meta name="description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new clean   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder">
 <meta name="keywords" content="dev,nodejs,packages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo">
 <meta property="og:url" content="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/index.html">
 <meta property="og:site_name" content="韩枫的博客">
-<meta property="og:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd">
+<meta property="og:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new clean   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-03T05:41:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo">
-<meta name="twitter:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder&amp;gt;cd">
+<meta name="twitter:description" content="Hexo 使用指南  安装 初始化及目录结构 配置 命令 generate 生成 deploy 部署 init new clean   优化    Hexo 是一个博客框架,使用 Markdown 等解析文章，可利用的主题快速生成静态网页   安装安装前提  Node.js Git1npm install -g hexo-cli    初始化及目录结构123hexo init &amp;lt;folder">
   
     <link rel="alternate" href="../../../../../../../../index.html" title="韩枫的博客" type="application/atom+xml">
   
@@ -88,6 +88,7 @@
 <li><a href="#deploy-%E9%83%A8%E7%BD%B2">deploy 部署</a></li>
 <li><a href="#init">init</a></li>
 <li><a href="#new">new</a></li>
+<li><a href="#clean">clean</a></li>
 </ul>
 </li>
 <li><a href="#%E4%BC%98%E5%8C%96">优化</a></li>
@@ -129,6 +130,9 @@
 <p><a id="new"></a></p>
 <h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>新建一篇文章。layout 默认使用<code>_config.yml 中的 default_layout</code>参数代替<br>如果标题包含空格的话，请使用引号括起来。</p>
+<p><a id="clean"></a></p>
+<h3 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
 <p><a id="%E4%BC%98%E5%8C%96"></a></p>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ul>
 <li>文件夹名称, 中划线小写</li>
@@ -143,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/" data-id="cjp7wa1vn0023phqrogy1r45m" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/02/note/dev/nodejs/packages/hexo/" data-id="cjp80915q001wtaqrw9aaaecw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../../tags/packages/">packages</a></li></ul>
@@ -164,7 +168,7 @@
     </a>
   
   
-    <a href="../../../../life/Music/网易云歌单/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../../../life/music/网易云歌单/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">网易云歌单</div>
     </a>
@@ -230,7 +234,7 @@
           </li>
         
           <li>
-            <a href="../../../../life/Music/网易云歌单/">网易云歌单</a>
+            <a href="../../../../life/music/网易云歌单/">网易云歌单</a>
           </li>
         
           <li>
@@ -266,9 +270,6 @@
 
 <script src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
 
-
-  <link rel="stylesheet" href="../../../../../../../../fancybox/jquery.fancybox.css">
-  <script src="../../../../../../../../fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="../../../../../../../../js/script.js"></script>
