@@ -27,13 +27,19 @@
 
   $('a').on('click', function(event){
     event.preventDefault();
-    baseURI = this.baseURI
-    href = this.href
-    filePathWithExt = href.replace(baseURI, '')
-    filePath = filePathWithExt.slice(0, filePathWithExt.lastIndexOf('.'))
-    fileBaseURI = baseURI.slice(0, baseURI.lastIndexOf('/', baseURI.length - 2) + 1)
-    fileUrl = fileBaseURI + filePath
-    document.location.href = fileUrl
+    href_ext = this.getAttribute('href')
+    href = href_ext.slice(0, href_ext.lastIndexOf('.'))
+    if(href_ext.slice(0, 2) == './') {
+      new_href = '.' + href
+    }
+    else if(href_ext.slice(0, 3) == '../') {
+      new_href = '../' + href
+    }
+    else {
+      new_href = href_ext
+    }
+    // this.href = new_href
+    document.location.href = new_href
   })
 
   $('.search-form-input').on('blur', function(){
