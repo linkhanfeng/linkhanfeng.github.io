@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-note/dev/php/laravel 项目流程" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/life/book/technology/mysql-doc/02-general-information/01-about" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/11/08/note/dev/php/laravel 项目流程/" class="article-date">
-  <time datetime="2018-11-08T14:06:06.000Z" itemprop="datePublished">2018-11-08</time>
+    <a href="../../2018/12/04/note/life/book/technology/mysql-doc/02-general-information/01-about/" class="article-date">
+  <time datetime="2018-12-04T14:42:49.000Z" itemprop="datePublished">2018-12-04</time>
 </a>
     
   </div>
@@ -75,41 +75,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="laravel5-基于-laradock-项目流程"><a href="#laravel5-基于-laradock-项目流程" class="headerlink" title="laravel5.* 基于 laradock 项目流程"></a>laravel5.* 基于 laradock 项目流程</h1><!-- MarkdownTOC -->
+        <h1 id="1-1-关于本手册"><a href="#1-1-关于本手册" class="headerlink" title="1.1 关于本手册"></a>1.1 关于本手册</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E6%AD%A4%E6%96%87%E6%9C%AA%E5%AE%8C%E6%88%90">此文未完成</a><ul>
-<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
-</ul>
-</li>
+<li><a href="#%E6%89%8B%E5%86%8C%E8%AF%B4%E6%98%8E">手册说明</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="%E6%AD%A4%E6%96%87%E6%9C%AA%E5%AE%8C%E6%88%90"></a></p>
-<h2 id="此文未完成"><a href="#此文未完成" class="headerlink" title="此文未完成"></a>此文未完成</h2><p><a id="%E8%AF%B4%E6%98%8E"></a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>$</code> 为真实环境<br><code>^</code> 为 docker 环境<br>假设项目名称为 <code>blog</code></p>
-<p><a id="%E5%AE%89%E8%A3%85"></a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p>设置 composer 镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd laradock</span><br><span class="line">$ docker-compose up -d nginx mysql</span><br><span class="line">$ docker-compose exec workspace bash</span><br><span class="line">^ composer config -g repo.packagist composer https://packagist.laravel-china.org // 设置镜像地址</span><br><span class="line">^ composer config -gl // 查看镜像地址是否设置成功</span><br><span class="line">^ composer config -g --unset repos.packagist // 取消镜像</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过 Composer 创建项目, 并更改项目所有者为 nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^ su laradock</span><br><span class="line">^ composer create-project --prefer-dist laravel/laravel blog &quot;5.6.*&quot;</span><br><span class="line">^ chown -R www-data:www-data blog</span><br><span class="line">^ chmod -R 775 blog/storage blog/bootstrap/cache</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd laradock</span><br><span class="line">$ cp nginx/sites/laravel.conf.example blog.conf</span><br><span class="line">// 批量替换 laravel 为 blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 mysql</p>
-<pre><code>
-</code></pre></li>
-</ol>
+<p><a href="../index.md">回到目录</a></p>
+<h2 id="手册说明"><a href="#手册说明" class="headerlink" title="手册说明"></a>手册说明</h2><p>由于本手册可作为参考，因此<code>不提供有关SQL或关系数据库概念</code>的一般说明。</p>
+<p>它也<code>没有教你</code>如何使用操作系统或命令行解释器。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/08/note/dev/php/laravel 项目流程/" data-id="cjp80vjmz000dwiqr1wmy31l1" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/01-about/" data-id="cjp9xstwr0036qkqr6yw389ce" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/laradock/">laradock</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/环境/">环境</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/草稿/">草稿</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/02-general-information/">02-general-information</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/technology/">technology</a></li></ul>
 
     </footer>
   </div>
@@ -119,10 +100,10 @@
 
 
   
-    <article id="post-note/dev/linux/硬链接与软链接" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/life/book/technology/mysql-doc/02-general-information/00-general" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/11/07/note/dev/linux/硬链接与软链接/" class="article-date">
-  <time datetime="2018-11-07T14:06:06.000Z" itemprop="datePublished">2018-11-07</time>
+    <a href="../../2018/12/04/note/life/book/technology/mysql-doc/02-general-information/00-general/" class="article-date">
+  <time datetime="2018-12-04T13:33:26.000Z" itemprop="datePublished">2018-12-04</time>
 </a>
     
   </div>
@@ -131,33 +112,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="硬链接和软链接深入理解"><a href="#硬链接和软链接深入理解" class="headerlink" title="硬链接和软链接深入理解"></a>硬链接和软链接深入理解</h1><!-- MarkdownTOC -->
+        <h2 id="第1章-一般信息"><a href="#第1章-一般信息" class="headerlink" title="第1章 一般信息"></a>第1章 一般信息</h2><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8">硬链接和软链接的作用</a></li>
-<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5">硬链接</a></li>
-<li><a href="#%E8%BD%AF%E9%93%BE%E6%8E%A5">软链接</a></li>
+<li><a href="#mysql-%E4%BB%8B%E7%BB%8D">mysql 介绍</a></li>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%AB%A0%E8%8A%82%E7%B4%A2%E5%BC%95">重要章节索引</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8"></a></p>
-<h3 id="硬链接和软链接的作用"><a href="#硬链接和软链接的作用" class="headerlink" title="硬链接和软链接的作用"></a>硬链接和软链接的作用</h3><p>为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: <a href="文件系统.md">linux 文件系统深入理解</a></p>
-<p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5"></a></p>
-<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名;</p>
-<p>硬链接的特性:</p>
-<ul>
-<li>文件有相同的 inode 号以及 data block</li>
-<li>不能对目录进行创建; 硬链接不能对目录创建是受限于文件系统的设计<br>现 Linux 文件系统中的目录均隐藏了两个个特殊的目录：当前目录（.）与父目录（..）<br>查看这两个特殊目录的 inode 号可知其实这两目录就是两个硬链接(链接到当前目录和父目录)<br>若系统允许对目录创建硬链接，则会产生目录环.(死循环)  </li>
+<p><a href="../index.md">回到目录</a></p>
+<h2 id="mysql-介绍"><a href="#mysql-介绍" class="headerlink" title="mysql 介绍"></a>mysql 介绍</h2><p>MySQL™软件提供了一个非常快速，多线程，多用户，强大的SQL（结构化查询语言）数据库服务器。</p>
+<p>MySQL软件是双重授权的,用户可以选择根据GNU通用公共许可证的条款将MySQL软件用作开源产品，也可以从Oracle购买标准商业许可证。</p>
+<h2 id="重要章节索引"><a href="#重要章节索引" class="headerlink" title="重要章节索引"></a>重要章节索引</h2><ul>
+<li>MySQL数据库服务器功能的讨论: <a href="">第1.3.2节“MySQL的主要功能”</a></li>
+<li>新功能概述: <a href="">1.4节“MySQL 5.7中的新增功能”</a></li>
+<li>安装和升级: <a href="">第2章，安装和升级MySQL</a> <a href=""> 第2.11.1节“升级MySQL”</a></li>
+<li>教程简介: <a href="">第3章教程</a></li>
+<li>配置和管理MySQL Server: <a href="">第5章,MySQL服务器管理</a></li>
+<li>MySQL安全性:<a href="">第6章,安全性</a></li>
+<li>设置复制服务器的信息: <a href="">第16章,复制</a></li>
+<li>常见问题: <a href="">附录A,MySQL 5.7常见问题解答</a></li>
 </ul>
-<p><a id="%E8%BD%AF%E9%93%BE%E6%8E%A5"></a></p>
-<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>若文件用户数据块中存放的内容是另一文件的路径名的指向，则该文件就是软连接。</p>
-<p>软链接类似于 window 系统中的快捷方式<br>软链接就是一个普通文件，只是数据块内容有点特殊。软链接有着自己的 inode 号以及用户数据块<br>因此软链接的创建与使用没有类似硬链接的诸多限制</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/07/note/dev/linux/硬链接与软链接/" data-id="cjp80vjn1000gwiqr5twlylkn" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/00-general/" data-id="cjp9xstww003wqkqrosqefa8b" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/linux/">linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/02-general-information/">02-general-information</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/technology/">technology</a></li></ul>
 
     </footer>
   </div>
@@ -167,10 +148,10 @@
 
 
   
-    <article id="post-note/dev/firfox/firfox插件" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/life/book/technology/mysql-doc/index" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/11/06/note/dev/firfox/firfox插件/" class="article-date">
-  <time datetime="2018-11-06T14:06:06.000Z" itemprop="datePublished">2018-11-06</time>
+    <a href="../../2018/12/04/note/life/book/technology/mysql-doc/index/" class="article-date">
+  <time datetime="2018-12-04T04:57:28.000Z" itemprop="datePublished">2018-12-04</time>
 </a>
     
   </div>
@@ -179,23 +160,66 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="火狐常用插件及配置"><a href="#火狐常用插件及配置" class="headerlink" title="火狐常用插件及配置"></a>火狐常用插件及配置</h1><!-- MarkdownTOC -->
+        <h1 id="MySQL-5-7参考手册-Preface-and-Legal-Notices"><a href="#MySQL-5-7参考手册-Preface-and-Legal-Notices" class="headerlink" title="MySQL 5.7参考手册 (Preface and Legal Notices)"></a>MySQL 5.7参考手册 (Preface and Legal Notices)</h1><blockquote>
+<p>本文档是 <code>MySQL 5.7参考手册</code> 的笔记, 目录结构与 <a href="https://dev.mysql.com/doc/refman/5.7/en/" target="_blank">官方网站</a> 一致</p>
+</blockquote>
 <ul>
-<li><a href="#markdown-viewer-webext">Markdown Viewer Webext</a></li>
+<li><a href="./01-preface-and-legal-notices/index.md" title="Preface and Legal Notices">前言和法律声明</a></li>
+<li><a href="./02-general-information/00-general.md" title="General Information">一般信息</a><ul>
+<li><a href="./02-general-information/01-about.md" title="About This Manual">关于本手册</a></li>
+<li><a href="./02-general-information/02-typog.md" title="Typographical and Syntax Conventions">印刷和语法约定</a></li>
+<li><a href="./02-general-information/03-view.md" title="Overview of the MySQL Database Management System">MySQL数据库管理系统概述</a></li>
+<li><a href="&quot;What Is New in MySQL 5.7&quot;">MySQL 5.7中的新功能</a></li>
+<li><a href="&quot;Server and Status Variables and Options Added, Deprecated, or Removed in MySQL 5.7&quot;">MySQL 5.7中添加，弃用或删除了服务器和状态变量和选项</a></li>
+<li><a href="&quot;MySQL Information Sources&quot;">MySQL信息源</a></li>
+<li><a href="&quot;How to Report Bugs or Problems&quot;">如何报告错误或问题</a></li>
+<li><a href="&quot;MySQL Standards Compliance&quot;">MySQL标准合规性</a></li>
+<li><a href="&quot;Credits&quot;">积分</a></li>
 </ul>
-<!-- /MarkdownTOC -->
-<p><a id="markdown-viewer-webext"></a></p>
-<h3 id="Markdown-Viewer-Webext"><a href="#Markdown-Viewer-Webext" class="headerlink" title="Markdown Viewer Webext"></a>Markdown Viewer Webext</h3><p>使浏览器支持 markdown 文件</p>
-<p>如果乱码, 需要设置一些浏览器默认的编码方式为 utf8<br>在浏览器地址栏中输入: about:config<br>搜索 intl.charset.fallback.utf8_for_file 并将它的值改为 true</p>
-<p>添加侧边栏的toc.将下面的 css 规则添加到插件中.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.markdownRoot</span> &gt; <span class="selector-tag">h1</span> + <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: scroll;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">18%</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: .<span class="number">75rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.markdownRoot</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">20%</span>;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">200vh</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><a href="&quot;Installing and Upgrading MySQL&quot;">安装和升级MySQL</a></li>
+<li><a href="&quot;Tutorial&quot;">教程</a></li>
+<li><a href="&quot;MySQL Programs&quot;">MySQL程序</a></li>
+<li><a href="&quot;MySQL Server Administration&quot;">MySQL服务器管理</a></li>
+<li><a href="&quot;Security&quot;">安全</a></li>
+<li><a href="&quot;Backup and Recovery&quot;">备份和恢复</a></li>
+<li><a href="&quot;Optimization&quot;">优化</a></li>
+<li><a href="&quot;Language Structure&quot;">语言结构</a></li>
+<li><a href="&quot;Character Sets, Collations, Unicode&quot;">字符集，排序规则，Unicode</a></li>
+<li><a href="&quot;Data Types&quot;">数据类型</a></li>
+<li><a href="&quot;Functions and Operators&quot;">功能和操作员</a></li>
+<li><a href="&quot;SQL Statement Syntax&quot;">SQL语句语法</a></li>
+<li><a href="&quot;The InnoDB Storage Engine&quot;">InnoDB存储引擎</a></li>
+<li><a href="&quot;Alternative Storage Engines&quot;">替代存储引擎</a></li>
+<li><a href="&quot;Replication&quot;">复制</a></li>
+<li><a href="&quot;Group Replication&quot;">组复制</a></li>
+<li><a href="&quot;MySQL Shell&quot;">MySQL Shell</a></li>
+<li><a href="&quot;Using MySQL as a Document Store&quot;">使用MySQL作为文档存储</a></li>
+<li><a href="&quot;InnoDB Cluster&quot;">InnoDB集群</a></li>
+<li><a href="&quot;MySQL NDB Cluster 7.5 and NDB Cluster 7.6&quot;">MySQL NDB Cluster 7.5和NDB Cluster 7.6</a></li>
+<li><a href="&quot;Partitioning&quot;">分区</a></li>
+<li><a href="&quot;Stored Programs and Views&quot;">存储的程序和视图</a></li>
+<li><a href="&quot;INFORMATION_SCHEMA Tables&quot;">INFORMATION_SCHEMA表</a></li>
+<li><a href="&quot;MySQL Performance Schema&quot;">MySQL性能架构</a></li>
+<li><a href="&quot;MySQL sys Schema&quot;">MySQL sys Schema</a></li>
+<li><a href="&quot;Connectors and APIs&quot;">连接器和API</a></li>
+<li><a href="&quot;Extending MySQL&quot;">扩展MySQL</a></li>
+<li><a href="&quot;MySQL Enterprise Edition&quot;">MySQL企业版</a></li>
+<li><a href="&quot;MySQL Workbench&quot;">MySQL Workbench</a></li>
+<li><a href="&quot;MySQL 5.7 Frequently Asked Questions&quot;">MySQL 5.7常见问题解答</a></li>
+<li><a href="&quot;Errors, Error Codes, and Common Problems&quot;">错误，错误代码和常见问题</a></li>
+<li><a href="&quot;Restrictions and Limits&quot;">限制和限制</a></li>
+<li><a href="&quot;Indexes&quot;">索引</a></li>
+<li><a href="&quot;MySQL Glossary&quot;">MySQL术语表</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/06/note/dev/firfox/firfox插件/" data-id="cjp80vjmp0001wiqr4dprjnpz" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/04/note/life/book/technology/mysql-doc/index/" data-id="cjp9xstw50026qkqrnfb1hm61" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/firfox/">firfox</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/technology/">technology</a></li></ul>
 
     </footer>
   </div>
@@ -209,7 +233,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../3/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><a class="page-number" href="../7/">7</a><a class="extend next" rel="next" href="../5/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../3/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><span class="space">&hellip;</span><a class="page-number" href="../11/">11</a><a class="extend next" rel="next" href="../5/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -223,7 +247,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/01-preface-and-legal-notices/">01-preface-and-legal-notices</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/02-general-information/">02-general-information</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -233,7 +257,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/book/" style="font-size: 12px;">book</a> <a href="../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../tags/developer/" style="font-size: 10px;">developer</a> <a href="../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../tags/game/" style="font-size: 10px;">game</a> <a href="../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../tags/life/" style="font-size: 18px;">life</a> <a href="../../tags/linux/" style="font-size: 12px;">linux</a> <a href="../../tags/macos/" style="font-size: 12px;">macos</a> <a href="../../tags/movies/" style="font-size: 10px;">movies</a> <a href="../../tags/music/" style="font-size: 10px;">music</a> <a href="../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../tags/php/" style="font-size: 16px;">php</a> <a href="../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../tags/technology/" style="font-size: 12px;">technology</a> <a href="../../tags/数据交换/" style="font-size: 14px;">数据交换</a> <a href="../../tags/环境/" style="font-size: 12px;">环境</a> <a href="../../tags/草稿/" style="font-size: 14px;">草稿</a>
+      <a href="../../tags/01-preface-and-legal-notices/" style="font-size: 10px;">01-preface-and-legal-notices</a> <a href="../../tags/02-general-information/" style="font-size: 14.29px;">02-general-information</a> <a href="../../tags/book/" style="font-size: 17.14px;">book</a> <a href="../../tags/dev/" style="font-size: 20px;">dev</a> <a href="../../tags/developer/" style="font-size: 10px;">developer</a> <a href="../../tags/firfox/" style="font-size: 10px;">firfox</a> <a href="../../tags/game/" style="font-size: 10px;">game</a> <a href="../../tags/laradock/" style="font-size: 10px;">laradock</a> <a href="../../tags/laravel/" style="font-size: 10px;">laravel</a> <a href="../../tags/life/" style="font-size: 18.57px;">life</a> <a href="../../tags/linux/" style="font-size: 11.43px;">linux</a> <a href="../../tags/macos/" style="font-size: 11.43px;">macos</a> <a href="../../tags/movies/" style="font-size: 10px;">movies</a> <a href="../../tags/music/" style="font-size: 10px;">music</a> <a href="../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../tags/mysql-doc/" style="font-size: 15.71px;">mysql-doc</a> <a href="../../tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../tags/php/" style="font-size: 14.29px;">php</a> <a href="../../tags/sublime/" style="font-size: 10px;">sublime</a> <a href="../../tags/technology/" style="font-size: 17.14px;">technology</a> <a href="../../tags/数据交换/" style="font-size: 12.86px;">数据交换</a> <a href="../../tags/环境/" style="font-size: 11.43px;">环境</a> <a href="../../tags/草稿/" style="font-size: 12.86px;">草稿</a>
     </div>
   </div>
 
@@ -255,23 +279,23 @@
       <ul>
         
           <li>
-            <a href="../../2018/12/03/note/life/book/technology/php-object-patterns/README/">README</a>
+            <a href="../../2018/12/05/note/life/book/technology/mysql-doc/02-general-information/06-info/">(no title)</a>
           </li>
         
           <li>
-            <a href="../../2018/12/03/note/life/book/technology/php-mysql/README/">PHP和MySQL Web开发 (第5版)</a>
+            <a href="../../2018/12/05/note/life/book/technology/mysql-doc/02-general-information/04-new/">(no title)</a>
           </li>
         
           <li>
-            <a href="../../2018/12/02/note/dev/nodejs/packages/hexo/">hexo</a>
+            <a href="../../2018/12/05/note/life/book/technology/mysql-doc/02-general-information/05-server/">(no title)</a>
           </li>
         
           <li>
-            <a href="../../2018/12/02/note/life/music/网易云歌单/">网易云歌单</a>
+            <a href="../../2018/12/05/note/life/book/technology/mysql-doc/02-general-information/09-credits/">(no title)</a>
           </li>
         
           <li>
-            <a href="../../2018/12/02/note/dev/macOs/iterm2/">iterm2</a>
+            <a href="../../2018/12/05/note/life/book/technology/mysql-doc/02-general-information/07-bugs/">(no title)</a>
           </li>
         
       </ul>
