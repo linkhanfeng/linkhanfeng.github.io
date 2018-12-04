@@ -25,6 +25,17 @@
     });
   });
 
+  $('a').on('click', function(event){
+    event.preventDefault();
+    baseURI = this.baseURI
+    href = this.href
+    filePathWithExt = href.replace(baseURI, '')
+    filePath = filePathWithExt.slice(0, filePathWithExt.lastIndexOf('.'))
+    fileBaseURI = baseURI.slice(0, baseURI.lastIndexOf('/', baseURI.length - 2) + 1)
+    fileUrl = fileBaseURI + filePath
+    document.location.href = fileUrl
+  })
+
   $('.search-form-input').on('blur', function(){
     startSearchAnim();
     $searchWrap.removeClass('on');
