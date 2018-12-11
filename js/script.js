@@ -27,22 +27,19 @@
   });
 
   $('a').on('click', function (event) {
-    if (this.hasAttribute('href') && typeof href_ext == 'string' && href_ext.slice(0, 2) == './') {
-      event.preventDefault();
+    if (this.hasAttribute('href')){
       href_ext = this.getAttribute('href')
-      href = href_ext.slice(0, href_ext.lastIndexOf('.'))
-      if (href_ext.slice(0, 2) == './') {
-        document.location.href = '.' + href
-      } else if (href_ext.slice(0, 3) == '../') {
-        document.location.href = '../' + href
+      if (typeof href_ext == 'string' && (href_ext.slice(0, 2) == './' || href_ext.slice(0, 3) == '../')) {
+        event.preventDefault();
+        href = href_ext.slice(0, href_ext.lastIndexOf('.'))
+        if (href_ext.slice(0, 2) == './') {
+          document.location.href = '.' + href
+        } else if (href_ext.slice(0, 3) == '../') {
+          document.location.href = '../' + href
+        }
       }
     }
   })
-
-  function cc() {
-    console.log(1)
-  }
-  cc();
 
   $('.search-form-input')
     .on('blur', function () {
