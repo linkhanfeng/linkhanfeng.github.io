@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-note/life/game/王者荣耀刷金币" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/dev/python/about-python" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/11/note/life/game/王者荣耀刷金币/" class="article-date">
-  <time datetime="2018-11-11T14:06:06.000Z" itemprop="datePublished">2018-11-11</time>
+    <a href="/2018/12/09/note/dev/python/about-python/" class="article-date">
+  <time datetime="2018-12-09T07:21:27.000Z" itemprop="datePublished">2018-12-09</time>
 </a>
     
   </div>
@@ -75,24 +75,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="王者荣耀刷金币脚本"><a href="#王者荣耀刷金币脚本" class="headerlink" title="王者荣耀刷金币脚本"></a>王者荣耀刷金币脚本</h1><!-- MarkdownTOC -->
-<ul>
-<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
-<li><a href="#%E8%84%9A%E6%9C%AC%E5%86%85%E5%AE%B9">脚本内容</a></li>
-</ul>
+        <h1 id="关于Python"><a href="#关于Python" class="headerlink" title="关于Python"></a>关于Python</h1><!-- MarkdownTOC -->
 <!-- /MarkdownTOC -->
-<p><a id="%E8%AF%B4%E6%98%8E"></a></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>根据自己的铭文数量需要适当修改时间参数.</p>
-<p><a id="%E8%84%9A%E6%9C%AC%E5%86%85%E5%AE%B9"></a></p>
-<h2 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳过时间点, 和 刷怪的总时间</span></span><br><span class="line">timePoints, boosTime = [<span class="number">41</span>,<span class="number">42</span>,<span class="number">46</span>,<span class="number">47</span>], <span class="number">50</span> <span class="comment">#2982388496 账号 伽罗 后裔 王昭君 魔女的记忆</span></span><br><span class="line"><span class="comment">#timePoints, boosTime = [50,51,58,59], 65 #小号 账号 后裔 蔡文姬 亚瑟 魔女的记忆</span></span><br><span class="line"><span class="comment"># 刷 boss 次数</span></span><br><span class="line">bossNum = <span class="number">180</span> <span class="comment"># 185</span></span><br><span class="line"><span class="comment"># 点击按钮的时间间隔 推荐 5s 左右</span></span><br><span class="line">tapTimeInterval = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#坐标点加入随机数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">naturalTap</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    xa = x + random.randint(<span class="number">-3</span>,<span class="number">3</span>)</span><br><span class="line">    ya = y + random.randint(<span class="number">-3</span>,<span class="number">3</span>)</span><br><span class="line">    os.system(<span class="string">'adb shell input tap %d %d'</span>%(xa,ya))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">repeat_game</span><span class="params">(n)</span>:</span></span><br><span class="line">    print(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>, time.localtime(time.time())))</span><br><span class="line">    print(<span class="string">'# 第 %d'</span>%(n) +<span class="string">' 次闯关'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># os.system('adb shell input tap 1480 918')</span></span><br><span class="line">    naturalTap(<span class="number">1323</span>,<span class="number">742</span>) <span class="comment">#闯关按钮, 之前可能会遇到健康时间提示需要点击一下确定</span></span><br><span class="line">    sleep(<span class="number">1</span>)</span><br><span class="line">    naturalTap(<span class="number">1480</span>,<span class="number">918</span>) <span class="comment"># 闯关按钮</span></span><br><span class="line">    print(<span class="string">'# 刷boss开始,等 %d 秒'</span>%(boosTime))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,boosTime):</span><br><span class="line">        <span class="comment">#print(i) # 时间点测试</span></span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> timePoints:</span><br><span class="line">            <span class="comment"># os.system('adb shell input tap 1721 71')</span></span><br><span class="line">            naturalTap(<span class="number">1721</span>,<span class="number">71</span>)</span><br><span class="line">        sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'# 刷boss结束, # 点击屏幕继续'</span>)</span><br><span class="line">    naturalTap(<span class="number">1096</span>,<span class="number">540</span>)</span><br><span class="line">    sleep(tapTimeInterval)</span><br><span class="line">    print(<span class="string">'# 再次挑战'</span>)</span><br><span class="line">    naturalTap(<span class="number">1581</span>,<span class="number">995</span>)</span><br><span class="line">    sleep(tapTimeInterval)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,bossNum):</span><br><span class="line">    repeat_game(i)</span><br></pre></td></tr></table></figure>
+<p><a href="./index.md">回到目录</a></p>
+<blockquote>
+<p>Python 是少数的几种既 简单 又 强大 的语言之一。<br>使用它, 你会将精力集中于问题的解决方案，而不是编程语言的语法和结构.</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/11/note/life/game/王者荣耀刷金币/" data-id="cjp9xstuy0001qkqrpfowrbv3" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/09/note/dev/python/about-python/" data-id="cjpjh5qc4000ghsqrk8grv9rc" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/game/">game</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -102,10 +98,10 @@
 
 
   
-    <article id="post-note/dev/sublime/sublime" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/dev/python/index" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/10/note/dev/sublime/sublime/" class="article-date">
-  <time datetime="2018-11-10T14:06:06.000Z" itemprop="datePublished">2018-11-10</time>
+    <a href="/2018/12/09/note/dev/python/index/" class="article-date">
+  <time datetime="2018-12-09T07:12:36.000Z" itemprop="datePublished">2018-12-09</time>
 </a>
     
   </div>
@@ -114,83 +110,183 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="sublime-常用的优秀插件列表和介绍"><a href="#sublime-常用的优秀插件列表和介绍" class="headerlink" title="sublime 常用的优秀插件列表和介绍"></a>sublime 常用的优秀插件列表和介绍</h1><!-- MarkdownTOC -->
+        <h1 id="Python-目录"><a href="#Python-目录" class="headerlink" title="Python 目录"></a>Python 目录</h1><!-- MarkdownTOCs -->
 <ul>
-<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</a></li>
-<li><a href="#%E4%BC%98%E7%A7%80%E7%9A%84%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D">优秀的插件介绍</a><ul>
-<li><a href="#material-theme">Material Theme</a></li>
-<li><a href="#acejump">AceJump</a></li>
-<li><a href="#align-arguments">Align Arguments</a></li>
-<li><a href="#autofilename">AutoFileName</a></li>
-<li><a href="#filemanager">FileManager</a></li>
-<li><a href="#packageresourceviewer">PackageResourceViewer</a></li>
-<li><a href="#markdown-%E5%AE%8C%E7%BE%8E%E6%94%AF%E6%8C%81">Markdown 完美支持</a></li>
-<li><a href="#sanesnippets">SaneSnippets</a></li>
+<li><a href="./about-python.md">关于Python</a></li>
+<li><a href="./installation.md">Python 安装</a><ul>
+<li><a href="./installation.md#%E5%9C%A8%20windows%20%E4%B8%8A%E5%AE%89%E8%A3%85">在 windows 上安装</a></li>
+<li><a href="./installation.md#%E5%9C%A8%20Mac%20OS%20X%20%E4%B8%8A%E5%AE%89%E8%A3%85">在 Mac OS X 上安装</a></li>
+<li><a href="./installation.md#%E5%9C%A8%20GNU/Linux%20%E4%B8%8A%E5%AE%89%E8%A3%85">在 GNU/Linux 上安装</a></li>
 </ul>
 </li>
-<li><a href="#%E5%B8%B8%E7%94%A8%E6%89%A9%E5%B1%95%E5%8C%85%E5%88%97%E8%A1%A8-%E9%AB%98%E4%BA%AE%E7%9A%84%E5%BF%85%E8%A3%85">常用扩展包列表 (高亮的必装)</a></li>
+<li><a href="./first-steps.md">第一步</a><ul>
+<li><a href="./first-steps.md#%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%8F%90%E7%A4%BA%E7%AC%A6">使用交互式提示符</a></li>
+<li><a href="./first-steps.md#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%99%A8">选择一个编辑器</a></li>
+<li><a href="./first-steps.md#PyCharm">PyCharm</a></li>
+<li><a href="./first-steps.md#Vim">Vim</a></li>
+<li><a href="./first-steps.md#Emacs">Emacs</a></li>
+<li><a href="./first-steps.md#%E4%BD%BF%E7%94%A8%E6%BA%90%E6%96%87%E4%BB%B6">使用源文件</a></li>
+<li><a href="./first-steps.md#%E8%8E%B7%E5%BE%97%E5%B8%AE%E5%8A%A9">获得帮助</a></li>
+<li><a href="./first-steps.md#%E6%80%BB%E7%BB%93">总结</a></li>
 </ul>
-<!-- /MarkdownTOC -->
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
-<li><p>禁用/启用一些扩展包</p>
-<p>命令 <code>disable package</code> / <code>enable package</code>, 可以临时禁用和启用一些插件</p>
 </li>
-<li><p>查看插件或编辑器中的文件</p>
-<p>命令 <code>view package file</code>, 可以用来查看插件包中的文件, 好处是可以借鉴别人写的<br>代码.如果忘记某个插件的用法,可以查看插件的 readme 文件.</p>
+<li><a href="./basics.md">基本语法</a><ul>
+<li><a href="./basics.md#%E6%B3%A8%E9%87%8A">注释</a></li>
+<li><a href="./basics.md#%E6%96%87%E5%AD%97%E5%B8%B8%E9%87%8F">文字常量</a></li>
+<li><a href="./basics.md#%E6%95%B0%E5%AD%97">数字</a></li>
+<li><a href="./basics.md#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
+<li><a href="./basics.md#%E5%8F%98%E9%87%8F">变量</a></li>
+<li><a href="./basics.md#%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D">标识符命名</a></li>
+<li><a href="./basics.md#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
+<li><a href="./basics.md#%E5%AF%B9%E8%B1%A1">对象</a></li>
+<li><a href="./basics.md#%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%20Python%20%E7%A8%8B%E5%BA%8F%EF%BC%9F">如何编写 Python 程序？</a></li>
+<li><a href="./basics.md#%E9%80%BB%E8%BE%91%E8%A1%8C%E5%92%8C%E7%89%A9%E7%90%86%E8%A1%8C">逻辑行和物理行</a></li>
+<li><a href="./basics.md#%E7%BC%A9%E8%BF%9B">缩进</a></li>
+<li><a href="./basics.md#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="./operators-and-expressions.md">运算符与表达式</a><ul>
+<li><a href="./operators-and-expressions.md#%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a></li>
+<li><a href="./operators-and-expressions.md#%E6%95%B0%E5%AD%A6%E8%BF%90%E5%92%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E3%80%82">数学运和赋值的快捷方式。</a></li>
+<li><a href="./operators-and-expressions.md#%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">计算顺序</a></li>
+<li><a href="./operators-and-expressions.md#%E6%94%B9%E5%8F%98%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">改变计算顺序</a></li>
+<li><a href="./operators-and-expressions.md#%E5%85%B3%E8%81%94%E6%80%A7">关联性</a></li>
+<li><a href="./operators-and-expressions.md#%E8%A1%A8%E8%BE%BE%E5%BC%8F">表达式</a></li>
+<li><a href="./operators-and-expressions.md#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="./control-flow.md">控制流</a><ul>
+<li><a href="./control-flow.md#if%20%E8%AF%AD%E5%8F%A5">if 语句</a></li>
+<li><a href="./control-flow.md#while%20%E8%AF%AD%E5%8F%A5">while 语句</a></li>
+<li><a href="./control-flow.md#for%20%E5%BE%AA%E7%8E%AF">for 循环</a></li>
+<li><a href="./control-flow.md#break%20%E8%AF%AD%E5%8F%A5">break 语句</a></li>
+<li><a href="./control-flow.md#continue%20%E8%AF%AD%E5%8F%A5">continue 语句</a></li>
+<li><a href="./control-flow.md#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="./functions.md">函数</a><ul>
+<li><a href="./functions.md#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0">函数参数</a></li>
+<li><a href="./functions.md#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">局部变量</a></li>
+<li><a href="./functions.md#global%20%E8%AF%AD%E5%8F%A5">global 语句</a></li>
+<li><a href="./functions.md#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC">默认参数值</a></li>
+<li><a href="./functions.md#%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0">关键字参数</a></li>
+<li><a href="./functions.md#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可变参数</a></li>
+<li><a href="./functions.md#return%20%E8%AF%AD%E5%8F%A5">return 语句</a></li>
+<li><a href="./functions.md#%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%94%E2%80%94DocStrings">文档字符串——DocStrings</a></li>
+<li><a href="./functions.md#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="./modules.md">模块</a><ul>
+<li><a href="./modules.md#%E6%A8%A1%E5%9D%97">模块</a></li>
+<li><a href="./modules.md#%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%20.pyc">字节码文件 .pyc</a></li>
+<li><a href="./modules.md#from..import%20%E8%AF%AD%E5%8F%A5">from..import 语句</a></li>
+<li><a href="./modules.md#%E6%A8%A1%E5%9D%97%E7%9A%84%60__name__%60">模块的<code>__name__</code></a></li>
+<li><a href="./modules.md#%E5%88%9B%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9D%97">创建你自己的模块</a></li>
+<li><a href="./modules.md#dir%20%E5%87%BD%E6%95%B0">dir 函数</a></li>
+<li><a href="./modules.md#%E7%A8%8B%E5%BA%8F%E5%8C%85">程序包</a></li>
+<li><a href="./modules.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./data-structures.md">数据结构</a><ul>
+<li><a href="./data-structures.md#List">List</a></li>
+<li><a href="./data-structures.md#%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E7%AE%80%E4%BB%8B">对象和类的简介</a></li>
+<li><a href="./data-structures.md#%E5%85%83%E7%BB%84">元组</a></li>
+<li><a href="./data-structures.md#%E5%AD%97%E5%85%B8">字典</a></li>
+<li><a href="./data-structures.md#%E5%BA%8F%E5%88%97">序列</a></li>
+<li><a href="./data-structures.md#%E9%9B%86%E5%90%88">集合</a></li>
+<li><a href="./data-structures.md#%E5%BC%95%E7%94%A8">引用</a></li>
+<li><a href="./data-structures.md#%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C">更多的字符串操作</a></li>
+<li><a href="./data-structures.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./problem-solving.md">解决问题的思路</a><ul>
+<li><a href="./problem-solving.md#%E7%AC%AC%E4%B8%80%E6%BB%B4%E8%A1%80">第一滴血</a></li>
+<li><a href="./problem-solving.md#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+<li><a href="./problem-solving.md#%E4%BF%AE%E6%94%B9%E7%89%88">修改版</a></li>
+<li><a href="./problem-solving.md#%E7%AC%AC%E4%B8%89%E7%89%88">第三版</a></li>
+<li><a href="./problem-solving.md#%E7%AC%AC%E5%9B%9B%E7%89%88">第四版</a></li>
+<li><a href="./problem-solving.md#%E6%9B%B4%E5%A4%9A%E6%94%B9%E8%BF%9B">更多改进</a></li>
+<li><a href="./problem-solving.md#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B">软件开发过程</a></li>
+<li><a href="./problem-solving.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./object-oriented-programming.md">面向对象编程</a><ul>
+<li><a href="./object-oriented-programming.md#%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B">面对对象编程</a></li>
+<li><a href="./object-oriented-programming.md#%E5%85%B3%E4%BA%8E%20self">关于 self</a></li>
+<li><a href="./object-oriented-programming.md#%E7%B1%BB">类</a></li>
+<li><a href="./object-oriented-programming.md#%E6%96%B9%E6%B3%95">方法</a></li>
+<li><a href="./object-oriented-programming.md#%60__init__%60%E6%96%B9%E6%B3%95%20"><code>__init__</code>方法 </a></li>
+<li><a href="./object-oriented-programming.md#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F">类和对象中的变量</a></li>
+<li><a href="./object-oriented-programming.md#%E7%BB%A7%E6%89%BF">继承</a></li>
+<li><a href="./object-oriented-programming.md#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="./input-and-output.md">输入与输出</a><ul>
+<li><a href="./input-and-output.md#%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5">用户输入</a></li>
+<li><a href="./input-and-output.md#%E6%96%87%E4%BB%B6">文件</a></li>
+<li><a href="./input-and-output.md#Pickle">Pickle</a></li>
+<li><a href="./input-and-output.md#Unicode">Unicode</a></li>
+<li><a href="./input-and-output.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./exceptions.md">异常</a><ul>
+<li><a href="./exceptions.md#%E9%94%99%E8%AF%AF">错误</a></li>
+<li><a href="./exceptions.md#%E5%BC%82%E5%B8%B8">异常</a></li>
+<li><a href="./exceptions.md#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8">处理异常</a></li>
+<li><a href="./exceptions.md#%E5%BC%95%E5%8F%91%E5%BC%82%E5%B8%B8">引发异常</a></li>
+<li><a href="./exceptions.md#Try%20...%20Finally">Try … Finally</a></li>
+<li><a href="./exceptions.md#with%20%E8%AF%AD%E5%8F%A5">with 语句</a></li>
+<li><a href="./exceptions.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./standard-library.md">标准库</a><ul>
+<li><a href="./standard-library.md#sys%20%E6%A8%A1%E5%9D%97">sys 模块</a></li>
+<li><a href="./standard-library.md#logging%20%E6%A8%A1%E5%9D%97">logging 模块</a></li>
+<li><a href="./standard-library.md#Module%20of%20the%20Week%20%E7%B3%BB%E5%88%97">Module of the Week 系列</a></li>
+<li><a href="./standard-library.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./more.md">更多知识</a><ul>
+<li><a href="./more.md#%E4%BC%A0%E9%80%92%E5%85%83%E7%BB%84">传递元组</a></li>
+<li><a href="./more.md#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95">魔术方法</a></li>
+<li><a href="./more.md#%E5%8D%95%E4%B8%AA%E8%AF%AD%E5%8F%A5%E5%9D%97">单个语句块</a></li>
+<li><a href="./more.md#Lambda%20%E6%A0%BC%E5%BC%8F">Lambda 格式</a></li>
+<li><a href="./more.md#%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC">列表推导</a></li>
+<li><a href="./more.md#%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E6%8E%A5%E6%94%B6%E5%85%83%E7%BB%84%E5%92%8C%E5%AD%97%E5%85%B8">在函数中接收元组和字典</a></li>
+<li><a href="./more.md#assert%20%E8%AF%AD%E5%8F%A5">assert 语句</a></li>
+<li><a href="./more.md#%E8%A3%85%E9%A5%B0%E5%99%A8">装饰器</a></li>
+<li><a href="./more.md#Python%202%20%E4%B8%8E%20Python%203%20%E7%9A%84%E4%B8%8D%E5%90%8C">Python 2 与 Python 3 的不同</a></li>
+<li><a href="./more.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+<li><a href="./what-next.md">下一步的学习建议</a><ul>
+<li><a href="./what-next.md#%E5%90%8E%E7%BB%AD%E9%A1%B9%E7%9B%AE">后续项目</a></li>
+<li><a href="./what-next.md#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">示例代码</a></li>
+<li><a href="./what-next.md#%E5%BB%BA%E8%AE%AE">建议</a></li>
+<li><a href="./what-next.md#%E8%A7%86%E9%A2%91">视频</a></li>
+<li><a href="./what-next.md#%E9%97%AE%E7%AD%94">问答</a></li>
+<li><a href="./what-next.md#%E6%95%99%E7%A8%8B">教程</a></li>
+<li><a href="./what-next.md#%E8%AE%A8%E8%AE%BA">讨论</a></li>
+<li><a href="./what-next.md#%E6%96%B0%E9%97%BB">新闻</a></li>
+<li><a href="./what-next.md#%E5%AE%89%E8%A3%85%E5%BA%93">安装库</a></li>
+<li><a href="./what-next.md#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99">创建一个网站</a></li>
+<li><a href="./what-next.md#%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%BD%AF%E4%BB%B6">图形化软件</a></li>
+<li><a href="./what-next.md#%E5%90%84%E7%A7%8D%E5%AE%9E%E7%8E%B0">各种实现</a></li>
+<li><a href="./what-next.md#%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E9%AB%98%E7%BA%A7%E8%AF%BB%E8%80%85%EF%BC%89">函数编程（适用于高级读者）</a></li>
+<li><a href="./what-next.md#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
 </li>
 </ul>
-<h3 id="优秀的插件介绍"><a href="#优秀的插件介绍" class="headerlink" title="优秀的插件介绍"></a>优秀的插件介绍</h3><h4 id="Material-Theme"><a href="#Material-Theme" class="headerlink" title="Material Theme"></a>Material Theme</h4><p>感觉最好的主题之一,可惜作者转投 atom,vsCode 了. 嗯,如果哪一天 atom 能减减肥,我也<br>很乐意投奔.毕竟 st 不开源.</p>
-<h4 id="AceJump"><a href="#AceJump" class="headerlink" title="AceJump"></a>AceJump</h4><p>输入想要跳转的位置的单词首字母,立即就可以跳转过去. 键盘党的福音.</p>
-<h4 id="Align-Arguments"><a href="#Align-Arguments" class="headerlink" title="Align Arguments"></a>Align Arguments</h4><p>对齐等号或者任意自定义的符号. 两边对齐.代码洁癖必备.</p>
-<h4 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h4><p>自动补全路径</p>
-<h4 id="FileManager"><a href="#FileManager" class="headerlink" title="FileManager"></a>FileManager</h4><p>文件管理神器, 嗯用了这个插件比 IDE 的鼠标拖动移动复制文件还爽. sublime 最强文件<br>管理之一. 可以替代 SideBarTools,SideBarEnhancements,AdvancedNewFile 等</p>
-<p>修复 open in brower 命令无法打开中文名称文件的 bug<br><code>FileManager/FMcommands/open_in_browser.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line">// 大概在 <span class="number">24</span>,后面将 path 变量 urlencode 格式化一下</span><br><span class="line">path = urllib.parse.quote(path)</span><br></pre></td></tr></table></figure></p>
-<p>修复: fm_creater 命令批量创建时新文件都会打开的问题<br><code>FileManager/FMcommands/create.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FmCreaterCommand</span><span class="params">(AppCommand)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, abspath, input_path, is_open=True)</span>:</span> <span class="comment"># 增加参数 is_open=True</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">if</span> is_open:  <span class="comment"># 增加判断 if is_open:</span></span><br><span class="line">            window = get_window()</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure></p>
-<h4 id="PackageResourceViewer"><a href="#PackageResourceViewer" class="headerlink" title="PackageResourceViewer"></a>PackageResourceViewer</h4><p><code>修改</code>或查看sublime安装的包;<br>使用方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PackageResourceViewer: Open Resource</span><br><span class="line">// 修改后, 如果不生效,需要重新启动 sublime; mac os 需要强制退出程序</span><br></pre></td></tr></table></figure></p>
-<h4 id="Markdown-完美支持"><a href="#Markdown-完美支持" class="headerlink" title="Markdown 完美支持"></a>Markdown 完美支持</h4><ul>
-<li><code>MarkdownEditing</code> // 编辑 markdown 支持各种代码高亮和补全</li>
-<li><code>Markdown Preview</code> // markdown 预览, 如果想热加载的话,可以安装 <code>LiveLoad</code></li>
-<li><code>MarkdownTOC</code> // 自动生成目录<br>MarkdownTOC 修要修改 <code>/Packages/MarkdownTOC/markdowntoc/autorunner.py</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 禁止 保存时自动更新 toc</span><br><span class="line">if False:</span><br><span class="line">    view.run_command(&apos;markdowntoc_update&apos;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="SaneSnippets"><a href="#SaneSnippets" class="headerlink" title="SaneSnippets"></a>SaneSnippets</h4><p>嗯,更友好的 snippet 模板.对 xml 无爱.</p>
-<h3 id="常用扩展包列表-高亮的必装"><a href="#常用扩展包列表-高亮的必装" class="headerlink" title="常用扩展包列表 (高亮的必装)"></a>常用扩展包列表 (高亮的必装)</h3><ul>
-<li><code>AceJump</code> // 代替鼠标快速跳转</li>
-<li><code>Align Arguments</code> // 等号两边对齐</li>
-<li><code>AutoFileName</code> // 自动补全文件名</li>
-<li><code>All Autocomplete</code> // 所有打开的标签页中寻找补全</li>
-<li>AutoSetSyntax // 自动切换文件的格式</li>
-<li>Blade Snippets // laravel blade 模板</li>
-<li>Bootstrap 3 Snippets // bt3 snippets</li>
-<li><code>BracketHighlighter</code> // 括号,引号这类高亮功能</li>
-<li><code>Chain of Command</code> // 一个快捷键绑定多个命令</li>
-<li>DeleteBlankLines // 删除空行 (key: Ctrl+Alt+Backspace)</li>
-<li><code>DocBlockr</code> // 注释 (key: /** + tab 补全)</li>
-<li><code>Emmet</code> // web 自动补全(key: tab)</li>
-<li><code>FileManager</code> // 文件管理</li>
-<li>Git // git</li>
-<li><code>HTML-CSS-JS Prettify</code> // 格式化</li>
-<li>IMESupport // win10 中文输入法支持 (安装第三方输入法需要安装此插件)</li>
-<li>Laravel Blade Highlighter // blade 模板高亮</li>
-<li><code>MarkdownEditing</code> // 编辑 markdown 支持各种代码高亮和补全</li>
-<li><code>Markdown Preview</code> // markdown 预览 (cmd: markdown preview)</li>
-<li><code>MarkdownTOC</code> // markdown 自动添加目录 (cmd: markdowntoc)</li>
-<li><code>Material Theme</code></li>
-<li><code>SaneSnippets</code> // 更友好的 snippet</li>
-<li>Package Control // 包管理</li>
-<li>Pretty JSON // json 格式化 (cmd: pretty json)</li>
-<li>PyV8 // emmet 依赖的扩展</li>
-<li>SFTP // ftp 插件 (cmd: sftp)</li>
-<li>Vue Syntax Highlight // vue 模板语法高亮</li>
-</ul>
+<!-- /MarkdownTOCs -->
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">['about-python.md',</span> <span class="string">'关于Python'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['installation.md',</span> <span class="string">'安装'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['first-steps.md',</span> <span class="string">'第一步'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['basics.md',</span> <span class="string">'基本语法'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['operators-and-expressions.md',</span> <span class="string">'运算符与表达式'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['control-flow.md',</span> <span class="string">'控制流'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['functions.md',</span> <span class="string">'函数'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['modules.md',</span> <span class="string">'模块'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['data-structures.md',</span> <span class="string">'数据结构'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['problem-solving.md',</span> <span class="string">'解决问题的思路'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['object-oriented-programming.md',</span> <span class="string">'面向对象编程'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['input-and-output.md',</span> <span class="string">'输入与输出'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['exceptions.md',</span> <span class="string">'异常'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['standard-library.md',</span> <span class="string">'标准库'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['more.md',</span> <span class="string">'更多知识'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['what-next.md',</span> <span class="string">'下一步的学习建议'</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/10/note/dev/sublime/sublime/" data-id="cjp9xstvs0015qkqr2achynsn" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/09/note/dev/python/index/" data-id="cjpjh5qd4003fhsqrnntbctxa" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime/">sublime</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -200,10 +296,10 @@
 
 
   
-    <article id="post-note/dev/php/laravel 项目流程" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/life/book/technology/mysql-doc/general-information/info" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/08/note/dev/php/laravel 项目流程/" class="article-date">
-  <time datetime="2018-11-08T14:06:06.000Z" itemprop="datePublished">2018-11-08</time>
+    <a href="/2018/12/07/note/life/book/technology/mysql-doc/general-information/info/" class="article-date">
+  <time datetime="2018-12-07T06:37:31.000Z" itemprop="datePublished">2018-12-07</time>
 </a>
     
   </div>
@@ -212,41 +308,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="laravel5-基于-laradock-项目流程"><a href="#laravel5-基于-laradock-项目流程" class="headerlink" title="laravel5.* 基于 laradock 项目流程"></a>laravel5.* 基于 laradock 项目流程</h1><!-- MarkdownTOC -->
+        <h1 id="1-6-MySQL-获取帮助资源"><a href="#1-6-MySQL-获取帮助资源" class="headerlink" title="1.6 MySQL 获取帮助资源"></a>1.6 MySQL 获取帮助资源</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E6%AD%A4%E6%96%87%E6%9C%AA%E5%AE%8C%E6%88%90">此文未完成</a><ul>
-<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
-</ul>
-</li>
+<li><a href="#161-mysql%E7%BD%91%E7%AB%99">1.6.1 MySQL网站</a></li>
+<li><a href="#162-mysql%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8">1.6.2 MySQL邮件列表</a></li>
+<li><a href="#163-mysql%E8%AE%BA%E5%9D%9B%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81">1.6.3 MySQL论坛的MySQL社区支持</a></li>
+<li><a href="#164-internet%E4%B8%AD%E7%BB%A7%E8%81%8A%E5%A4%A9%EF%BC%88irc%EF%BC%89%E4%B8%8A%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81">1.6.4 Internet中继聊天（IRC）上的MySQL社区支持</a></li>
+<li><a href="#165-mysql%E4%BC%81%E4%B8%9A%E7%89%88">1.6.5 MySQL企业版</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="%E6%AD%A4%E6%96%87%E6%9C%AA%E5%AE%8C%E6%88%90"></a></p>
-<h2 id="此文未完成"><a href="#此文未完成" class="headerlink" title="此文未完成"></a>此文未完成</h2><p><a id="%E8%AF%B4%E6%98%8E"></a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>$</code> 为真实环境<br><code>^</code> 为 docker 环境<br>假设项目名称为 <code>blog</code></p>
-<p><a id="%E5%AE%89%E8%A3%85"></a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p>设置 composer 镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd laradock</span><br><span class="line">$ docker-compose up -d nginx mysql</span><br><span class="line">$ docker-compose exec workspace bash</span><br><span class="line">^ composer config -g repo.packagist composer https://packagist.laravel-china.org // 设置镜像地址</span><br><span class="line">^ composer config -gl // 查看镜像地址是否设置成功</span><br><span class="line">^ composer config -g --unset repos.packagist // 取消镜像</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过 Composer 创建项目, 并更改项目所有者为 nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^ su laradock</span><br><span class="line">^ composer create-project --prefer-dist laravel/laravel blog &quot;5.6.*&quot;</span><br><span class="line">^ chown -R www-data:www-data blog</span><br><span class="line">^ chmod -R 775 blog/storage blog/bootstrap/cache</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd laradock</span><br><span class="line">$ cp nginx/sites/laravel.conf.example blog.conf</span><br><span class="line">// 批量替换 laravel 为 blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 mysql</p>
-<pre><code>
-</code></pre></li>
-</ol>
+<p><a href="../index.md">回到目录</a></p>
+<blockquote>
+<p>本节列出了您可能会发现有用的其他信息的来源，例如MySQL网站，邮件列表，用户论坛和Internet中继聊天。</p>
+</blockquote>
+<p><a id="161-mysql%E7%BD%91%E7%AB%99"></a></p>
+<h2 id="1-6-1-MySQL网站"><a href="#1-6-1-MySQL网站" class="headerlink" title="1.6.1 MySQL网站"></a>1.6.1 MySQL网站</h2><p><a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener">https://dev.mysql.com/doc/</a> 提供MySQL文档</p>
+<p><a id="162-mysql%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8"></a></p>
+<h2 id="1-6-2-MySQL邮件列表"><a href="#1-6-2-MySQL邮件列表" class="headerlink" title="1.6.2 MySQL邮件列表"></a>1.6.2 MySQL邮件列表</h2><p>提供订阅功能,获取最新讨论</p>
+<p><a id="163-mysql%E8%AE%BA%E5%9D%9B%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81"></a></p>
+<h2 id="1-6-3-MySQL论坛的MySQL社区支持"><a href="#1-6-3-MySQL论坛的MySQL社区支持" class="headerlink" title="1.6.3 MySQL论坛的MySQL社区支持"></a>1.6.3 MySQL论坛的MySQL社区支持</h2><p>嗯…有中文版块,但是貌似没啥人,都是小广告.</p>
+<p><a id="164-internet%E4%B8%AD%E7%BB%A7%E8%81%8A%E5%A4%A9%EF%BC%88irc%EF%BC%89%E4%B8%8A%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81"></a></p>
+<h2 id="1-6-4-Internet中继聊天（IRC）上的MySQL社区支持"><a href="#1-6-4-Internet中继聊天（IRC）上的MySQL社区支持" class="headerlink" title="1.6.4 Internet中继聊天（IRC）上的MySQL社区支持"></a>1.6.4 Internet中继聊天（IRC）上的MySQL社区支持</h2><p>嗯…貌似没啥用.</p>
+<p><a id="165-mysql%E4%BC%81%E4%B8%9A%E7%89%88"></a></p>
+<h2 id="1-6-5-MySQL企业版"><a href="#1-6-5-MySQL企业版" class="headerlink" title="1.6.5 MySQL企业版"></a>1.6.5 MySQL企业版</h2><p>嗯…企业版,提供咨询服务.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/11/08/note/dev/php/laravel 项目流程/" data-id="cjp9xstvt0016qkqrdckq3prf" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/07/note/life/book/technology/mysql-doc/general-information/info/" data-id="cjpjh5qds004yhsqrihcyi53y" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laradock/">laradock</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境/">环境</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/technology/">technology</a></li></ul>
 
     </footer>
   </div>
@@ -260,7 +352,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -274,7 +366,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/01-preface-and-legal-notices/">01-preface-and-legal-notices</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/02-general-information/">02-general-information</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -284,7 +376,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/01-preface-and-legal-notices/" style="font-size: 10px;">01-preface-and-legal-notices</a> <a href="/tags/02-general-information/" style="font-size: 14.29px;">02-general-information</a> <a href="/tags/book/" style="font-size: 17.14px;">book</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 18.57px;">life</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15.71px;">mysql-doc</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 14.29px;">php</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/technology/" style="font-size: 17.14px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.86px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.43px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.86px;">草稿</a>
+      <a href="/tags/book/" style="font-size: 16.25px;">book</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 17.5px;">life</a> <a href="/tags/linux/" style="font-size: 11.25px;">linux</a> <a href="/tags/macos/" style="font-size: 11.25px;">macos</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15px;">mysql-doc</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 13.75px;">php</a> <a href="/tags/python/" style="font-size: 18.75px;">python</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/technology/" style="font-size: 16.25px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.5px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.25px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.5px;">草稿</a>
     </div>
   </div>
 
@@ -306,23 +398,23 @@
       <ul>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/06-info/">(no title)</a>
+            <a href="/2018/12/10/note/life/book/technology/mysql-doc/general-information/credits/">1.9 荣誉贡献者</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/04-new/">(no title)</a>
+            <a href="/2018/12/10/note/life/book/technology/mysql-doc/general-information/stand/"> MySQL 与 SQL标准</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/05-server/">(no title)</a>
+            <a href="/2018/12/10/note/life/book/technology/mysql-doc/general-information/bugs/">1.7 如何报告错误或问题</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/09-credits/">(no title)</a>
+            <a href="/2018/12/09/note/dev/python/what-next/">下一步的学习建议</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/07-bugs/">(no title)</a>
+            <a href="/2018/12/09/note/dev/python/more/">更多知识</a>
           </li>
         
       </ul>

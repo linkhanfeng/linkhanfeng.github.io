@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-note/life/book/technology/mysql-doc/02-general-information/03-view" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/dev/python/exceptions" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/03-view/" class="article-date">
-  <time datetime="2018-12-04T15:08:06.000Z" itemprop="datePublished">2018-12-04</time>
+    <a href="/2018/12/09/note/dev/python/exceptions/" class="article-date">
+  <time datetime="2018-12-09T10:14:45.000Z" itemprop="datePublished">2018-12-09</time>
 </a>
     
   </div>
@@ -75,42 +75,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-3-MySQL数据库管理系统概述"><a href="#1-3-MySQL数据库管理系统概述" class="headerlink" title="1.3 MySQL数据库管理系统概述"></a>1.3 MySQL数据库管理系统概述</h1><!-- MarkdownTOC -->
+        <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#131-%E4%BB%80%E4%B9%88%E6%98%AFmysql%EF%BC%9F">1.3.1 什么是MySQL？</a></li>
-<li><a href="#132-mysql%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9">1.3.2 MySQL的主要特点</a></li>
-<li><a href="#133-mysql%E7%9A%84%E5%8E%86%E5%8F%B2">1.3.3 MySQL的历史</a></li>
+<li><a href="#%E9%94%99%E8%AF%AF">错误</a></li>
+<li><a href="#%E5%BC%82%E5%B8%B8">异常</a></li>
+<li><a href="#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8">处理异常</a></li>
+<li><a href="#%E5%BC%95%E5%8F%91%E5%BC%82%E5%B8%B8">引发异常</a></li>
+<li><a href="#try--finally">Try … Finally</a></li>
+<li><a href="#with-%E8%AF%AD%E5%8F%A5">with 语句</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a href="../index.md">回到目录</a></p>
-<h2 id="1-3-1-什么是MySQL？"><a href="#1-3-1-什么是MySQL？" class="headerlink" title="1.3.1 什么是MySQL？"></a>1.3.1 什么是MySQL？</h2><p>MySQL是最受欢迎的开源SQL数据库管理系统，由 Oracle Corporation 开发，分发和支持。</p>
-<ul>
-<li><p>MySQL是一个数据库管理系统</p>
-<p>数据库是数据的结构化集合。它可以是从简单的购物清单到图片库或公司网络中的大量信息。<br>为了方便管理存储计算机数据库中的数据,需要一个数据库管理系统,如 MySQL Server</p>
-</li>
-<li><p>MySQL数据库是关系型的。</p>
-<p>关系数据库将数据存储在单独的表中，而不是将所有数据放在一个大的库房中。<br>数据库结构被组织成针对速度优化的物理文件。<br>逻辑模型具有数据库，表，视图，行和列等对象，可提供灵活的编程环境。<br>您可以设置管理不同数据字段之间关系的规则，例如一对一，一对多等</p>
-<p>SQL部分代表结构化查询语言 MySQL-5.7 使用的SQL版本是 <code>SQL:2003</code> 版本</p>
-</li>
-<li><p>MySQL软件是开源的。</p>
-<p>开源意味着任何人都可以使用和修改软件。<br>任何人都可以从互联网上下载MySQL软件并使用它而无需支付任何费用。MySQL软件使用GPL协议</p>
-</li>
-<li>MySQL数据库服务器非常快速，可靠，可扩展且易于使用。</li>
-<li>MySQL Server适用于客户端/服务器或嵌入式系统。 </li>
-</ul>
-<h2 id="1-3-2-MySQL的主要特点"><a href="#1-3-2-MySQL的主要特点" class="headerlink" title="1.3.2 MySQL的主要特点"></a>1.3.2 MySQL的主要特点</h2><ul>
-<li>内部和可移植性: 用C和C ++编写。</li>
-<li>支持大型数据库: 200,000个表和大约5,000,000,000行</li>
-<li>客户端和工具: 令行程序(mysqldump, mysqladmin, mysqlcheck) 图形程序 Workbench<h2 id="1-3-3-MySQL的历史"><a href="#1-3-3-MySQL的历史" class="headerlink" title="1.3.3 MySQL的历史"></a>1.3.3 MySQL的历史</h2>由于不满 mSQL 的性能开发了MySQL<br>MySQL联合创始人Monty Widenius的女儿My的名字命名</li>
-</ul>
-
+<p><a href="./index.md">回到目录</a></p>
+<blockquote>
+<p>当意外的情况在你的程序中发生时就会产生异常。例如，当你尝试读取一个文件但它并不存在时，会发生什么？<br>异常如何处理?</p>
+</blockquote>
+<p><a id="%E9%94%99%E8%AF%AF"></a></p>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p><a id="%E5%BC%82%E5%B8%B8"></a></p>
+<h2 id="异常-1"><a href="#异常-1" class="headerlink" title="异常"></a>异常</h2><p><a id="%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8"></a></p>
+<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><p><a id="%E5%BC%95%E5%8F%91%E5%BC%82%E5%B8%B8"></a></p>
+<h2 id="引发异常"><a href="#引发异常" class="headerlink" title="引发异常"></a>引发异常</h2><p><a id="try--finally"></a></p>
+<h2 id="Try-…-Finally"><a href="#Try-…-Finally" class="headerlink" title="Try … Finally"></a>Try … Finally</h2><p><a id="with-%E8%AF%AD%E5%8F%A5"></a></p>
+<h2 id="with-语句"><a href="#with-语句" class="headerlink" title="with 语句"></a>with 语句</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/03-view/" data-id="cjp9xstwt0039qkqr2sfraha1" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/09/note/dev/python/exceptions/" data-id="cjpjh5qc6000lhsqr3winxyo9" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/02-general-information/">02-general-information</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/technology/">technology</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -120,10 +114,10 @@
 
 
   
-    <article id="post-note/life/book/technology/mysql-doc/02-general-information/02-typog" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/dev/python/input-and-output" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/02-typog/" class="article-date">
-  <time datetime="2018-12-04T15:02:30.000Z" itemprop="datePublished">2018-12-04</time>
+    <a href="/2018/12/09/note/dev/python/input-and-output/" class="article-date">
+  <time datetime="2018-12-09T08:15:16.000Z" itemprop="datePublished">2018-12-09</time>
 </a>
     
   </div>
@@ -132,21 +126,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-2-印刷和语法约定"><a href="#1-2-印刷和语法约定" class="headerlink" title="1.2 印刷和语法约定"></a>1.2 印刷和语法约定</h2><!-- MarkdownTOC -->
+        <h1 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E8%AF%AD%E6%B3%95%E7%BA%A6%E5%AE%9A">语法约定</a></li>
+<li><a href="#%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5">用户输入</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6">文件</a></li>
+<li><a href="#pickle">Pickle</a></li>
+<li><a href="#unicode">Unicode</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a href="../index.md">回到目录</a></p>
-<h2 id="语法约定"><a href="#语法约定" class="headerlink" title="语法约定"></a>语法约定</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; <span class="built_in">type</span> a shell <span class="built_in">command</span> here 命令行</span><br><span class="line">root-shell&gt; <span class="built_in">type</span> a shell <span class="built_in">command</span> as root here 命令行且必须以 root 身份运行</span><br><span class="line">mysql&gt; <span class="built_in">type</span> a mysql statement here 从mysql客户端程序运行命令</span><br></pre></td></tr></table></figure>
-
+<p><a href="./index.md">回到目录</a></p>
+<blockquote>
+<p>解决你的项目与用户交互的的问题</p>
+</blockquote>
+<p><a id="%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5"></a></p>
+<h2 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a>用户输入</h2><p><a id="%E6%96%87%E4%BB%B6"></a></p>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p><a id="pickle"></a></p>
+<h2 id="Pickle"><a href="#Pickle" class="headerlink" title="Pickle"></a>Pickle</h2><p><a id="unicode"></a></p>
+<h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/02-typog/" data-id="cjp9xstwq0035qkqrqzlusdwg" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/09/note/dev/python/input-and-output/" data-id="cjpjh5qc7000nhsqrrdhy0bkf" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/02-general-information/">02-general-information</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/technology/">technology</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -156,10 +161,10 @@
 
 
   
-    <article id="post-note/life/book/technology/mysql-doc/02-general-information/01-about" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-note/dev/python/object-oriented-programming" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/01-about/" class="article-date">
-  <time datetime="2018-12-04T14:42:49.000Z" itemprop="datePublished">2018-12-04</time>
+    <a href="/2018/12/09/note/dev/python/object-oriented-programming/" class="article-date">
+  <time datetime="2018-12-09T08:09:26.000Z" itemprop="datePublished">2018-12-09</time>
 </a>
     
   </div>
@@ -168,22 +173,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-1-关于本手册"><a href="#1-1-关于本手册" class="headerlink" title="1.1 关于本手册"></a>1.1 关于本手册</h1><!-- MarkdownTOC -->
+        <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E6%89%8B%E5%86%8C%E8%AF%B4%E6%98%8E">手册说明</a></li>
+<li><a href="#%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B">面对对象编程</a></li>
+<li><a href="#%E5%85%B3%E4%BA%8E-self">关于 self</a></li>
+<li><a href="#%E7%B1%BB">类</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a></li>
+<li><a href="#__init__%E6%96%B9%E6%B3%95"><code>__init__</code>方法</a></li>
+<li><a href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F">类和对象中的变量</a></li>
+<li><a href="#%E7%BB%A7%E6%89%BF">继承</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="../index.md">回到目录</a></p>
-<h2 id="手册说明"><a href="#手册说明" class="headerlink" title="手册说明"></a>手册说明</h2><p>由于本手册可作为参考，因此<code>不提供有关SQL或关系数据库概念</code>的一般说明。</p>
-<p>它也<code>没有教你</code>如何使用操作系统或命令行解释器。</p>
-
+<p><a id="%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"></a></p>
+<h2 id="面对对象编程"><a href="#面对对象编程" class="headerlink" title="面对对象编程"></a>面对对象编程</h2><p>直到目前为止，我们已经使用函数、块语句来操作我们的数据。这叫做 面向过程 的方式进行编程。<br>然而还有另外一种方式来组织你的程序：把数据和函数结合起来，并将其置入一种叫做对象的东西。<br>这就叫做 面向对象 编程范式。</p>
+<p>在大多数情况下，你可以使用面向过程的编程<br>但是当写大型程序或者遇到了一些更加适合这种方法的时候，你可以使用基于对象的编程技术。</p>
+<p>类和对象是面向对象编程的两个主要概念。<br>一个类创造了一种新的 类型 ，而对象就是类的实例。</p>
+<p><a id="%E5%85%B3%E4%BA%8E-self"></a></p>
+<h2 id="关于-self"><a href="#关于-self" class="headerlink" title="关于 self"></a>关于 self</h2><p><a id="%E7%B1%BB"></a></p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><a id="%E6%96%B9%E6%B3%95"></a></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><a id="__init__%E6%96%B9%E6%B3%95"></a></p>
+<h2 id="init-方法"><a href="#init-方法" class="headerlink" title="__init__方法"></a><code>__init__</code>方法</h2><p><a id="%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F"></a></p>
+<h2 id="类和对象中的变量"><a href="#类和对象中的变量" class="headerlink" title="类和对象中的变量"></a>类和对象中的变量</h2><p><a id="%E7%BB%A7%E6%89%BF"></a></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/2018/12/04/note/life/book/technology/mysql-doc/02-general-information/01-about/" data-id="cjp9xstwr0036qkqr6yw389ce" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/2018/12/09/note/dev/python/object-oriented-programming/" data-id="cjpjh5qcb000zhsqrdlrsa4cv" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/02-general-information/">02-general-information</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/technology/">technology</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -197,7 +218,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -211,7 +232,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/01-preface-and-legal-notices/">01-preface-and-legal-notices</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/02-general-information/">02-general-information</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -221,7 +242,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/01-preface-and-legal-notices/" style="font-size: 10px;">01-preface-and-legal-notices</a> <a href="/tags/02-general-information/" style="font-size: 14.29px;">02-general-information</a> <a href="/tags/book/" style="font-size: 17.14px;">book</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 18.57px;">life</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15.71px;">mysql-doc</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 14.29px;">php</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/technology/" style="font-size: 17.14px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.86px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.43px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.86px;">草稿</a>
+      <a href="/tags/book/" style="font-size: 16.25px;">book</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 17.5px;">life</a> <a href="/tags/linux/" style="font-size: 11.25px;">linux</a> <a href="/tags/macos/" style="font-size: 11.25px;">macos</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15px;">mysql-doc</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 13.75px;">php</a> <a href="/tags/python/" style="font-size: 18.75px;">python</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/technology/" style="font-size: 16.25px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.5px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.25px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.5px;">草稿</a>
     </div>
   </div>
 
@@ -243,23 +264,23 @@
       <ul>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/06-info/">(no title)</a>
+            <a href="/2018/12/10/note/life/book/technology/mysql-doc/general-information/credits/">1.9 荣誉贡献者</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/04-new/">(no title)</a>
+            <a href="/2018/12/10/note/life/book/technology/mysql-doc/general-information/stand/"> MySQL 与 SQL标准</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/05-server/">(no title)</a>
+            <a href="/2018/12/10/note/life/book/technology/mysql-doc/general-information/bugs/">1.7 如何报告错误或问题</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/09-credits/">(no title)</a>
+            <a href="/2018/12/09/note/dev/python/what-next/">下一步的学习建议</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/note/life/book/technology/mysql-doc/02-general-information/07-bugs/">(no title)</a>
+            <a href="/2018/12/09/note/dev/python/more/">更多知识</a>
           </li>
         
       </ul>
