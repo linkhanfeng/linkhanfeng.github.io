@@ -7,18 +7,18 @@
   
   <title>硬链接和软链接深入理解 | 韩枫的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="硬链接和软链接深入理解  硬链接和软链接的作用 硬链接 软链接    硬链接和软链接的作用为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: linux 文件系统深入理解  硬链接若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名; 硬链接的特性:  文件有相同的 inode 号以及 data block 不能对目录进行创建; 硬链">
+  <meta name="description" content="硬链接和软链接深入理解  硬链接和软链接的作用 硬链接 软链接 知乎上的精彩解释 综上所述 参考链接    硬链接和软链接的作用为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: linux 文件系统深入理解  硬链接若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名; 硬链接的特性:  文件有相同的 inode 号以及 data">
 <meta name="keywords" content="dev,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="硬链接和软链接深入理解">
 <meta property="og:url" content="https://linkhanfeng.github.io/note/dev/linux/硬链接与软链接/index.html">
 <meta property="og:site_name" content="韩枫的博客">
-<meta property="og:description" content="硬链接和软链接深入理解  硬链接和软链接的作用 硬链接 软链接    硬链接和软链接的作用为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: linux 文件系统深入理解  硬链接若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名; 硬链接的特性:  文件有相同的 inode 号以及 data block 不能对目录进行创建; 硬链">
+<meta property="og:description" content="硬链接和软链接深入理解  硬链接和软链接的作用 硬链接 软链接 知乎上的精彩解释 综上所述 参考链接    硬链接和软链接的作用为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: linux 文件系统深入理解  硬链接若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名; 硬链接的特性:  文件有相同的 inode 号以及 data">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-02T11:04:38.000Z">
+<meta property="og:updated_time" content="2018-12-12T04:53:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="硬链接和软链接深入理解">
-<meta name="twitter:description" content="硬链接和软链接深入理解  硬链接和软链接的作用 硬链接 软链接    硬链接和软链接的作用为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: linux 文件系统深入理解  硬链接若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名; 硬链接的特性:  文件有相同的 inode 号以及 data block 不能对目录进行创建; 硬链">
+<meta name="twitter:description" content="硬链接和软链接深入理解  硬链接和软链接的作用 硬链接 软链接 知乎上的精彩解释 综上所述 参考链接    硬链接和软链接的作用为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: linux 文件系统深入理解  硬链接若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名; 硬链接的特性:  文件有相同的 inode 号以及 data">
   
     <link rel="alternate" href="/" title="韩枫的博客" type="application/atom+xml">
   
@@ -83,6 +83,9 @@
 <li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8">硬链接和软链接的作用</a></li>
 <li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5">硬链接</a></li>
 <li><a href="#%E8%BD%AF%E9%93%BE%E6%8E%A5">软链接</a></li>
+<li><a href="#%E7%9F%A5%E4%B9%8E%E4%B8%8A%E7%9A%84%E7%B2%BE%E5%BD%A9%E8%A7%A3%E9%87%8A">知乎上的精彩解释</a></li>
+<li><a href="#%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0">综上所述</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8"></a></p>
@@ -97,11 +100,27 @@
 <p><a id="%E8%BD%AF%E9%93%BE%E6%8E%A5"></a></p>
 <h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>若文件用户数据块中存放的内容是另一文件的路径名的指向，则该文件就是软连接。</p>
 <p>软链接类似于 window 系统中的快捷方式<br>软链接就是一个普通文件，只是数据块内容有点特殊。软链接有着自己的 inode 号以及用户数据块<br>因此软链接的创建与使用没有类似硬链接的诸多限制</p>
+<p><a id="%E7%9F%A5%E4%B9%8E%E4%B8%8A%E7%9A%84%E7%B2%BE%E5%BD%A9%E8%A7%A3%E9%87%8A"></a></p>
+<h3 id="知乎上的精彩解释"><a href="#知乎上的精彩解释" class="headerlink" title="知乎上的精彩解释"></a>知乎上的精彩解释</h3><p>硬链接就是：(hard link)<br>一面墙上有一个洞，洞里放着一个苹果。从墙的这一面看是这个苹果，从墙的另一面看还是同一个苹果。<br>硬链接就是同一块数据但有两个不同的名字，读写的时候本质上都是修改的同一块数据。<br><code>硬链接的删除</code>在删除的时候只是删除了一个名字。只有这块数据的所有名字都删除了的时候，数据才会被删除。（删除的时候相当于把墙的这一面糊上，但苹果本身不动，只有两面都糊上了，你才会看不到）</p>
+<p>软链接或符号链接就是：(soft link 或 symbolic link)<br>我声称我有一个苹果，但是当你找我要的时候，我对你说，到某个建筑物的仓库就可以拿到那个苹果了。<br>可见我并不真正拥有一个苹果，我只是拥有“某个地方有一个苹果”这个信息。但对于外部的观察者来说，这跟我实际上拥有一个苹果并无差异。<br><code>符号链接的删除</code>：假设我死了，不会影响到原始数据。假设原始数据没了，那我这个符号链接就变成了一张空头支票，也就是悬空的符号链接。</p>
+<p>Windows - 快捷方式：(shortcut) 本质上就是符号链接，只不过 Windows 的资源管理器可以直接管理这种文件。<br>Windows - junction point：可能跟符号链接的区别仅仅是能否使用相对路径。<br>windows7 以上也是支持软硬链接的: <code>mklink [[/d] | [/h] | [/j]] &lt;Link&gt; &lt;Target&gt;</code>  </p>
+<p>复制：把一个苹果变成两个苹果。链接都是为文件起别名（alias）的方式，跟复制有本质区别的。</p>
+<p><a id="%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0"></a></p>
+<h3 id="综上所述"><a href="#综上所述" class="headerlink" title="综上所述"></a>综上所述</h3><p>我认为: 文件创建链接时使用硬链接(不占用空间,修改一处其他地方肯定为修改,因为他们本质上是同一个文件)<br>创建目录时使用符号链接(只有这个选择, 硬链接不支持目录)</p>
+<p>另外: <code>mac</code>对软件创建链接用<code>符号链接</code>, 因为<code>.app</code>文件本质上是目录用命令验证一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /Applications/App\ Store.app</span><br><span class="line">drwxr-xr-x@  3 root  wheel     96 Jun 27 10:46 App Store.app</span><br></pre></td></tr></table></figure></p>
+<p><code>d</code>rwxr-xr-x 其中 <code>d</code> 字母就代表目录</p>
+<p><a id="%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"></a></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank" rel="noopener">理解 Linux 的硬链接与软链接</a></li>
+<li><a href="https://www.zhihu.com/question/20729978/answer/28885520" target="_blank" rel="noopener">符号连接、软连接、硬连接、快捷方式、副本(copy)之间有何区别和联系</a></li>
+<li><a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc753194(v=ws.11" target="_blank" rel="noopener">Mklink | Microsoft Docs</a>)</li>
+<li><a href="https://docs.microsoft.com/zh-cn/sysinternals/downloads/junction" target="_blank" rel="noopener">Junction - Windows Sysinternals | Microsoft Docs</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/note/dev/linux/硬链接与软链接/" data-id="cjpjjdj6w0009qxqrn6c2sful" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/note/dev/linux/硬链接与软链接/" data-id="cjpmrf0vu001bhcqrl1wax8jv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -112,11 +131,11 @@
     
 <nav id="article-nav">
   
-    <a href="/note/dev/php/laravel 项目流程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/note/dev/php/wamp 手动搭建/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          laravel5.* 基于 laradock 项目流程
+          Windows Server wamp 环境手动搭建
         
       </div>
     </a>
@@ -144,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/administrative/">administrative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/architecture/">architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commands-and-gnu/">commands-and-gnu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/filesystems/">filesystems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interfaces/">interfaces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lpic-1/">lpic-1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/networking/">networking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-services/">system-services</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -154,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/book/" style="font-size: 17.14px;">book</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 18.57px;">life</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15.71px;">mysql-doc</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 14.29px;">php</a> <a href="/tags/python/" style="font-size: 18.57px;">python</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/technology/" style="font-size: 17.14px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.86px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.43px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.86px;">草稿</a>
+      <a href="/tags/administrative/" style="font-size: 10px;">administrative</a> <a href="/tags/architecture/" style="font-size: 10px;">architecture</a> <a href="/tags/book/" style="font-size: 17.78px;">book</a> <a href="/tags/commands-and-gnu/" style="font-size: 10px;">commands-and-gnu</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/filesystems/" style="font-size: 10px;">filesystems</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a> <a href="/tags/interfaces/" style="font-size: 10px;">interfaces</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 18.89px;">life</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/lpic-1/" style="font-size: 14.44px;">lpic-1</a> <a href="/tags/macos/" style="font-size: 11.11px;">macos</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15.56px;">mysql-doc</a> <a href="/tags/networking/" style="font-size: 10px;">networking</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a> <a href="/tags/python/" style="font-size: 18.89px;">python</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/system-services/" style="font-size: 10px;">system-services</a> <a href="/tags/technology/" style="font-size: 17.78px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.22px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.11px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.22px;">草稿</a>
     </div>
   </div>
 
@@ -176,23 +195,23 @@
       <ul>
         
           <li>
-            <a href="/note/life/book/technology/mysql-doc/general-information/credits/">1.9 荣誉贡献者</a>
+            <a href="/note/dev/markdown/syntax/">Markdown 语法</a>
           </li>
         
           <li>
-            <a href="/note/life/book/technology/mysql-doc/general-information/stand/"> MySQL 与 SQL标准</a>
+            <a href="/note/dev/linux/lpic-1/index/">LPIC-1 Linux 管理员</a>
           </li>
         
           <li>
-            <a href="/note/life/book/technology/mysql-doc/general-information/bugs/">1.7 如何报告错误或问题</a>
+            <a href="/note/dev/linux/lpic-1/system-services/index_system-services/">基本系统服务(Essential System Services)</a>
           </li>
         
           <li>
-            <a href="/note/dev/python/what-next/">下一步的学习建议</a>
+            <a href="/note/dev/linux/lpic-1/shell/index_shell/">Shell和Shell脚本(Shells and Shell Scripting)</a>
           </li>
         
           <li>
-            <a href="/note/dev/python/more/">更多知识</a>
+            <a href="/note/dev/linux/lpic-1/security/index_security/">安全性(Security)</a>
           </li>
         
       </ul>

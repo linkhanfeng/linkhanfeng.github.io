@@ -5,19 +5,19 @@
   
 
   
-  <title>文件系统 | 韩枫的博客</title>
+  <title>linux 文件系统深入理解 | 韩枫的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="linux 文件系统深入理解  文件 索引节点号 inode 目录 硬链接与软链接 参考链接    文件现代操作系统为解决信息能独立于进程之外被长期存储引入了文件;linux 系统中除进程之外的一切皆是文件   我们知道文件都有文件名与数据，这在 Linux 上被分成两个部分： 用户数据 (user data) 与元数据 (metadata)  用户数据: 即文件数据块 (data block)，">
 <meta name="keywords" content="dev,linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件系统">
+<meta property="og:title" content="linux 文件系统深入理解">
 <meta property="og:url" content="https://linkhanfeng.github.io/note/dev/linux/文件系统/index.html">
 <meta property="og:site_name" content="韩枫的博客">
 <meta property="og:description" content="linux 文件系统深入理解  文件 索引节点号 inode 目录 硬链接与软链接 参考链接    文件现代操作系统为解决信息能独立于进程之外被长期存储引入了文件;linux 系统中除进程之外的一切皆是文件   我们知道文件都有文件名与数据，这在 Linux 上被分成两个部分： 用户数据 (user data) 与元数据 (metadata)  用户数据: 即文件数据块 (data block)，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-02T11:04:23.000Z">
+<meta property="og:updated_time" content="2018-12-12T04:01:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件系统">
+<meta name="twitter:title" content="linux 文件系统深入理解">
 <meta name="twitter:description" content="linux 文件系统深入理解  文件 索引节点号 inode 目录 硬链接与软链接 参考链接    文件现代操作系统为解决信息能独立于进程之外被长期存储引入了文件;linux 系统中除进程之外的一切皆是文件   我们知道文件都有文件名与数据，这在 Linux 上被分成两个部分： 用户数据 (user data) 与元数据 (metadata)  用户数据: 即文件数据块 (data block)，">
   
     <link rel="alternate" href="/" title="韩枫的博客" type="application/atom+xml">
@@ -99,7 +99,7 @@
 <p><a id="%E7%9B%AE%E5%BD%95"></a></p>
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>目录是一种特殊的文件, 目录是记录了其他文件名的文件;<br>Linux 与其他类 UNIX 系统一样并不区分文件与目录;<br>为了便于文件的管理，Linux 引入了目录(有时亦被称为文件夹)这一概念。<br>目录使文件可被分类管理,且目录的引入使 Linux 的文件系统形成一个层级结构的目录树<br>不区分的例子: 使用命令 mkdir 创建目录时,如果名称与现有的<code>文件名</code>(或目录名)重复,<code>都会</code>创建失败.</p>
 <p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%BD%AF%E9%93%BE%E6%8E%A5"></a></p>
-<h3 id="硬链接与软链接"><a href="#硬链接与软链接" class="headerlink" title="硬链接与软链接"></a>硬链接与软链接</h3><p>参考: <a href="./硬链接与软链接.md">硬链接与软链接深入理解</a></p>
+<h3 id="硬链接与软链接"><a href="#硬链接与软链接" class="headerlink" title="硬链接与软链接"></a>硬链接与软链接</h3><p><a href="./硬链接与软链接.md">硬链接与软链接深入理解</a></p>
 <p><a id="%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"></a></p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank" rel="noopener">理解 Linux 的硬链接与软链接</a></li>
@@ -108,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linkhanfeng.github.io/note/dev/linux/文件系统/" data-id="cjpjjdj72000jqxqru9n3s75f" class="article-share-link">Share</a>
+      <a data-url="https://linkhanfeng.github.io/note/dev/linux/文件系统/" data-id="cjpmrf0vw001ihcqrmfzonzur" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev/">dev</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -151,7 +151,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/administrative/">administrative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/architecture/">architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commands-and-gnu/">commands-and-gnu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/filesystems/">filesystems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firfox/">firfox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interfaces/">interfaces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laradock/">laradock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lpic-1/">lpic-1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movies/">movies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-doc/">mysql-doc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/networking/">networking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/packages/">packages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-services/">system-services</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/technology/">technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据交换/">数据交换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境/">环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/草稿/">草稿</a></li></ul>
     </div>
   </div>
 
@@ -161,7 +161,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/book/" style="font-size: 17.14px;">book</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 18.57px;">life</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15.71px;">mysql-doc</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 14.29px;">php</a> <a href="/tags/python/" style="font-size: 18.57px;">python</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/technology/" style="font-size: 17.14px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.86px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.43px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.86px;">草稿</a>
+      <a href="/tags/administrative/" style="font-size: 10px;">administrative</a> <a href="/tags/architecture/" style="font-size: 10px;">architecture</a> <a href="/tags/book/" style="font-size: 17.78px;">book</a> <a href="/tags/commands-and-gnu/" style="font-size: 10px;">commands-and-gnu</a> <a href="/tags/dev/" style="font-size: 20px;">dev</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/filesystems/" style="font-size: 10px;">filesystems</a> <a href="/tags/firfox/" style="font-size: 10px;">firfox</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a> <a href="/tags/interfaces/" style="font-size: 10px;">interfaces</a> <a href="/tags/laradock/" style="font-size: 10px;">laradock</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/life/" style="font-size: 18.89px;">life</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/lpic-1/" style="font-size: 14.44px;">lpic-1</a> <a href="/tags/macos/" style="font-size: 11.11px;">macos</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/movies/" style="font-size: 10px;">movies</a> <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-doc/" style="font-size: 15.56px;">mysql-doc</a> <a href="/tags/networking/" style="font-size: 10px;">networking</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/packages/" style="font-size: 10px;">packages</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a> <a href="/tags/python/" style="font-size: 18.89px;">python</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/system-services/" style="font-size: 10px;">system-services</a> <a href="/tags/technology/" style="font-size: 17.78px;">technology</a> <a href="/tags/数据交换/" style="font-size: 12.22px;">数据交换</a> <a href="/tags/环境/" style="font-size: 11.11px;">环境</a> <a href="/tags/草稿/" style="font-size: 12.22px;">草稿</a>
     </div>
   </div>
 
@@ -183,23 +183,23 @@
       <ul>
         
           <li>
-            <a href="/note/life/book/technology/mysql-doc/general-information/credits/">1.9 荣誉贡献者</a>
+            <a href="/note/dev/markdown/syntax/">Markdown 语法</a>
           </li>
         
           <li>
-            <a href="/note/life/book/technology/mysql-doc/general-information/stand/"> MySQL 与 SQL标准</a>
+            <a href="/note/dev/linux/lpic-1/index/">LPIC-1 Linux 管理员</a>
           </li>
         
           <li>
-            <a href="/note/life/book/technology/mysql-doc/general-information/bugs/">1.7 如何报告错误或问题</a>
+            <a href="/note/dev/linux/lpic-1/system-services/index_system-services/">基本系统服务(Essential System Services)</a>
           </li>
         
           <li>
-            <a href="/note/dev/python/what-next/">下一步的学习建议</a>
+            <a href="/note/dev/linux/lpic-1/shell/index_shell/">Shell和Shell脚本(Shells and Shell Scripting)</a>
           </li>
         
           <li>
-            <a href="/note/dev/python/more/">更多知识</a>
+            <a href="/note/dev/linux/lpic-1/security/index_security/">安全性(Security)</a>
           </li>
         
       </ul>
