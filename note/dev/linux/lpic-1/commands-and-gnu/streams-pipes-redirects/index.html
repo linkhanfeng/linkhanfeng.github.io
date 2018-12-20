@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="字节 &amp;amp; 字节流 &amp;amp; 管道 &amp;amp; 重定向  位 (bit) 字节 (Byte) 字节与编码   字节流 (Byte stream) 流 stream 的定义 标准的 I/O 流   重定向 流(redirect Byte stream) 重定向标准输出 重定向标准输出相关的操作符 重定向标准输入 重定向标准错误 3个标准流 组合使用   管道 (pipe) 参考   回到目录">
+<meta name="keywords" content="dev,linux,lpic-1,commands-and-gnu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字节 &amp; 字节流 &amp; 管道 &amp; 重定向">
+<meta property="og:url" content="https://linkhanfeng.github.io/note/dev/linux/lpic-1/commands-and-gnu/streams-pipes-redirects/index.html">
+<meta property="og:site_name" content="韩枫的博客">
+<meta property="og:description" content="字节 &amp;amp; 字节流 &amp;amp; 管道 &amp;amp; 重定向  位 (bit) 字节 (Byte) 字节与编码   字节流 (Byte stream) 流 stream 的定义 标准的 I/O 流   重定向 流(redirect Byte stream) 重定向标准输出 重定向标准输出相关的操作符 重定向标准输入 重定向标准错误 3个标准流 组合使用   管道 (pipe) 参考   回到目录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-19T07:26:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字节 &amp; 字节流 &amp; 管道 &amp; 重定向">
+<meta name="twitter:description" content="字节 &amp;amp; 字节流 &amp;amp; 管道 &amp;amp; 重定向  位 (bit) 字节 (Byte) 字节与编码   字节流 (Byte stream) 流 stream 的定义 标准的 I/O 流   重定向 流(redirect Byte stream) 重定向标准输出 重定向标准输出相关的操作符 重定向标准输入 重定向标准错误 3个标准流 组合使用   管道 (pipe) 参考   回到目录">
+
+
+
+
+
+
+  <link rel="canonical" href="https://linkhanfeng.github.io/note/dev/linux/lpic-1/commands-and-gnu/streams-pipes-redirects/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>字节 & 字节流 & 管道 & 重定向 | 韩枫的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">韩枫的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/linux/lpic-1/commands-and-gnu/streams-pipes-redirects/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="han feng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩枫的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">字节 & 字节流 & 管道 & 重定向
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-17 18:30:53" itemprop="dateCreated datePublished" datetime="2018-12-17T18:30:53+08:00">2018-12-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-19 15:26:06" itemprop="dateModified" datetime="2018-12-19T15:26:06+08:00">2018-12-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="字节-amp-字节流-amp-管道-amp-重定向"><a href="#字节-amp-字节流-amp-管道-amp-重定向" class="headerlink" title="字节 &amp; 字节流 &amp; 管道 &amp; 重定向"></a>字节 &amp; 字节流 &amp; 管道 &amp; 重定向</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#%E4%BD%8D-bit">位 (bit)</a></li>
+<li><a href="#%E5%AD%97%E8%8A%82-byte">字节 (Byte)</a><ul>
+<li><a href="#%E5%AD%97%E8%8A%82%E4%B8%8E%E7%BC%96%E7%A0%81">字节与编码</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E8%8A%82%E6%B5%81-byte-stream">字节流 (Byte stream)</a><ul>
+<li><a href="#%E6%B5%81-stream-%E7%9A%84%E5%AE%9A%E4%B9%89"><code>流 stream</code> 的定义</a></li>
+<li><a href="#%E6%A0%87%E5%87%86%E7%9A%84-io-%E6%B5%81">标准的 I/O 流</a></li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91-%E6%B5%81redirect-byte-stream">重定向 流(redirect Byte stream)</a><ul>
+<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA">重定向标准输出</a></li>
+<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E7%9B%B8%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C%E7%AC%A6">重定向标准输出相关的操作符</a></li>
+<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5">重定向标准输入</a></li>
+<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF">重定向标准错误</a></li>
+<li><a href="#3%E4%B8%AA%E6%A0%87%E5%87%86%E6%B5%81-%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8">3个标准流 组合使用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AE%A1%E9%81%93-pipe">管道 (pipe)</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<p><a href="../index.md">回到目录</a></p>
+<p><a id="%E4%BD%8D-bit"></a></p>
+<h2 id="位-bit"><a href="#位-bit" class="headerlink" title="位 (bit)"></a>位 (bit)</h2><p><code>bit</code> 是计算机<code>存储数据</code>的基本单位或最小单位;</p>
+<p>计算机只能表示两种状态(因为计算机用高电平和低电平分别表示1和0): <code>0</code> 或 <code>1</code> (即: bit)<br>所以计算机中的所有数据都以<code>二进制序列</code>存储</p>
+<p><a id="%E5%AD%97%E8%8A%82-byte"></a></p>
+<h2 id="字节-Byte"><a href="#字节-Byte" class="headerlink" title="字节 (Byte)"></a>字节 (Byte)</h2><p>‘Byte’ 是计算机系统<code>操作数据</code>的基本单位; 或者说最小的可寻址的存储器单位<br>也就是说: 我们访问计算机最小的单位是<code>八个位构成</code>的<code>字节</code>，而不是值<code>0或值1</code>的单个<code>位</code>  </p>
+<p>为什么 <code>Unix</code> 一个字节是八位而不是4位,5位? 参考: <a href="https://blog.csdn.net/fisherming/article/details/74009052" target="_blank" rel="noopener">为什么1个字节等8位</a></p>
+<p>字节的范围: 00000000 - 11111111 (即: 十进制的 0 - 255) 共 256 种状态<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'00000000'</span>, <span class="number">2</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1111111'</span>, <span class="number">2</span>) <span class="comment">// 7位是十进制的 127</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'11111111'</span>, <span class="number">2</span>) <span class="comment">// 8位是十进制的 255</span></span><br></pre></td></tr></table></figure></p>
+<p>把一个字节的<code>256种状态</code>分别对应一个符号,就是256个符号<br>例如我们可以像下面这样规定<code>字节状态</code>和<code>符号</code>的对应关系:</p>
+<table>
+<thead>
+<tr>
+<th>字节状态</th>
+<th>表示的字符</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00000000</td>
+<td>null</td>
+<td>空字符</td>
+</tr>
+<tr>
+<td>00110000</td>
+<td>0</td>
+<td>数字0</td>
+</tr>
+<tr>
+<td>01000001</td>
+<td>A</td>
+<td>大写字母A</td>
+</tr>
+</tbody>
+</table>
+<p>这就构成了一个编码表;</p>
+<p><a id="%E5%AD%97%E8%8A%82%E4%B8%8E%E7%BC%96%E7%A0%81"></a></p>
+<h3 id="字节与编码"><a href="#字节与编码" class="headerlink" title="字节与编码"></a>字节与编码</h3><p>那么具体用哪个<code>二进制序列</code>或(字节状态) 表示哪个字符?<br>当然每个人都可以约定自己的一套（这就叫编码）<br>而大家如果要想互相通信而不造成混乱，那么大家就必须使用相同的编码规则，<br>于是美国国家标准学会 <a href="https://www.ansi.org/" target="_blank" rel="noopener">ANSI</a> American National Standards Institute 定制了美国信息交换标准代码 <a href="https://baike.baidu.com/item/ASCII/309296?fr=aladdin" target="_blank" rel="noopener">ASCII</a>编码，统一规定了常用的字符用哪些<code>二进制序列</code>来表示</p>
+<p>需要指出的是 ANSI 最初是用 <code>7bit</code> 128中状态; 只能表示美国常用的 <code>128</code> 个字符; 而西欧文字 128 个字符是不够表示的<br>所以又定义了 <a href="https://zh.wikipedia.org/wiki/EASCII" target="_blank" rel="noopener">EASCII</a> 来作为 ASCII 的扩充版本; 将ASCII码由<code>7bit</code>扩充为<code>8bit</code><br>那么中文怎么表示? 参考: <a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">ASCII, GB2312, 和 Unicode, UTF-8</a></p>
+<p><a id="%E5%AD%97%E8%8A%82%E6%B5%81-byte-stream"></a></p>
+<h2 id="字节流-Byte-stream"><a href="#字节流-Byte-stream" class="headerlink" title="字节流 (Byte stream)"></a>字节流 (Byte stream)</h2><p><a id="%E6%B5%81-stream-%E7%9A%84%E5%AE%9A%E4%B9%89"></a></p>
+<h3 id="流-stream-的定义"><a href="#流-stream-的定义" class="headerlink" title="流 stream 的定义"></a><code>流 stream</code> 的定义</h3><p>又叫做流或文本流<br>流是一个可以使用库功能读取或写入的字节序列，库功能向应用程序隐藏了底层设备的细节。<br>通过使用流，相同的程序可以使用独立于设备的方式从终端、文件或网络 socket 中读取，或向其中写入。  </p>
+<p><a id="%E6%B5%81-stream-%E7%9A%84%E8%A7%A3%E9%87%8A"></a><br><strong>解释:</strong><br>linux 中 “everything is a file” 更准确的说法是: “Everything is a stream of bytes”<br>系统运行中，数据并不是在一个文件里定居。数据会在CPU的指挥下不断地流动，就好像一个勤劳的上班族。有时数据需要到办公室上班，因此被读入到内存，有时会去酒店休假，传送到外部设备。有的时候，数据需要搬个家，转移到另一个文件。<br>在这样跑来跑去的过程中，数据像是排着队走路的人流，我们叫它文本流(text stream 或 byte stream)<br>然而，计算机不同设备之间的连接方法差异很大，从内存到文件的连接像是爬山，从内存到外设像是游过一条河。<br>为此，Unix定义了<code>流 (stream)</code>，作为连接操作系统各处的公路标准。<br>有了 <code>流</code> 的概念，无论是从内存到外设，还是从内存到文件，所有的数据公路都是相同的格式。<br>至于公路下面是石头还是土地，就都交给操作系统处理，不劳用户操心。<strong>(即: 隐藏了底层设备的细节)</strong></p>
+<p><a id="%E6%A0%87%E5%87%86%E7%9A%84-io-%E6%B5%81"></a></p>
+<h3 id="标准的-I-O-流"><a href="#标准的-I-O-流" class="headerlink" title="标准的 I/O 流"></a>标准的 I/O 流</h3><p>Linux shell（比如 Bash）接收或发送 序列和字符串 <code>流形式</code>的输入或输出。<br>每个字符都独立于与之相邻的字符。字符没有被组织成结构化记录或固定大小的块。<strong>(即: 流可以截取任意长度,可以读一点处理一点)</strong><br>不管实际的<code>流</code>来自文件、键盘、显示窗口或其他 I/O 设备，都使用<code>文件 I/O 技术标准</code>来访问流。<strong>(即: 隐藏了底层设备的细节)</strong>  </p>
+<p>现代编程环境和shell使用<code>标准 I/O 流</code>, 它由三种流组成,每种流都与一个文件描述符相关联：</p>
+<ul>
+<li>stdin<code>是标准输入流，它为命令提供输入。它的文件描述符为</code>0`</li>
+<li>stdout<code>是标准输出流，它显示来自命令的输出。它的文件描述符为</code>1`</li>
+<li>stderr<code>是标准错误流，它显示来自命令的错误输出。它的文件描述符为</code>2`</li>
+</ul>
+<p><strong>解释:</strong><br>当 <code>Unix</code> 执行一个程序的时候,会自动打开这三个流<br>比如说你打开命令行的时候,默认情况下,命令行的标准输入连接到键盘,标准输出和标准错误都连接到屏幕。<br>对于一个程序来说，尽管它总会打开这三个流，但它会根据需要使用，并不是一定要使用。</p>
+<p>举个例子来理解<code>标准I/O</code>的三种流:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls www/ a.txt</span><br><span class="line">ls: a.txt: No such file or directory</span><br><span class="line">www/:</span><br><span class="line">head.css index.html main.js</span><br></pre></td></tr></table></figure></p>
+<p>首先:键盘输入的字节流 <code>ls www/ a.txt\n</code> (“\n”是敲击回车时的输入) <strong>即:标准输入</strong><br>然后:命令行程序调用<code>/bin/ls www/</code>得到结果 <code>head.css index.html main.js</code><strong>即:标准输出</strong><br>同时:命令行程序调用<code>/bin/ls a.txt</code>得到一个错误(因为没有a.txt这个目录或文件) <code>ls: a.txt: No such file or directory</code> <strong>即:标准错误</strong><br>最后:标准输出的字节流和标准错误的字节流 都流向屏幕, 在屏幕上显示出来</p>
+<p><a id="%E9%87%8D%E5%AE%9A%E5%90%91-%E6%B5%81redirect-byte-stream"></a></p>
+<h2 id="重定向-流-redirect-Byte-stream"><a href="#重定向-流-redirect-Byte-stream" class="headerlink" title="重定向 流(redirect Byte stream)"></a>重定向 流(redirect Byte stream)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls www/</span><br><span class="line">head.css   index.html main.js</span><br></pre></td></tr></table></figure>
+<p>默认情况下 <code>命令行程序</code> 的 <code>标准输出</code>是流向屏幕的; 我们执行<code>ls</code>命令,屏幕上就会将文本流打印出来;<br><a id="%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA"></a></p>
+<h3 id="重定向标准输出"><a href="#重定向标准输出" class="headerlink" title="重定向标准输出"></a>重定向标准输出</h3><p>如果我们不想让<code>字节流</code>流到屏幕,而是流到一个文件中; 可以通过 <code>重定向</code> 机制;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls www &gt; log.txt</span><br></pre></td></tr></table></figure></p>
+<p>命令中的 <code>&gt;</code> 就是 <em>重定向标准输出</em> ;<br><code>&gt;</code> 的作用就是告诉命令行程序,我现在要改变<code>字节流</code>的方向了.我们不让它流向屏幕,而是到 <em>log.txt</em> 这个文件中<br>程序接收到我们的<code>redirect</code>指令后,会将标准输入指向 <em>log.txt</em> 这个文件;(如果文件不存在就创建,存在就覆写文件)<br>我们执行下面的命令来验证一下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">log.txt   readme.md www</span><br><span class="line">$ cat log.txt</span><br><span class="line">head.css</span><br><span class="line">index.html</span><br><span class="line">main.js</span><br></pre></td></tr></table></figure></p>
+<p><a id="%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E7%9B%B8%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C%E7%AC%A6"></a></p>
+<h3 id="重定向标准输出相关的操作符"><a href="#重定向标准输出相关的操作符" class="headerlink" title="重定向标准输出相关的操作符"></a>重定向标准输出相关的操作符</h3><ul>
+<li><code>&gt;</code> 如果文件不存在就创建,存在就覆写(覆盖文件现有内容)</li>
+<li><code>&gt;&gt;</code> 如果文件不存在就创建,存在则在文件后面追加文本流</li>
+</ul>
+<p><a id="%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5"></a></p>
+<h3 id="重定向标准输入"><a href="#重定向标准输入" class="headerlink" title="重定向标准输入"></a>重定向标准输入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat &lt; readme.md</span><br><span class="line">README 说明</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span><br></pre></td></tr></table></figure>
+<p><code>&lt;</code> 符号来改变标准输入: 比如<code>cat</code>命令,它可以从标准输入读入<code>字节流</code>,并将stream导向到标准输出;<br>上例子中,我们将cat标准输入指向 readme.md，文本会从文件流到 cat, 然后再导向到标准输出, 最后默认输出到屏幕上</p>
+<p><a id="%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF"></a></p>
+<h3 id="重定向标准错误"><a href="#重定向标准错误" class="headerlink" title="重定向标准错误"></a>重定向标准错误</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat a.txt readme.md</span><br><span class="line">cat: a.txt: No such file or directory</span><br><span class="line">README 说明</span><br><span class="line">$ cat a.txt readme.md 2&gt; log.txt</span><br><span class="line">README 说明</span><br></pre></td></tr></table></figure>
+<p>上例中: cat 默认的标准输出,和标准错误都指向屏幕; 所以第一条命令,会把 <code>stdout</code> 和 <code>stderr</code> 都在屏幕上显示;<br>而第二条命令使用 <code>2&gt;</code> 将<code>标准错误</code>重新定向到 <em>log.txt</em>; 所以屏幕上只打印了 <code>stdout</code>;</p>
+<p>因为 <code>标准错误的代码是 2</code> 所以用 <code>2&gt;</code> 来表示</p>
+<p><a id="3%E4%B8%AA%E6%A0%87%E5%87%86%E6%B5%81-%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8"></a></p>
+<h3 id="3个标准流-组合使用"><a href="#3个标准流-组合使用" class="headerlink" title="3个标准流 组合使用"></a>3个标准流 组合使用</h3><ul>
+<li><p>同时指定标准输入 和 标准输出 <code>&lt; &gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &lt; readme.md &gt; log.txt (效果: 将 readme.md 的内容复制到 log.txt)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时指定标准输出 和 标准错误 <code>&gt;&amp;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat a.txt readme.md &gt;&amp; log.txt</span><br><span class="line">$ cat log.txt</span><br><span class="line">cat: a.txt: No such file or directory (标准错误 也在 log.txt 文件中)</span><br><span class="line">README 说明 (标准输出也在 log.txt 文件中)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a id="%E7%AE%A1%E9%81%93-pipe"></a></p>
+<h2 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 (pipe)"></a>管道 (pipe)</h2><p>理解了流和重定向之后,管道的概念就易如反掌.<br>管道可以将一个命令的<code>输出</code>导向到另一个命令的<code>输入</code>,<br>从而让两个(或者更多命令)像流水线一样连续工作,不断地处理文本流.<br>在命令行中,我们用 <code>|</code> 表示管道;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &lt; a.txt | wc</span><br></pre></td></tr></table></figure>
+<p><code>wc</code> 命令(word count),用于统计文本中的行数,单词个数,和 Byte数(对于纯英文文件就是字符个数,英文一个字母等于<code>1 Byte</code>)<br>a.txt中的文本先流到cat,然后从cat的标准输出流到wc的标准输入, 从而让 <code>wc</code> 统计a.txt中的字节流</p>
+<p>Linux中的各个命令实际上高度专业化, 并尽量相互独立.每一个都只专注于一个小的功能.<br>但通过 <code>pipe</code> 我们可以将这些功能合在一起, 实现一些复杂的目的.</p>
+<p><a id="%E5%8F%82%E8%80%83"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/vamei/archive/2012/09/14/2683756.html" target="_blank" rel="noopener">Linux字节流</a> | <a href="https://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-4/" target="_blank" rel="noopener">ibm 1</a> | <a href="https://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-2/" target="_blank" rel="noopener">ibm 2</a> | <a href="https://baike.baidu.com/item/ASCII/309296?fr=aladdin" target="_blank" rel="noopener">ASCII</a> | <a href="https://zh.wikipedia.org/wiki/EASCII" target="_blank" rel="noopener">EASCII</a> | <a href="https://blog.csdn.net/fisherming/article/details/74009052" target="_blank" rel="noopener">为什么1个字节等8位</a> | <a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">ASCII, GB2312, 和 Unicode, UTF-8</a> | <a href="https://www.ansi.org/" target="_blank" rel="noopener">ANSI</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dev/" rel="tag"># dev</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/lpic-1/" rel="tag"># lpic-1</a>
+          
+            <a href="/tags/commands-and-gnu/" rel="tag"># commands-and-gnu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/note/dev/linux/lpic-1/filesystems/file-permissions/" rel="next" title="管理文件权限和所有权">
+                <i class="fa fa-chevron-left"></i> 管理文件权限和所有权
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/note/dev/linux/commands/index/" rel="prev" title="命令及分类">
+                命令及分类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">han feng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">69</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#位-bit"><span class="nav-text">位 (bit)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字节-Byte"><span class="nav-text">字节 (Byte)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字节与编码"><span class="nav-text">字节与编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字节流-Byte-stream"><span class="nav-text">字节流 (Byte stream)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流-stream-的定义"><span class="nav-text">流 stream 的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准的-I-O-流"><span class="nav-text">标准的 I/O 流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向-流-redirect-Byte-stream"><span class="nav-text">重定向 流(redirect Byte stream)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向标准输出"><span class="nav-text">重定向标准输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向标准输出相关的操作符"><span class="nav-text">重定向标准输出相关的操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向标准输入"><span class="nav-text">重定向标准输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向标准错误"><span class="nav-text">重定向标准错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3个标准流-组合使用"><span class="nav-text">3个标准流 组合使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管道-pipe"><span class="nav-text">管道 (pipe)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">han feng</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
