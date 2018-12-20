@@ -328,4 +328,21 @@ $(document).ready(function() {
 
   initSidebarDimension();
 
+  $('a').on('click', function (event) {
+    if (this.hasAttribute('href')){
+      href_ext = this.getAttribute('href')
+      cur_pathname = document.location.pathname
+      if (typeof href_ext == 'string' && (href_ext.slice(0, 2) == './' || href_ext.slice(0, 3) == '../')) {
+        event.preventDefault();
+        if (cur_pathname.length < 2) return
+        href = href_ext.slice(0, href_ext.lastIndexOf('.'))
+        if (href_ext.slice(0, 2) == './') {
+          document.location.href = './' + href
+        } else if (href_ext.slice(0, 3) == '../') {
+          document.location.href = '../' + href
+        }
+      }
+    }
+  })
+
 });
