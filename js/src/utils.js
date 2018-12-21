@@ -347,7 +347,7 @@ $(document).ready(function() {
   })
 
   // 删除多余的 一级标签和 MarkDownToc
-  (function (){
+  function delhandtoc(){
     var hide_title = document.querySelector('.post-body > h1')
     hide_title.style.display = 'none'
     try {
@@ -358,6 +358,6 @@ $(document).ready(function() {
     } catch (e) {
       console.log('Error:: 没有 toc');
     }
-  })()
-
+  }
+  delhandtoc()
 });
