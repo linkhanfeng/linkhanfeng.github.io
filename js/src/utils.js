@@ -328,6 +328,7 @@ $(document).ready(function() {
 
   initSidebarDimension();
 
+  // 修复相对链接(./ or ../) 无法正确解析的问题
   $('a').on('click', function (event) {
     if (this.hasAttribute('href')){
       href_ext = this.getAttribute('href')
@@ -337,12 +338,26 @@ $(document).ready(function() {
         if (cur_pathname.length < 2) return
         href = href_ext.slice(0, href_ext.lastIndexOf('.'))
         if (href_ext.slice(0, 2) == './') {
-          document.location.href = './' + href
+          document.location.href = '.' + href
         } else if (href_ext.slice(0, 3) == '../') {
           document.location.href = '../' + href
         }
       }
     }
   })
+
+  // 删除多余的 一级标签和 MarkDownToc
+  (function (){
+    var hide_title = document.querySelector('.post-body > h1')
+    hide_title.style.display = 'none'
+    try {
+      var pathStr = document.location.pathname
+      if (hide_title.nextSibling.data == " MarkdownTOC " && (pathStr.lastIndexOf('index/') != pathStr.length-6)) {
+        hide_title.nextElementSibling.style.display = "none"
+      }
+    } catch (e) {
+      console.log('Error:: 没有 toc');
+    }
+  })()
 
 });
