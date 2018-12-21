@@ -336,7 +336,7 @@ $(document).ready(function() {
       if (typeof href_ext == 'string' && (href_ext.slice(0, 2) == './' || href_ext.slice(0, 3) == '../')) {
         event.preventDefault();
         if (cur_pathname.length < 2) return
-        href = href_ext.slice(0, href_ext.lastIndexOf('.'))
+        href = href_ext.slice(0, href_ext.lastIndexOf('.')) + '/'
         if (href_ext.slice(0, 2) == './') {
           document.location.href = '.' + href
         } else if (href_ext.slice(0, 3) == '../') {
@@ -348,11 +348,11 @@ $(document).ready(function() {
 
   // 删除多余的 一级标签和 MarkDownToc
   function delhandtoc(){
-    var hide_title = document.querySelector('.post-body > h1')
-    hide_title.style.display = 'none'
     try {
+      var hide_title = document.querySelector('.post-body > h1')
+      hide_title.style.display = 'none'
       var pathStr = document.location.pathname
-      if (hide_title.nextSibling.data == " MarkdownTOC " && (pathStr.lastIndexOf('index/') != pathStr.length-6)) {
+      if (hide_title.nextSibling.data == " MarkdownTOC " && pathStr.substr(pathStr.length-7).indexOf('index') == -1) {
         hide_title.nextElementSibling.style.display = "none"
       }
     } catch (e) {
