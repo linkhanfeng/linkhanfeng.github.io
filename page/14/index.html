@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/about-python/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/basics/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/about-python/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/14/index.html">关于Python</a>
+                <a href="/note/dev/python/basics/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/14/index.html">基本语法</a>
               
             
           </h1>
@@ -378,12 +378,24 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:21:27 / 修改时间：15:23:54" itemprop="dateCreated datePublished" datetime="2018-12-09T15:21:27+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 15:36:40" itemprop="dateCreated datePublished" datetime="2018-12-09T15:36:40+08:00">2018-12-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-21 12:47:53" itemprop="dateModified" datetime="2018-12-21T12:47:53+08:00">2018-12-21</time>
               
             
           </span>
@@ -443,13 +455,39 @@
       
         
           
-            <h1 id="关于Python"><a href="#关于Python" class="headerlink" title="关于Python"></a>关于Python</h1><!-- MarkdownTOC -->
+            <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#%E6%B3%A8%E9%87%8A">注释</a></li>
+<li><a href="#%E6%96%87%E5%AD%97%E5%B8%B8%E9%87%8F">文字常量</a></li>
+<li><a href="#%E6%95%B0%E5%AD%97">数字</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F">变量</a></li>
+<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D">标识符命名</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1">对象</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99-python-%E7%A8%8B%E5%BA%8F%EF%BC%9F">如何编写 Python 程序？</a></li>
+<li><a href="#%E9%80%BB%E8%BE%91%E8%A1%8C%E5%92%8C%E7%89%A9%E7%90%86%E8%A1%8C">逻辑行和物理行</a></li>
+<li><a href="#%E7%BC%A9%E8%BF%9B">缩进</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
 <!-- /MarkdownTOC -->
-<p><a href="./index.md">回到目录</a></p>
+<p><a href="./index.md">回到系列教程主目录</a></p>
 <blockquote>
-<p>Python 是少数的几种既 简单 又 强大 的语言之一。<br>使用它, 你会将精力集中于问题的解决方案，而不是编程语言的语法和结构.</p>
+<p>仅仅打印输出 hello world 是不够的<br>你还想要: 通过一些输入，操作它并从中得到一些东西等<br>在本章中我们还会学习其它的一些概念</p>
 </blockquote>
-
+<p><a id="%E6%B3%A8%E9%87%8A"></a></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p><a id="%E6%96%87%E5%AD%97%E5%B8%B8%E9%87%8F"></a></p>
+<h2 id="文字常量"><a href="#文字常量" class="headerlink" title="文字常量"></a>文字常量</h2><p><a id="%E6%95%B0%E5%AD%97"></a></p>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p><a id="%E5%AD%97%E7%AC%A6%E4%B8%B2"></a></p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p><a id="%E5%8F%98%E9%87%8F"></a></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p><a id="%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D"></a></p>
+<h2 id="标识符命名"><a href="#标识符命名" class="headerlink" title="标识符命名"></a>标识符命名</h2><p><a id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"></a></p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a id="%E5%AF%B9%E8%B1%A1"></a></p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p><a id="%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99-python-%E7%A8%8B%E5%BA%8F%EF%BC%9F"></a></p>
+<h2 id="如何编写-Python-程序？"><a href="#如何编写-Python-程序？" class="headerlink" title="如何编写 Python 程序？"></a>如何编写 Python 程序？</h2><p><a id="%E9%80%BB%E8%BE%91%E8%A1%8C%E5%92%8C%E7%89%A9%E7%90%86%E8%A1%8C"></a></p>
+<h2 id="逻辑行和物理行"><a href="#逻辑行和物理行" class="headerlink" title="逻辑行和物理行"></a>逻辑行和物理行</h2><p><a id="%E7%BC%A9%E8%BF%9B"></a></p>
+<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
           
         
       
@@ -505,7 +543,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/index/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/first-steps/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -525,7 +563,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/index/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/14/index.html">Python 目录</a>
+                <a href="/note/dev/python/first-steps/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/14/index.html">第一步</a>
               
             
           </h1>
@@ -550,7 +588,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:12:36" itemprop="dateCreated datePublished" datetime="2018-12-09T15:12:36+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 15:32:23" itemprop="dateCreated datePublished" datetime="2018-12-09T15:32:23+08:00">2018-12-09</time>
             
 
             
@@ -567,7 +605,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-10 00:11:00" itemprop="dateModified" datetime="2018-12-10T00:11:00+08:00">2018-12-10</time>
+                <time title="修改时间：2018-12-21 12:47:53" itemprop="dateModified" datetime="2018-12-21T12:47:53+08:00">2018-12-21</time>
               
             
           </span>
@@ -627,176 +665,36 @@
       
         
           
-            <h1 id="Python-目录"><a href="#Python-目录" class="headerlink" title="Python 目录"></a>Python 目录</h1><!-- MarkdownTOCs -->
+            <h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="./about-python.md">关于Python</a></li>
-<li><a href="./installation.md">Python 安装</a><ul>
-<li><a href="./installation.md#%E5%9C%A8%20windows%20%E4%B8%8A%E5%AE%89%E8%A3%85">在 windows 上安装</a></li>
-<li><a href="./installation.md#%E5%9C%A8%20Mac%20OS%20X%20%E4%B8%8A%E5%AE%89%E8%A3%85">在 Mac OS X 上安装</a></li>
-<li><a href="./installation.md#%E5%9C%A8%20GNU/Linux%20%E4%B8%8A%E5%AE%89%E8%A3%85">在 GNU/Linux 上安装</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%8F%90%E7%A4%BA%E7%AC%A6">使用交互式提示符</a></li>
+<li><a href="#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%99%A8">选择一个编辑器</a></li>
+<li><a href="#pycharm">PyCharm</a></li>
+<li><a href="#vim">Vim</a></li>
+<li><a href="#emacs">Emacs</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%BA%90%E6%96%87%E4%BB%B6">使用源文件</a></li>
+<li><a href="#%E8%8E%B7%E5%BE%97%E5%B8%AE%E5%8A%A9">获得帮助</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
 </ul>
-</li>
-<li><a href="./first-steps.md">第一步</a><ul>
-<li><a href="./first-steps.md#%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%8F%90%E7%A4%BA%E7%AC%A6">使用交互式提示符</a></li>
-<li><a href="./first-steps.md#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%99%A8">选择一个编辑器</a></li>
-<li><a href="./first-steps.md#PyCharm">PyCharm</a></li>
-<li><a href="./first-steps.md#Vim">Vim</a></li>
-<li><a href="./first-steps.md#Emacs">Emacs</a></li>
-<li><a href="./first-steps.md#%E4%BD%BF%E7%94%A8%E6%BA%90%E6%96%87%E4%BB%B6">使用源文件</a></li>
-<li><a href="./first-steps.md#%E8%8E%B7%E5%BE%97%E5%B8%AE%E5%8A%A9">获得帮助</a></li>
-<li><a href="./first-steps.md#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-<li><a href="./basics.md">基本语法</a><ul>
-<li><a href="./basics.md#%E6%B3%A8%E9%87%8A">注释</a></li>
-<li><a href="./basics.md#%E6%96%87%E5%AD%97%E5%B8%B8%E9%87%8F">文字常量</a></li>
-<li><a href="./basics.md#%E6%95%B0%E5%AD%97">数字</a></li>
-<li><a href="./basics.md#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
-<li><a href="./basics.md#%E5%8F%98%E9%87%8F">变量</a></li>
-<li><a href="./basics.md#%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D">标识符命名</a></li>
-<li><a href="./basics.md#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
-<li><a href="./basics.md#%E5%AF%B9%E8%B1%A1">对象</a></li>
-<li><a href="./basics.md#%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%20Python%20%E7%A8%8B%E5%BA%8F%EF%BC%9F">如何编写 Python 程序？</a></li>
-<li><a href="./basics.md#%E9%80%BB%E8%BE%91%E8%A1%8C%E5%92%8C%E7%89%A9%E7%90%86%E8%A1%8C">逻辑行和物理行</a></li>
-<li><a href="./basics.md#%E7%BC%A9%E8%BF%9B">缩进</a></li>
-<li><a href="./basics.md#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-<li><a href="./operators-and-expressions.md">运算符与表达式</a><ul>
-<li><a href="./operators-and-expressions.md#%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a></li>
-<li><a href="./operators-and-expressions.md#%E6%95%B0%E5%AD%A6%E8%BF%90%E5%92%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E3%80%82">数学运和赋值的快捷方式。</a></li>
-<li><a href="./operators-and-expressions.md#%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">计算顺序</a></li>
-<li><a href="./operators-and-expressions.md#%E6%94%B9%E5%8F%98%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">改变计算顺序</a></li>
-<li><a href="./operators-and-expressions.md#%E5%85%B3%E8%81%94%E6%80%A7">关联性</a></li>
-<li><a href="./operators-and-expressions.md#%E8%A1%A8%E8%BE%BE%E5%BC%8F">表达式</a></li>
-<li><a href="./operators-and-expressions.md#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-<li><a href="./control-flow.md">控制流</a><ul>
-<li><a href="./control-flow.md#if%20%E8%AF%AD%E5%8F%A5">if 语句</a></li>
-<li><a href="./control-flow.md#while%20%E8%AF%AD%E5%8F%A5">while 语句</a></li>
-<li><a href="./control-flow.md#for%20%E5%BE%AA%E7%8E%AF">for 循环</a></li>
-<li><a href="./control-flow.md#break%20%E8%AF%AD%E5%8F%A5">break 语句</a></li>
-<li><a href="./control-flow.md#continue%20%E8%AF%AD%E5%8F%A5">continue 语句</a></li>
-<li><a href="./control-flow.md#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-<li><a href="./functions.md">函数</a><ul>
-<li><a href="./functions.md#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0">函数参数</a></li>
-<li><a href="./functions.md#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">局部变量</a></li>
-<li><a href="./functions.md#global%20%E8%AF%AD%E5%8F%A5">global 语句</a></li>
-<li><a href="./functions.md#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC">默认参数值</a></li>
-<li><a href="./functions.md#%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0">关键字参数</a></li>
-<li><a href="./functions.md#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可变参数</a></li>
-<li><a href="./functions.md#return%20%E8%AF%AD%E5%8F%A5">return 语句</a></li>
-<li><a href="./functions.md#%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%94%E2%80%94DocStrings">文档字符串——DocStrings</a></li>
-<li><a href="./functions.md#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-<li><a href="./modules.md">模块</a><ul>
-<li><a href="./modules.md#%E6%A8%A1%E5%9D%97">模块</a></li>
-<li><a href="./modules.md#%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%20.pyc">字节码文件 .pyc</a></li>
-<li><a href="./modules.md#from..import%20%E8%AF%AD%E5%8F%A5">from..import 语句</a></li>
-<li><a href="./modules.md#%E6%A8%A1%E5%9D%97%E7%9A%84%60__name__%60">模块的<code>__name__</code></a></li>
-<li><a href="./modules.md#%E5%88%9B%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9D%97">创建你自己的模块</a></li>
-<li><a href="./modules.md#dir%20%E5%87%BD%E6%95%B0">dir 函数</a></li>
-<li><a href="./modules.md#%E7%A8%8B%E5%BA%8F%E5%8C%85">程序包</a></li>
-<li><a href="./modules.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./data-structures.md">数据结构</a><ul>
-<li><a href="./data-structures.md#List">List</a></li>
-<li><a href="./data-structures.md#%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E7%AE%80%E4%BB%8B">对象和类的简介</a></li>
-<li><a href="./data-structures.md#%E5%85%83%E7%BB%84">元组</a></li>
-<li><a href="./data-structures.md#%E5%AD%97%E5%85%B8">字典</a></li>
-<li><a href="./data-structures.md#%E5%BA%8F%E5%88%97">序列</a></li>
-<li><a href="./data-structures.md#%E9%9B%86%E5%90%88">集合</a></li>
-<li><a href="./data-structures.md#%E5%BC%95%E7%94%A8">引用</a></li>
-<li><a href="./data-structures.md#%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C">更多的字符串操作</a></li>
-<li><a href="./data-structures.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./problem-solving.md">解决问题的思路</a><ul>
-<li><a href="./problem-solving.md#%E7%AC%AC%E4%B8%80%E6%BB%B4%E8%A1%80">第一滴血</a></li>
-<li><a href="./problem-solving.md#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
-<li><a href="./problem-solving.md#%E4%BF%AE%E6%94%B9%E7%89%88">修改版</a></li>
-<li><a href="./problem-solving.md#%E7%AC%AC%E4%B8%89%E7%89%88">第三版</a></li>
-<li><a href="./problem-solving.md#%E7%AC%AC%E5%9B%9B%E7%89%88">第四版</a></li>
-<li><a href="./problem-solving.md#%E6%9B%B4%E5%A4%9A%E6%94%B9%E8%BF%9B">更多改进</a></li>
-<li><a href="./problem-solving.md#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B">软件开发过程</a></li>
-<li><a href="./problem-solving.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./object-oriented-programming.md">面向对象编程</a><ul>
-<li><a href="./object-oriented-programming.md#%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B">面对对象编程</a></li>
-<li><a href="./object-oriented-programming.md#%E5%85%B3%E4%BA%8E%20self">关于 self</a></li>
-<li><a href="./object-oriented-programming.md#%E7%B1%BB">类</a></li>
-<li><a href="./object-oriented-programming.md#%E6%96%B9%E6%B3%95">方法</a></li>
-<li><a href="./object-oriented-programming.md#%60__init__%60%E6%96%B9%E6%B3%95%20"><code>__init__</code>方法 </a></li>
-<li><a href="./object-oriented-programming.md#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F">类和对象中的变量</a></li>
-<li><a href="./object-oriented-programming.md#%E7%BB%A7%E6%89%BF">继承</a></li>
-<li><a href="./object-oriented-programming.md#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-<li><a href="./input-and-output.md">输入与输出</a><ul>
-<li><a href="./input-and-output.md#%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5">用户输入</a></li>
-<li><a href="./input-and-output.md#%E6%96%87%E4%BB%B6">文件</a></li>
-<li><a href="./input-and-output.md#Pickle">Pickle</a></li>
-<li><a href="./input-and-output.md#Unicode">Unicode</a></li>
-<li><a href="./input-and-output.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./exceptions.md">异常</a><ul>
-<li><a href="./exceptions.md#%E9%94%99%E8%AF%AF">错误</a></li>
-<li><a href="./exceptions.md#%E5%BC%82%E5%B8%B8">异常</a></li>
-<li><a href="./exceptions.md#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8">处理异常</a></li>
-<li><a href="./exceptions.md#%E5%BC%95%E5%8F%91%E5%BC%82%E5%B8%B8">引发异常</a></li>
-<li><a href="./exceptions.md#Try%20...%20Finally">Try … Finally</a></li>
-<li><a href="./exceptions.md#with%20%E8%AF%AD%E5%8F%A5">with 语句</a></li>
-<li><a href="./exceptions.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./standard-library.md">标准库</a><ul>
-<li><a href="./standard-library.md#sys%20%E6%A8%A1%E5%9D%97">sys 模块</a></li>
-<li><a href="./standard-library.md#logging%20%E6%A8%A1%E5%9D%97">logging 模块</a></li>
-<li><a href="./standard-library.md#Module%20of%20the%20Week%20%E7%B3%BB%E5%88%97">Module of the Week 系列</a></li>
-<li><a href="./standard-library.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./more.md">更多知识</a><ul>
-<li><a href="./more.md#%E4%BC%A0%E9%80%92%E5%85%83%E7%BB%84">传递元组</a></li>
-<li><a href="./more.md#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95">魔术方法</a></li>
-<li><a href="./more.md#%E5%8D%95%E4%B8%AA%E8%AF%AD%E5%8F%A5%E5%9D%97">单个语句块</a></li>
-<li><a href="./more.md#Lambda%20%E6%A0%BC%E5%BC%8F">Lambda 格式</a></li>
-<li><a href="./more.md#%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC">列表推导</a></li>
-<li><a href="./more.md#%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E6%8E%A5%E6%94%B6%E5%85%83%E7%BB%84%E5%92%8C%E5%AD%97%E5%85%B8">在函数中接收元组和字典</a></li>
-<li><a href="./more.md#assert%20%E8%AF%AD%E5%8F%A5">assert 语句</a></li>
-<li><a href="./more.md#%E8%A3%85%E9%A5%B0%E5%99%A8">装饰器</a></li>
-<li><a href="./more.md#Python%202%20%E4%B8%8E%20Python%203%20%E7%9A%84%E4%B8%8D%E5%90%8C">Python 2 与 Python 3 的不同</a></li>
-<li><a href="./more.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
-</li>
-<li><a href="./what-next.md">下一步的学习建议</a><ul>
-<li><a href="./what-next.md#%E5%90%8E%E7%BB%AD%E9%A1%B9%E7%9B%AE">后续项目</a></li>
-<li><a href="./what-next.md#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">示例代码</a></li>
-<li><a href="./what-next.md#%E5%BB%BA%E8%AE%AE">建议</a></li>
-<li><a href="./what-next.md#%E8%A7%86%E9%A2%91">视频</a></li>
-<li><a href="./what-next.md#%E9%97%AE%E7%AD%94">问答</a></li>
-<li><a href="./what-next.md#%E6%95%99%E7%A8%8B">教程</a></li>
-<li><a href="./what-next.md#%E8%AE%A8%E8%AE%BA">讨论</a></li>
-<li><a href="./what-next.md#%E6%96%B0%E9%97%BB">新闻</a></li>
-<li><a href="./what-next.md#%E5%AE%89%E8%A3%85%E5%BA%93">安装库</a></li>
-<li><a href="./what-next.md#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99">创建一个网站</a></li>
-<li><a href="./what-next.md#%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%BD%AF%E4%BB%B6">图形化软件</a></li>
-<li><a href="./what-next.md#%E5%90%84%E7%A7%8D%E5%AE%9E%E7%8E%B0">各种实现</a></li>
-<li><a href="./what-next.md#%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E9%AB%98%E7%BA%A7%E8%AF%BB%E8%80%85%EF%BC%89">函数编程（适用于高级读者）</a></li>
-<li><a href="./what-next.md#%E5%B0%8F%E7%BB%93">小结</a></li>
-</ul>
+<!-- /MarkdownTOC -->
+<p><a href="./index.md">回到系列教程主目录</a></p>
+<ul>
+<li>‘Hello World’ 这将教你如何编写、保存和运行 Python 程序。  </li>
+<li>运行Python的两种方法:<ol>
+<li>使用交互式解释器提示符</li>
+<li>使用源文件</li>
+</ol>
 </li>
 </ul>
-<!-- /MarkdownTOCs -->
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">['about-python.md',</span> <span class="string">'关于Python'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['installation.md',</span> <span class="string">'安装'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['first-steps.md',</span> <span class="string">'第一步'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['basics.md',</span> <span class="string">'基本语法'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['operators-and-expressions.md',</span> <span class="string">'运算符与表达式'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['control-flow.md',</span> <span class="string">'控制流'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['functions.md',</span> <span class="string">'函数'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['modules.md',</span> <span class="string">'模块'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['data-structures.md',</span> <span class="string">'数据结构'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['problem-solving.md',</span> <span class="string">'解决问题的思路'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['object-oriented-programming.md',</span> <span class="string">'面向对象编程'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['input-and-output.md',</span> <span class="string">'输入与输出'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['exceptions.md',</span> <span class="string">'异常'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['standard-library.md',</span> <span class="string">'标准库'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['more.md',</span> <span class="string">'更多知识'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['what-next.md',</span> <span class="string">'下一步的学习建议'</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
-
+<p><a id="%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%8F%90%E7%A4%BA%E7%AC%A6"></a></p>
+<h2 id="使用交互式提示符"><a href="#使用交互式提示符" class="headerlink" title="使用交互式提示符"></a>使用交互式提示符</h2><p><a id="%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%99%A8"></a></p>
+<h2 id="选择一个编辑器"><a href="#选择一个编辑器" class="headerlink" title="选择一个编辑器"></a>选择一个编辑器</h2><p><a id="pycharm"></a></p>
+<h2 id="PyCharm"><a href="#PyCharm" class="headerlink" title="PyCharm"></a>PyCharm</h2><p><a id="vim"></a></p>
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><p><a id="emacs"></a></p>
+<h2 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h2><p><a id="%E4%BD%BF%E7%94%A8%E6%BA%90%E6%96%87%E4%BB%B6"></a></p>
+<h2 id="使用源文件"><a href="#使用源文件" class="headerlink" title="使用源文件"></a>使用源文件</h2><p><a id="%E8%8E%B7%E5%BE%97%E5%B8%AE%E5%8A%A9"></a></p>
+<h2 id="获得帮助"><a href="#获得帮助" class="headerlink" title="获得帮助"></a>获得帮助</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
           
         
       
@@ -852,7 +750,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/life/book/technology/mysql-doc/general-information/info/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/installation/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -872,7 +770,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/life/book/technology/mysql-doc/general-information/info/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/14/index.html">1.6 MySQL 获取帮助资源</a>
+                <a href="/note/dev/python/installation/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/14/index.html">Python 安装</a>
               
             
           </h1>
@@ -897,7 +795,7 @@
                 
               
 
-              <time title="创建时间：2018-12-07 14:37:31" itemprop="dateCreated datePublished" datetime="2018-12-07T14:37:31+08:00">2018-12-07</time>
+              <time title="创建时间：2018-12-09 15:25:49" itemprop="dateCreated datePublished" datetime="2018-12-09T15:25:49+08:00">2018-12-09</time>
             
 
             
@@ -914,7 +812,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-10 18:50:34" itemprop="dateModified" datetime="2018-12-10T18:50:34+08:00">2018-12-10</time>
+                <time title="修改时间：2018-12-21 12:47:53" itemprop="dateModified" datetime="2018-12-21T12:47:53+08:00">2018-12-21</time>
               
             
           </span>
@@ -931,28 +829,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/life/book/" itemprop="url" rel="index"><span itemprop="name">book</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/life/book/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/life/book/technology/mysql-doc/" itemprop="url" rel="index"><span itemprop="name">mysql-doc</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
                 
@@ -988,29 +872,20 @@
       
         
           
-            <h1 id="1-6-MySQL-获取帮助资源"><a href="#1-6-MySQL-获取帮助资源" class="headerlink" title="1.6 MySQL 获取帮助资源"></a>1.6 MySQL 获取帮助资源</h1><!-- MarkdownTOC -->
+            <h1 id="Python-安装"><a href="#Python-安装" class="headerlink" title="Python 安装"></a>Python 安装</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#161-mysql%E7%BD%91%E7%AB%99">1.6.1 MySQL网站</a></li>
-<li><a href="#162-mysql%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8">1.6.2 MySQL邮件列表</a></li>
-<li><a href="#163-mysql%E8%AE%BA%E5%9D%9B%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81">1.6.3 MySQL论坛的MySQL社区支持</a></li>
-<li><a href="#164-internet%E4%B8%AD%E7%BB%A7%E8%81%8A%E5%A4%A9%EF%BC%88irc%EF%BC%89%E4%B8%8A%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81">1.6.4 Internet中继聊天（IRC）上的MySQL社区支持</a></li>
-<li><a href="#165-mysql%E4%BC%81%E4%B8%9A%E7%89%88">1.6.5 MySQL企业版</a></li>
+<li><a href="#%E5%9C%A8-windows-%E4%B8%8A%E5%AE%89%E8%A3%85">在 windows 上安装</a></li>
+<li><a href="#%E5%9C%A8-mac-os-x-%E4%B8%8A%E5%AE%89%E8%A3%85">在 Mac OS X 上安装</a></li>
+<li><a href="#%E5%9C%A8-gnulinux-%E4%B8%8A%E5%AE%89%E8%A3%85">在 GNU/Linux 上安装</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a href="../index.md">回到目录</a></p>
-<blockquote>
-<p>本节列出了您可能会发现有用的其他信息的来源，例如MySQL网站，邮件列表，用户论坛和Internet中继聊天。</p>
-</blockquote>
-<p><a id="161-mysql%E7%BD%91%E7%AB%99"></a></p>
-<h2 id="1-6-1-MySQL网站"><a href="#1-6-1-MySQL网站" class="headerlink" title="1.6.1 MySQL网站"></a>1.6.1 MySQL网站</h2><p><a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener">https://dev.mysql.com/doc/</a> 提供MySQL文档</p>
-<p><a id="162-mysql%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8"></a></p>
-<h2 id="1-6-2-MySQL邮件列表"><a href="#1-6-2-MySQL邮件列表" class="headerlink" title="1.6.2 MySQL邮件列表"></a>1.6.2 MySQL邮件列表</h2><p>提供订阅功能,获取最新讨论</p>
-<p><a id="163-mysql%E8%AE%BA%E5%9D%9B%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81"></a></p>
-<h2 id="1-6-3-MySQL论坛的MySQL社区支持"><a href="#1-6-3-MySQL论坛的MySQL社区支持" class="headerlink" title="1.6.3 MySQL论坛的MySQL社区支持"></a>1.6.3 MySQL论坛的MySQL社区支持</h2><p>嗯…有中文版块,但是貌似没啥人,都是小广告.</p>
-<p><a id="164-internet%E4%B8%AD%E7%BB%A7%E8%81%8A%E5%A4%A9%EF%BC%88irc%EF%BC%89%E4%B8%8A%E7%9A%84mysql%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81"></a></p>
-<h2 id="1-6-4-Internet中继聊天（IRC）上的MySQL社区支持"><a href="#1-6-4-Internet中继聊天（IRC）上的MySQL社区支持" class="headerlink" title="1.6.4 Internet中继聊天（IRC）上的MySQL社区支持"></a>1.6.4 Internet中继聊天（IRC）上的MySQL社区支持</h2><p>嗯…貌似没啥用.</p>
-<p><a id="165-mysql%E4%BC%81%E4%B8%9A%E7%89%88"></a></p>
-<h2 id="1-6-5-MySQL企业版"><a href="#1-6-5-MySQL企业版" class="headerlink" title="1.6.5 MySQL企业版"></a>1.6.5 MySQL企业版</h2><p>嗯…企业版,提供咨询服务.</p>
+<p><a href="./index.md">回到系列教程主目录</a></p>
+<p><a id="%E5%9C%A8-windows-%E4%B8%8A%E5%AE%89%E8%A3%85"></a></p>
+<h2 id="在-windows-上安装"><a href="#在-windows-上安装" class="headerlink" title="在 windows 上安装"></a>在 windows 上安装</h2><p>从官网下载-&gt;双击-&gt;添加环境变量</p>
+<p><a id="%E5%9C%A8-mac-os-x-%E4%B8%8A%E5%AE%89%E8%A3%85"></a></p>
+<h2 id="在-Mac-OS-X-上安装"><a href="#在-Mac-OS-X-上安装" class="headerlink" title="在 Mac OS X 上安装"></a>在 Mac OS X 上安装</h2><p>使用 Homebrew</p>
+<p><a id="%E5%9C%A8-gnulinux-%E4%B8%8A%E5%AE%89%E8%A3%85"></a></p>
+<h2 id="在-GNU-Linux-上安装"><a href="#在-GNU-Linux-上安装" class="headerlink" title="在 GNU/Linux 上安装"></a>在 GNU/Linux 上安装</h2><p>对于 GNU/Linux 用户，可以使用发行版的包管理器来安装 Python 3<br>在 Debian 和 Ubuntu上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install python3</span><br><span class="line">python3 -V</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1056,7 +931,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1099,7 +974,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">69</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
