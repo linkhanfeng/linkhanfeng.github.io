@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/linux/硬链接与软链接/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/life/game/王者荣耀刷金币/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/linux/硬链接与软链接/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/22/index.html">硬链接和软链接深入理解</a>
+                <a href="/note/life/game/王者荣耀刷金币/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/22/index.html">王者荣耀刷金币脚本</a>
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2018-11-07 22:06:06" itemprop="dateCreated datePublished" datetime="2018-11-07T22:06:06+08:00">2018-11-07</time>
+              <time title="创建时间：2018-11-11 22:06:06" itemprop="dateCreated datePublished" datetime="2018-11-11T22:06:06+08:00">2018-11-11</time>
             
 
             
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-12 12:53:52" itemprop="dateModified" datetime="2018-12-12T12:53:52+08:00">2018-12-12</time>
+                <time title="修改时间：2018-12-23 08:49:50" itemprop="dateModified" datetime="2018-12-23T08:49:50+08:00">2018-12-23</time>
               
             
           </span>
@@ -412,14 +412,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/life/game/" itemprop="url" rel="index"><span itemprop="name">game</span></a></span>
 
                 
                 
@@ -455,43 +455,275 @@
       
         
           
-            <h1 id="硬链接和软链接深入理解"><a href="#硬链接和软链接深入理解" class="headerlink" title="硬链接和软链接深入理解"></a>硬链接和软链接深入理解</h1><!-- MarkdownTOC -->
+            <h1 id="王者荣耀刷金币脚本"><a href="#王者荣耀刷金币脚本" class="headerlink" title="王者荣耀刷金币脚本"></a>王者荣耀刷金币脚本</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8">硬链接和软链接的作用</a></li>
-<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5">硬链接</a></li>
-<li><a href="#%E8%BD%AF%E9%93%BE%E6%8E%A5">软链接</a></li>
-<li><a href="#%E7%9F%A5%E4%B9%8E%E4%B8%8A%E7%9A%84%E7%B2%BE%E5%BD%A9%E8%A7%A3%E9%87%8A">知乎上的精彩解释</a></li>
-<li><a href="#%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0">综上所述</a></li>
-<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
+<li><a href="#%E8%84%9A%E6%9C%AC%E5%86%85%E5%AE%B9">脚本内容</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%9C%E7%94%A8"></a></p>
-<h3 id="硬链接和软链接的作用"><a href="#硬链接和软链接的作用" class="headerlink" title="硬链接和软链接的作用"></a>硬链接和软链接的作用</h3><p>为了解决文件的共享使用,linux 引入了硬链接和软链接.参考: <a href="文件系统.md">linux 文件系统深入理解</a></p>
-<p><a id="%E7%A1%AC%E9%93%BE%E6%8E%A5"></a></p>
-<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>若一个 inode 号对应多个文件名，则称这些文件为硬链接;换言之，硬链接就是同一个文件使用了多个别名;</p>
-<p>硬链接的特性:</p>
+<p><a id="%E8%AF%B4%E6%98%8E"></a></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>根据自己的铭文数量需要适当修改时间参数.</p>
+<p><a id="%E8%84%9A%E6%9C%AC%E5%86%85%E5%AE%B9"></a></p>
+<h2 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳过时间点, 和 刷怪的总时间</span></span><br><span class="line">timePoints, boosTime = [<span class="number">41</span>,<span class="number">42</span>,<span class="number">46</span>,<span class="number">47</span>], <span class="number">50</span> <span class="comment">#2982388496 账号 伽罗 后裔 王昭君 魔女的记忆</span></span><br><span class="line"><span class="comment">#timePoints, boosTime = [50,51,58,59], 65 #小号 账号 后裔 蔡文姬 亚瑟 魔女的记忆</span></span><br><span class="line"><span class="comment"># 刷 boss 次数</span></span><br><span class="line">bossNum = <span class="number">180</span> <span class="comment"># 185</span></span><br><span class="line"><span class="comment"># 点击按钮的时间间隔 推荐 5s 左右</span></span><br><span class="line">tapTimeInterval = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#坐标点加入随机数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">naturalTap</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    xa = x + random.randint(<span class="number">-3</span>,<span class="number">3</span>)</span><br><span class="line">    ya = y + random.randint(<span class="number">-3</span>,<span class="number">3</span>)</span><br><span class="line">    os.system(<span class="string">'adb shell input tap %d %d'</span>%(xa,ya))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">repeat_game</span><span class="params">(n)</span>:</span></span><br><span class="line">    print(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>, time.localtime(time.time())))</span><br><span class="line">    print(<span class="string">'# 第 %d'</span>%(n) +<span class="string">' 次闯关'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># os.system('adb shell input tap 1480 918')</span></span><br><span class="line">    naturalTap(<span class="number">1323</span>,<span class="number">742</span>) <span class="comment">#闯关按钮, 之前可能会遇到健康时间提示需要点击一下确定</span></span><br><span class="line">    sleep(<span class="number">1</span>)</span><br><span class="line">    naturalTap(<span class="number">1480</span>,<span class="number">918</span>) <span class="comment"># 闯关按钮</span></span><br><span class="line">    print(<span class="string">'# 刷boss开始,等 %d 秒'</span>%(boosTime))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,boosTime):</span><br><span class="line">        <span class="comment">#print(i) # 时间点测试</span></span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> timePoints:</span><br><span class="line">            <span class="comment"># os.system('adb shell input tap 1721 71')</span></span><br><span class="line">            naturalTap(<span class="number">1721</span>,<span class="number">71</span>)</span><br><span class="line">        sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'# 刷boss结束, # 点击屏幕继续'</span>)</span><br><span class="line">    naturalTap(<span class="number">1096</span>,<span class="number">540</span>)</span><br><span class="line">    sleep(tapTimeInterval)</span><br><span class="line">    print(<span class="string">'# 再次挑战'</span>)</span><br><span class="line">    naturalTap(<span class="number">1581</span>,<span class="number">995</span>)</span><br><span class="line">    sleep(tapTimeInterval)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,bossNum):</span><br><span class="line">    repeat_game(i)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/sublime/sublime/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="han feng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩枫的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/note/dev/sublime/sublime/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/22/index.html">sublime 常用的优秀插件列表和介绍</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-10 22:06:06" itemprop="dateCreated datePublished" datetime="2018-11-10T22:06:06+08:00">2018-11-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-14 12:19:08" itemprop="dateModified" datetime="2018-12-14T12:19:08+08:00">2018-12-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/sublime/" itemprop="url" rel="index"><span itemprop="name">sublime</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="sublime-常用的优秀插件列表和介绍"><a href="#sublime-常用的优秀插件列表和介绍" class="headerlink" title="sublime 常用的优秀插件列表和介绍"></a>sublime 常用的优秀插件列表和介绍</h1><!-- MarkdownTOC -->
 <ul>
-<li>文件有相同的 inode 号以及 data block</li>
-<li>不能对目录进行创建; 硬链接不能对目录创建是受限于文件系统的设计<br>现 Linux 文件系统中的目录均隐藏了两个个特殊的目录：当前目录（.）与父目录（..）<br>查看这两个特殊目录的 inode 号可知其实这两目录就是两个硬链接(链接到当前目录和父目录)<br>若系统允许对目录创建硬链接，则会产生目录环.(死循环)  </li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</a></li>
+<li><a href="#%E4%BC%98%E7%A7%80%E7%9A%84%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D">优秀的插件介绍</a><ul>
+<li><a href="#material-theme">Material Theme</a></li>
+<li><a href="#acejump">AceJump</a></li>
+<li><a href="#align-arguments">Align Arguments</a></li>
+<li><a href="#autofilename">AutoFileName</a></li>
+<li><a href="#filemanager">FileManager</a></li>
+<li><a href="#packageresourceviewer">PackageResourceViewer</a></li>
+<li><a href="#markdown-%E5%AE%8C%E7%BE%8E%E6%94%AF%E6%8C%81">Markdown 完美支持</a></li>
+<li><a href="#sanesnippets">SaneSnippets</a></li>
 </ul>
-<p><a id="%E8%BD%AF%E9%93%BE%E6%8E%A5"></a></p>
-<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>若文件用户数据块中存放的内容是另一文件的路径名的指向，则该文件就是软连接。</p>
-<p>软链接类似于 window 系统中的快捷方式<br>软链接就是一个普通文件，只是数据块内容有点特殊。软链接有着自己的 inode 号以及用户数据块<br>因此软链接的创建与使用没有类似硬链接的诸多限制</p>
-<p><a id="%E7%9F%A5%E4%B9%8E%E4%B8%8A%E7%9A%84%E7%B2%BE%E5%BD%A9%E8%A7%A3%E9%87%8A"></a></p>
-<h3 id="知乎上的精彩解释"><a href="#知乎上的精彩解释" class="headerlink" title="知乎上的精彩解释"></a>知乎上的精彩解释</h3><p>硬链接就是：(hard link)<br>一面墙上有一个洞，洞里放着一个苹果。从墙的这一面看是这个苹果，从墙的另一面看还是同一个苹果。<br>硬链接就是同一块数据但有两个不同的名字，读写的时候本质上都是修改的同一块数据。<br><code>硬链接的删除</code>在删除的时候只是删除了一个名字。只有这块数据的所有名字都删除了的时候，数据才会被删除。（删除的时候相当于把墙的这一面糊上，但苹果本身不动，只有两面都糊上了，你才会看不到）</p>
-<p>软链接或符号链接就是：(soft link 或 symbolic link)<br>我声称我有一个苹果，但是当你找我要的时候，我对你说，到某个建筑物的仓库就可以拿到那个苹果了。<br>可见我并不真正拥有一个苹果，我只是拥有“某个地方有一个苹果”这个信息。但对于外部的观察者来说，这跟我实际上拥有一个苹果并无差异。<br><code>符号链接的删除</code>：假设我死了，不会影响到原始数据。假设原始数据没了，那我这个符号链接就变成了一张空头支票，也就是悬空的符号链接。</p>
-<p>Windows - 快捷方式：(shortcut) 本质上就是符号链接，只不过 Windows 的资源管理器可以直接管理这种文件。<br>Windows - junction point：可能跟符号链接的区别仅仅是能否使用相对路径。<br>windows7 以上也是支持软硬链接的: <code>mklink [[/d] | [/h] | [/j]] &lt;Link&gt; &lt;Target&gt;</code>  </p>
-<p>复制：把一个苹果变成两个苹果。链接都是为文件起别名（alias）的方式，跟复制有本质区别的。</p>
-<p><a id="%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0"></a></p>
-<h3 id="综上所述"><a href="#综上所述" class="headerlink" title="综上所述"></a>综上所述</h3><p>我认为: 文件创建链接时使用硬链接(不占用空间,修改一处其他地方肯定为修改,因为他们本质上是同一个文件)<br>创建目录时使用符号链接(只有这个选择, 硬链接不支持目录)</p>
-<p>另外: <code>mac</code>对软件创建链接用<code>符号链接</code>, 因为<code>.app</code>文件本质上是目录用命令验证一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /Applications/App\ Store.app</span><br><span class="line">drwxr-xr-x@  3 root  wheel     96 Jun 27 10:46 App Store.app</span><br></pre></td></tr></table></figure></p>
-<p><code>d</code>rwxr-xr-x 其中 <code>d</code> 字母就代表目录</p>
-<p><a id="%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"></a></p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank" rel="noopener">理解 Linux 的硬链接与软链接</a></li>
-<li><a href="https://www.zhihu.com/question/20729978/answer/28885520" target="_blank" rel="noopener">符号连接、软连接、硬连接、快捷方式、副本(copy)之间有何区别和联系</a></li>
-<li><a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc753194(v=ws.11" target="_blank" rel="noopener">Mklink | Microsoft Docs</a>)</li>
-<li><a href="https://docs.microsoft.com/zh-cn/sysinternals/downloads/junction" target="_blank" rel="noopener">Junction - Windows Sysinternals | Microsoft Docs</a></li>
+</li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E6%89%A9%E5%B1%95%E5%8C%85%E5%88%97%E8%A1%A8-%E9%AB%98%E4%BA%AE%E7%9A%84%E5%BF%85%E8%A3%85">常用扩展包列表 (高亮的必装)</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<p><a id="%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"></a></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li><p>禁用/启用一些扩展包</p>
+<p>命令 <code>disable package</code> / <code>enable package</code>, 可以临时禁用和启用一些插件</p>
+</li>
+<li><p>查看插件或编辑器中的文件</p>
+<p>命令 <code>view package file</code>, 可以用来查看插件包中的文件, 好处是可以借鉴别人写的<br>代码.如果忘记某个插件的用法,可以查看插件的 readme 文件.</p>
+</li>
+</ul>
+<p><a id="%E4%BC%98%E7%A7%80%E7%9A%84%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D"></a></p>
+<h3 id="优秀的插件介绍"><a href="#优秀的插件介绍" class="headerlink" title="优秀的插件介绍"></a>优秀的插件介绍</h3><p><a id="material-theme"></a></p>
+<h4 id="Material-Theme"><a href="#Material-Theme" class="headerlink" title="Material Theme"></a>Material Theme</h4><p>感觉最好的主题之一,可惜作者转投 atom,vsCode 了. 嗯,如果哪一天 atom 能减减肥,我也<br>很乐意投奔.毕竟 st 不开源.</p>
+<p><a id="acejump"></a></p>
+<h4 id="AceJump"><a href="#AceJump" class="headerlink" title="AceJump"></a>AceJump</h4><p>输入想要跳转的位置的单词首字母,立即就可以跳转过去. 键盘党的福音.</p>
+<p><a id="align-arguments"></a></p>
+<h4 id="Align-Arguments"><a href="#Align-Arguments" class="headerlink" title="Align Arguments"></a>Align Arguments</h4><p>对齐等号或者任意自定义的符号. 两边对齐.代码洁癖必备.</p>
+<p><a id="autofilename"></a></p>
+<h4 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h4><p>自动补全路径</p>
+<p><a id="filemanager"></a></p>
+<h4 id="FileManager"><a href="#FileManager" class="headerlink" title="FileManager"></a>FileManager</h4><p>文件管理神器, 嗯用了这个插件比 IDE 的鼠标拖动移动复制文件还爽. sublime 最强文件<br>管理之一. 可以替代 SideBarTools,SideBarEnhancements,AdvancedNewFile 等</p>
+<p>修复 open in brower 命令无法打开中文名称文件的 bug<br><code>FileManager/FMcommands/open_in_browser.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line">// 大概在 <span class="number">24</span>,后面将 path 变量 urlencode 格式化一下</span><br><span class="line">path = urllib.parse.quote(path)</span><br></pre></td></tr></table></figure></p>
+<p>修复: fm_creater 命令批量创建时新文件都会打开的问题<br><code>FileManager/FMcommands/create.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FmCreaterCommand</span><span class="params">(AppCommand)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, abspath, input_path, is_open=True)</span>:</span> <span class="comment"># 增加参数 is_open=True</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">if</span> is_open:  <span class="comment"># 增加判断 if is_open:</span></span><br><span class="line">            window = get_window()</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure></p>
+<p><a id="packageresourceviewer"></a></p>
+<h4 id="PackageResourceViewer"><a href="#PackageResourceViewer" class="headerlink" title="PackageResourceViewer"></a>PackageResourceViewer</h4><p><code>修改</code>或查看sublime安装的包;<br>使用方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PackageResourceViewer: Open Resource</span><br><span class="line">// 修改后, 如果不生效,需要重新启动 sublime; mac os 需要强制退出程序</span><br></pre></td></tr></table></figure></p>
+<p><a id="markdown-%E5%AE%8C%E7%BE%8E%E6%94%AF%E6%8C%81"></a></p>
+<h4 id="Markdown-完美支持"><a href="#Markdown-完美支持" class="headerlink" title="Markdown 完美支持"></a>Markdown 完美支持</h4><ul>
+<li><code>MarkdownEditing</code> // 编辑 markdown 支持各种代码高亮和补全</li>
+<li><code>Markdown Preview</code> // markdown 预览, 如果想热加载的话,可以安装 <code>LiveLoad</code></li>
+<li><code>MarkdownTOC</code> // 自动生成目录<br>MarkdownTOC 修要修改 <code>/Packages/MarkdownTOC/markdowntoc/autorunner.py</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 禁止 保存时自动更新 toc</span><br><span class="line">if False:</span><br><span class="line">    view.run_command(&apos;markdowntoc_update&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a id="sanesnippets"></a></p>
+<h4 id="SaneSnippets"><a href="#SaneSnippets" class="headerlink" title="SaneSnippets"></a>SaneSnippets</h4><p>嗯,更友好的 snippet 模板.对 xml 无爱.</p>
+<p><a id="%E5%B8%B8%E7%94%A8%E6%89%A9%E5%B1%95%E5%8C%85%E5%88%97%E8%A1%A8-%E9%AB%98%E4%BA%AE%E7%9A%84%E5%BF%85%E8%A3%85"></a></p>
+<h3 id="常用扩展包列表-高亮的必装"><a href="#常用扩展包列表-高亮的必装" class="headerlink" title="常用扩展包列表 (高亮的必装)"></a>常用扩展包列表 (高亮的必装)</h3><ul>
+<li><code>AceJump</code> // 代替鼠标快速跳转</li>
+<li><code>Align Arguments</code> // 等号两边对齐</li>
+<li><code>AutoFileName</code> // 自动补全文件名</li>
+<li><code>All Autocomplete</code> // 所有打开的标签页中寻找补全</li>
+<li>AutoSetSyntax // 自动切换文件的格式</li>
+<li>Blade Snippets // laravel blade 模板</li>
+<li>Bootstrap 3 Snippets // bt3 snippets</li>
+<li><code>BracketHighlighter</code> // 括号,引号这类高亮功能</li>
+<li>DeleteBlankLines // 删除空行 (key: Ctrl+Alt+Backspace)</li>
+<li><code>DocBlockr</code> // 注释 (key: /** + tab 补全)</li>
+<li><code>Emmet</code> // web 自动补全(key: tab)</li>
+<li><code>FileManager</code> // 文件管理</li>
+<li>Git // git</li>
+<li><code>HTML-CSS-JS Prettify</code> // 格式化</li>
+<li>IMESupport // win10 中文输入法支持 (安装第三方输入法需要安装此插件)</li>
+<li>Laravel Blade Highlighter // blade 模板高亮</li>
+<li>Markdown Table Formatter // 格式化 markdown Table</li>
+<li><code>MarkdownEditing</code> // 编辑 markdown 支持各种代码高亮和补全</li>
+<li><code>Markdown Preview</code> // markdown 预览 (cmd: markdown preview)</li>
+<li><code>MarkdownTOC</code> // markdown 自动添加目录 (cmd: markdowntoc)</li>
+<li><code>Material Theme</code></li>
+<li><code>PackageResourceViewer</code> // 修改或查看 包</li>
+<li><code>SaneSnippets</code> // 更友好的 snippet</li>
+<li>Package Control // 包管理</li>
+<li>Pretty JSON // json 格式化 (cmd: pretty json)</li>
+<li>Trimmer // 删除空格空行等</li>
+<li>PyV8 // emmet 依赖的扩展</li>
+<li>SFTP // ftp 插件 (cmd: sftp)</li>
+<li>Vue Syntax Highlight // vue 模板语法高亮</li>
 </ul>
 
           
@@ -549,7 +781,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/firfox/firfox插件/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/php/laravel 项目流程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -569,7 +801,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/firfox/firfox插件/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/22/index.html">火狐常用插件及配置</a>
+                <a href="/note/dev/php/laravel 项目流程/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/22/index.html">laravel5.* 基于 laradock 项目流程</a>
               
             
           </h1>
@@ -594,7 +826,7 @@
                 
               
 
-              <time title="创建时间：2018-11-06 22:06:06" itemprop="dateCreated datePublished" datetime="2018-11-06T22:06:06+08:00">2018-11-06</time>
+              <time title="创建时间：2018-11-08 22:06:06" itemprop="dateCreated datePublished" datetime="2018-11-08T22:06:06+08:00">2018-11-08</time>
             
 
             
@@ -611,7 +843,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-02 19:03:37" itemprop="dateModified" datetime="2018-12-02T19:03:37+08:00">2018-12-02</time>
+                <time title="修改时间：2018-12-20 16:39:46" itemprop="dateModified" datetime="2018-12-20T16:39:46+08:00">2018-12-20</time>
               
             
           </span>
@@ -635,7 +867,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/firfox/" itemprop="url" rel="index"><span itemprop="name">firfox</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
 
                 
                 
@@ -671,195 +903,33 @@
       
         
           
-            <h1 id="火狐常用插件及配置"><a href="#火狐常用插件及配置" class="headerlink" title="火狐常用插件及配置"></a>火狐常用插件及配置</h1><!-- MarkdownTOC -->
+            <h1 id="laravel5-基于-laradock-项目流程"><a href="#laravel5-基于-laradock-项目流程" class="headerlink" title="laravel5.* 基于 laradock 项目流程"></a>laravel5.* 基于 laradock 项目流程</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#markdown-viewer-webext">Markdown Viewer Webext</a></li>
+<li><a href="#%E6%AD%A4%E6%96%87%E6%9C%AA%E5%AE%8C%E6%88%90">此文未完成</a><ul>
+<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+</ul>
+</li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="markdown-viewer-webext"></a></p>
-<h3 id="Markdown-Viewer-Webext"><a href="#Markdown-Viewer-Webext" class="headerlink" title="Markdown Viewer Webext"></a>Markdown Viewer Webext</h3><p>使浏览器支持 markdown 文件</p>
-<p>如果乱码, 需要设置一些浏览器默认的编码方式为 utf8<br>在浏览器地址栏中输入: about:config<br>搜索 intl.charset.fallback.utf8_for_file 并将它的值改为 true</p>
-<p>添加侧边栏的toc.将下面的 css 规则添加到插件中.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.markdownRoot</span> &gt; <span class="selector-tag">h1</span> + <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: scroll;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">18%</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: .<span class="number">75rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.markdownRoot</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">20%</span>;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">200vh</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/data-interchange/yaml/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="han feng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="韩枫的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/note/dev/data-interchange/yaml/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/22/index.html">yaml</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-04 22:06:06" itemprop="dateCreated datePublished" datetime="2018-11-04T22:06:06+08:00">2018-11-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-02 19:03:09" itemprop="dateModified" datetime="2018-12-02T19:03:09+08:00">2018-12-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/数据交换/" itemprop="url" rel="index"><span itemprop="name">数据交换</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h1><p>YAML (YAML Ain’t Markup Language) (yaml 不是标记语言)</p>
-<p>参考:<br><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="noopener">YAML 语言教程</a></p>
+<p><a id="%E6%AD%A4%E6%96%87%E6%9C%AA%E5%AE%8C%E6%88%90"></a></p>
+<h2 id="此文未完成"><a href="#此文未完成" class="headerlink" title="此文未完成"></a>此文未完成</h2><p><a id="%E8%AF%B4%E6%98%8E"></a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>$</code> 为真实环境<br><code>^</code> 为 docker 环境<br>假设项目名称为 <code>blog</code></p>
+<p><a id="%E5%AE%89%E8%A3%85"></a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>设置 composer 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd laradock</span><br><span class="line">$ docker-compose up -d nginx mysql</span><br><span class="line">$ docker-compose exec workspace bash</span><br><span class="line">^ composer config -g repo.packagist composer https://packagist.laravel-china.org // 设置镜像地址</span><br><span class="line">^ composer config -gl // 查看镜像地址是否设置成功</span><br><span class="line">^ composer config -g --unset repos.packagist // 取消镜像</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过 Composer 创建项目, 并更改项目所有者为 nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^ su laradock</span><br><span class="line">^ composer create-project --prefer-dist laravel/laravel blog &quot;5.6.*&quot;</span><br><span class="line">^ chown -R www-data:www-data blog</span><br><span class="line">^ chmod -R 775 blog/storage blog/bootstrap/cache</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd laradock</span><br><span class="line">$ cp nginx/sites/laravel.conf.example blog.conf</span><br><span class="line">// 批量替换 laravel 为 blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 mysql</p>
+<pre><code>
+</code></pre></li>
+</ol>
 
           
         
@@ -905,7 +975,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -948,7 +1018,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1009,7 +1079,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1080,7 +1154,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

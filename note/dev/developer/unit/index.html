@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.staticfile.org/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="从 1Mbps 说起  binary (二进制) Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特) Byte MB 和 MiB Bit rate (比特率) 1Mbps 参考    binary (二进制) 1854年，英国数学家 乔治·布尔 创立了 布尔代数; 他提出的逻辑演算在后来的电子电路设计中起基础性作用 1937年，克劳德·香农 在 MIT 完成了">
+<meta name="keywords" content="dev,developer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 1Mbps 说起">
+<meta property="og:url" content="https://linkhanfeng.github.io/note/dev/developer/unit/index.html">
+<meta property="og:site_name" content="韩枫的博客">
+<meta property="og:description" content="从 1Mbps 说起  binary (二进制) Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特) Byte MB 和 MiB Bit rate (比特率) 1Mbps 参考    binary (二进制) 1854年，英国数学家 乔治·布尔 创立了 布尔代数; 他提出的逻辑演算在后来的电子电路设计中起基础性作用 1937年，克劳德·香农 在 MIT 完成了">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-24T14:59:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从 1Mbps 说起">
+<meta name="twitter:description" content="从 1Mbps 说起  binary (二进制) Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特) Byte MB 和 MiB Bit rate (比特率) 1Mbps 参考    binary (二进制) 1854年，英国数学家 乔治·布尔 创立了 布尔代数; 他提出的逻辑演算在后来的电子电路设计中起基础性作用 1937年，克劳德·香农 在 MIT 完成了">
+
+
+
+
+
+
+  <link rel="canonical" href="https://linkhanfeng.github.io/note/dev/developer/unit/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>从 1Mbps 说起 | 韩枫的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">韩枫的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/unit/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="han feng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩枫的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从 1Mbps 说起
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-24 20:36:36 / 修改时间：22:59:52" itemprop="dateCreated datePublished" datetime="2018-12-24T20:36:36+08:00">2018-12-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/developer/" itemprop="url" rel="index"><span itemprop="name">developer</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="从-1Mbps-说起"><a href="#从-1Mbps-说起" class="headerlink" title="从 1Mbps 说起"></a>从 1Mbps 说起</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#binary-%E4%BA%8C%E8%BF%9B%E5%88%B6"><code>binary</code> (二进制)</a></li>
+<li><a href="#bit-%7C-binary-digit-%E7%9A%84%E7%BC%A9%E5%86%99-%E7%9B%B4%E8%AF%91%E4%B8%BA-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97-%E9%9F%B3%E8%AF%91%E4%B8%BA-%E6%AF%94%E7%89%B9"><code>Bit | Binary digit 的缩写</code> (直译为: 二进制数字; 音译为: 比特)</a></li>
+<li><a href="#byte">Byte</a></li>
+<li><a href="#mb-%E5%92%8C-mib">MB 和 MiB</a></li>
+<li><a href="#bit-rate-%E6%AF%94%E7%89%B9%E7%8E%87">Bit rate (比特率)</a></li>
+<li><a href="#1mbps">1Mbps</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<p><a id="binary-%E4%BA%8C%E8%BF%9B%E5%88%B6"></a></p>
+<h2 id="binary-二进制"><a href="#binary-二进制" class="headerlink" title="binary (二进制)"></a><code>binary</code> (二进制)</h2><ol>
+<li>1854年，英国数学家 <code>乔治·布尔</code> 创立了 <code>布尔代数</code>; 他提出的逻辑演算在后来的电子电路设计中起基础性作用</li>
+<li>1937年，<code>克劳德·香农</code> 在 MIT 完成了其硕士论文; 成为现代数字电路的理论基础; 论文题为《继电器与开关电路的符号分析》</li>
+</ol>
+<p>二进制是一种记数系统; 这一系统中,通常用两个不同的符号 <code>0</code> 和 <code>1</code> 来表示;</p>
+<p><a id="bit-%7C-binary-digit-%E7%9A%84%E7%BC%A9%E5%86%99-%E7%9B%B4%E8%AF%91%E4%B8%BA-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97-%E9%9F%B3%E8%AF%91%E4%B8%BA-%E6%AF%94%E7%89%B9"></a></p>
+<h2 id="Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特"><a href="#Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特" class="headerlink" title="Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特)"></a><code>Bit | Binary digit 的缩写</code> (直译为: 二进制数字; 音译为: 比特)</h2><p>通常缩写成 <code>b</code> (小写);  </p>
+<p>数字电子电路中, <code>逻辑门</code> 的实现直接应用了二进制.<br>因此现代的计算机和依赖计算机的设备里都用到二进制; 每个数字称为一个 <code>Bit</code> (Binary digit 的缩写) </p>
+<p><a id="byte"></a></p>
+<h2 id="Byte"><a href="#Byte" class="headerlink" title="Byte"></a>Byte</h2><p>通常缩写成 <code>B</code> (大写);<br><code>Byte</code> 表示用于<code>编码单个字符</code>所需要的 <code>Bit</code> 数量;</p>
+<p>历史上字节长度曾基于硬件为 1-48 Bit 不等, 最初通常使用 <em>6 Bit</em> 或 <em>9 Bit</em> 为一字节.<br>今日事实标准以 <code>8 Bit</code> 作为一字节,因8为二进制整数</p>
+<p>it is the smallest addressable unit of memory in many computer architectures; (即:我们可操作的最小单位)</p>
+<p><a id="mb-%E5%92%8C-mib"></a></p>
+<h2 id="MB-和-MiB"><a href="#MB-和-MiB" class="headerlink" title="MB 和 MiB"></a>MB 和 MiB</h2><p>MB<br>(Megabyte) (Mega 表示”兆”) 这里的 “兆” 是 1百万; 而不是 <a href="https://baike.baidu.com/item/%E8%AE%A1%E6%95%B0%E5%8D%95%E4%BD%8D/9836030?fr=aladdin" target="_blank" rel="noopener">计数单位</a> 中, <code>亿</code>之后的单位<br>1MB 的容量大小为: 1,000,000 Byte  一百万字节<br>换算关系为 1000; 1MB = 1000KB; 1KB = 1000比特</p>
+<p>MiB (Mebibyte) (Mebi 表示 2的20次方)<br>1MiB 的容量大小为: 1,048,576 Byte  一百万零四万八千五百七十六 字节<br>换算关系为 1024; 即 <code>2的10次方</code></p>
+<p><a id="bit-rate-%E6%AF%94%E7%89%B9%E7%8E%87"></a></p>
+<h2 id="Bit-rate-比特率"><a href="#Bit-rate-比特率" class="headerlink" title="Bit rate (比特率)"></a>Bit rate (比特率)</h2><p>是单位时间内传输或处理的比特的数量; 当表示<code>传输</code>的时候和 <code>带宽</code> 是同义词</p>
+<p>经常和国际单位制词头关联在一起，如 <code>千</code>(Kbit/s或Kbps) <code>兆</code>(Mbit/s或Mbps)</p>
+<p><a id="1mbps"></a></p>
+<h2 id="1Mbps"><a href="#1Mbps" class="headerlink" title="1Mbps"></a>1Mbps</h2><p>Mbps 中 <code>ps</code> (per second 的缩写, 每秒的意思)<br><strong>注意:</strong> 此单位的字母 <code>b</code> ,是 <code>小写</code> 的; 代表 <code>比特</code>; 而不是我们通常理解的 <code>字节</code><br>也就是说: 移动联通的 “100M” 与我们正常理解的 <code>100MiB</code> 缩水了 <strong>8.39 倍</strong><br>100Mbps = 100<em>1000</em>1000 bit 每秒<br>100MiB/s = 100<em>1024</em>1024*8 bit 每秒</p>
+<p><a id="%E5%8F%82%E8%80%83"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6" target="_blank" rel="noopener">二进制 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83" target="_blank" rel="noopener">比特 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82" target="_blank" rel="noopener">字节 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/Mebibyte" target="_blank" rel="noopener">Mebibyte - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E6%AF%94%E7%89%B9%E7%8E%87" target="_blank" rel="noopener">比特率 - 维基百科</a> | <a href="https://baike.baidu.com/item/%E8%AE%A1%E6%95%B0%E5%8D%95%E4%BD%8D/9836030?fr=aladdin" target="_blank" rel="noopener">计数单位</a> | <a href="http://service.bj.10086.cn/bjyd/web/support/xieyi/yxxy.html" target="_blank" rel="noopener">家庭有线宽带业务服务协议 - 中国移动官方网站</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dev/" rel="tag"># dev</a>
+          
+            <a href="/tags/developer/" rel="tag"># developer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/note/dev/js/features/conversion/" rel="next" title="数据类型的转换">
+                <i class="fa fa-chevron-left"></i> 数据类型的转换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">han feng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#binary-二进制"><span class="nav-text">binary (二进制)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特"><span class="nav-text">Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Byte"><span class="nav-text">Byte</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MB-和-MiB"><span class="nav-text">MB 和 MiB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-rate-比特率"><span class="nav-text">Bit rate (比特率)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1Mbps"><span class="nav-text">1Mbps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">han feng</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

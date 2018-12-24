@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/functions/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/object-oriented-programming/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/functions/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/13/index.html">函数</a>
+                <a href="/note/dev/python/object-oriented-programming/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/13/index.html">面向对象编程</a>
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:54:43" itemprop="dateCreated datePublished" datetime="2018-12-09T15:54:43+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 16:09:26" itemprop="dateCreated datePublished" datetime="2018-12-09T16:09:26+08:00">2018-12-09</time>
             
 
             
@@ -455,32 +455,30 @@
       
         
           
-            <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><!-- MarkdownTOC -->
+            <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0">函数参数</a></li>
-<li><a href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">局部变量</a></li>
-<li><a href="#global-%E8%AF%AD%E5%8F%A5">global 语句</a></li>
-<li><a href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC">默认参数值</a></li>
-<li><a href="#%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0">关键字参数</a></li>
-<li><a href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可变参数</a></li>
-<li><a href="#return-%E8%AF%AD%E5%8F%A5">return 语句</a></li>
-<li><a href="#%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%94%E2%80%94docstrings">文档字符串——DocStrings</a></li>
+<li><a href="#%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B">面对对象编程</a></li>
+<li><a href="#%E5%85%B3%E4%BA%8E-self">关于 self</a></li>
+<li><a href="#%E7%B1%BB">类</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a></li>
+<li><a href="#__init__%E6%96%B9%E6%B3%95"><code>__init__</code>方法</a></li>
+<li><a href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F">类和对象中的变量</a></li>
+<li><a href="#%E7%BB%A7%E6%89%BF">继承</a></li>
 <li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
-<blockquote>
-<p>函数是程序中可以复用的部件。<br>函数允许你为一个语句块取一个特定名字；通过使用这个特定的名字，来调用这个语句块</p>
-</blockquote>
-<p><a id="%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"></a></p>
-<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p><a id="%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"></a></p>
-<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><p><a id="global-%E8%AF%AD%E5%8F%A5"></a></p>
-<h2 id="global-语句"><a href="#global-语句" class="headerlink" title="global 语句"></a>global 语句</h2><p><a id="%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC"></a></p>
-<h2 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h2><p><a id="%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0"></a></p>
-<h2 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h2><p><a id="%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"></a></p>
-<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><p><a id="return-%E8%AF%AD%E5%8F%A5"></a></p>
-<h2 id="return-语句"><a href="#return-语句" class="headerlink" title="return 语句"></a>return 语句</h2><p><a id="%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%94%E2%80%94docstrings"></a></p>
-<h2 id="文档字符串——DocStrings"><a href="#文档字符串——DocStrings" class="headerlink" title="文档字符串——DocStrings"></a>文档字符串——DocStrings</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
+<p><a id="%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"></a></p>
+<h2 id="面对对象编程"><a href="#面对对象编程" class="headerlink" title="面对对象编程"></a>面对对象编程</h2><p>直到目前为止，我们已经使用函数、块语句来操作我们的数据。这叫做 面向过程 的方式进行编程。<br>然而还有另外一种方式来组织你的程序：把数据和函数结合起来，并将其置入一种叫做对象的东西。<br>这就叫做 面向对象 编程范式。</p>
+<p>在大多数情况下，你可以使用面向过程的编程<br>但是当写大型程序或者遇到了一些更加适合这种方法的时候，你可以使用基于对象的编程技术。</p>
+<p>类和对象是面向对象编程的两个主要概念。<br>一个类创造了一种新的 类型 ，而对象就是类的实例。</p>
+<p><a id="%E5%85%B3%E4%BA%8E-self"></a></p>
+<h2 id="关于-self"><a href="#关于-self" class="headerlink" title="关于 self"></a>关于 self</h2><p><a id="%E7%B1%BB"></a></p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><a id="%E6%96%B9%E6%B3%95"></a></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><a id="__init__%E6%96%B9%E6%B3%95"></a></p>
+<h2 id="init-方法"><a href="#init-方法" class="headerlink" title="__init__方法"></a><code>__init__</code>方法</h2><p><a id="%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F"></a></p>
+<h2 id="类和对象中的变量"><a href="#类和对象中的变量" class="headerlink" title="类和对象中的变量"></a>类和对象中的变量</h2><p><a id="%E7%BB%A7%E6%89%BF"></a></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
           
         
@@ -537,7 +535,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/control-flow/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/problem-solving/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -557,7 +555,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/control-flow/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/13/index.html">控制流</a>
+                <a href="/note/dev/python/problem-solving/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/13/index.html">解决问题的思路</a>
               
             
           </h1>
@@ -582,7 +580,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:50:51" itemprop="dateCreated datePublished" datetime="2018-12-09T15:50:51+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 16:06:42" itemprop="dateCreated datePublished" datetime="2018-12-09T16:06:42+08:00">2018-12-09</time>
             
 
             
@@ -659,27 +657,31 @@
       
         
           
-            <h1 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h1><!-- MarkdownTOC -->
+            <h1 id="解决问题的思路"><a href="#解决问题的思路" class="headerlink" title="解决问题的思路"></a>解决问题的思路</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#if-%E8%AF%AD%E5%8F%A5">if 语句</a></li>
-<li><a href="#while-%E8%AF%AD%E5%8F%A5">while 语句</a></li>
-<li><a href="#for-%E5%BE%AA%E7%8E%AF">for 循环</a></li>
-<li><a href="#break-%E8%AF%AD%E5%8F%A5">break 语句</a></li>
-<li><a href="#continue-%E8%AF%AD%E5%8F%A5">continue 语句</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%BB%B4%E8%A1%80">第一滴血</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%89%88">修改版</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%89%88">第三版</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%89%88">第四版</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E6%94%B9%E8%BF%9B">更多改进</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B">软件开发过程</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
 <blockquote>
-<p>Python 以自上而下的顺序执行<br>如果你想改变它的执行流程,需要使用控制流语句</p>
+<p>我们已经探索了 Python 的多个部分，从现在开始我们要着眼于把它们糅合在一起工作<br>我们要用它们来设计并且写出可以很好的解决某些事的程序。<br>也就是我们要学习如何以你自己的方式写 Python。</p>
 </blockquote>
-<p><a id="if-%E8%AF%AD%E5%8F%A5"></a></p>
-<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p><a id="while-%E8%AF%AD%E5%8F%A5"></a></p>
-<h2 id="while-语句"><a href="#while-语句" class="headerlink" title="while 语句"></a>while 语句</h2><p><a id="for-%E5%BE%AA%E7%8E%AF"></a></p>
-<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p><a id="break-%E8%AF%AD%E5%8F%A5"></a></p>
-<h2 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h2><p><a id="continue-%E8%AF%AD%E5%8F%A5"></a></p>
-<h2 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<p><a id="%E7%AC%AC%E4%B8%80%E6%BB%B4%E8%A1%80"></a></p>
+<h2 id="第一滴血"><a href="#第一滴血" class="headerlink" title="第一滴血"></a>第一滴血</h2><p><a id="%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"></a></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><a id="%E4%BF%AE%E6%94%B9%E7%89%88"></a></p>
+<h2 id="修改版"><a href="#修改版" class="headerlink" title="修改版"></a>修改版</h2><p><a id="%E7%AC%AC%E4%B8%89%E7%89%88"></a></p>
+<h2 id="第三版"><a href="#第三版" class="headerlink" title="第三版"></a>第三版</h2><p><a id="%E7%AC%AC%E5%9B%9B%E7%89%88"></a></p>
+<h2 id="第四版"><a href="#第四版" class="headerlink" title="第四版"></a>第四版</h2><p><a id="%E6%9B%B4%E5%A4%9A%E6%94%B9%E8%BF%9B"></a></p>
+<h2 id="更多改进"><a href="#更多改进" class="headerlink" title="更多改进"></a>更多改进</h2><p><a id="%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B"></a></p>
+<h2 id="软件开发过程"><a href="#软件开发过程" class="headerlink" title="软件开发过程"></a>软件开发过程</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
           
         
       
@@ -735,7 +737,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/operators-and-expressions/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/data-structures/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -755,7 +757,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/operators-and-expressions/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/13/index.html">运算符与表达式</a>
+                <a href="/note/dev/python/data-structures/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/13/index.html">数据结构</a>
               
             
           </h1>
@@ -780,7 +782,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:41:20" itemprop="dateCreated datePublished" datetime="2018-12-09T15:41:20+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 16:03:43" itemprop="dateCreated datePublished" datetime="2018-12-09T16:03:43+08:00">2018-12-09</time>
             
 
             
@@ -857,29 +859,33 @@
       
         
           
-            <h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><!-- MarkdownTOC -->
+            <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a></li>
-<li><a href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E5%92%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E3%80%82">数学运和赋值的快捷方式。</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">计算顺序</a></li>
-<li><a href="#%E6%94%B9%E5%8F%98%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">改变计算顺序</a></li>
-<li><a href="#%E5%85%B3%E8%81%94%E6%80%A7">关联性</a></li>
-<li><a href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F">表达式</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#list">List</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E7%AE%80%E4%BB%8B">对象和类的简介</a></li>
+<li><a href="#%E5%85%83%E7%BB%84">元组</a></li>
+<li><a href="#%E5%AD%97%E5%85%B8">字典</a></li>
+<li><a href="#%E5%BA%8F%E5%88%97">序列</a></li>
+<li><a href="#%E9%9B%86%E5%90%88">集合</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C">更多的字符串操作</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
 <blockquote>
-<p>表达式由运算符与操作数构成。例如: <code>2 + 3</code><br><code>+</code> 是运算符: 对相关数据(即操作数)进行运算<br><code>2</code>和<code>3</code>是操作数;<br>表达式,为了得到返回值的语句</p>
+<p>数据结构是: 存储相关数据的集合<br>四种内置的数据结构: list, tuple, dictionary, set</p>
 </blockquote>
-<p><a id="%E8%BF%90%E7%AE%97%E7%AC%A6"></a></p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><a id="%E6%95%B0%E5%AD%A6%E8%BF%90%E5%92%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E3%80%82"></a></p>
-<h2 id="数学运和赋值的快捷方式。"><a href="#数学运和赋值的快捷方式。" class="headerlink" title="数学运和赋值的快捷方式。"></a>数学运和赋值的快捷方式。</h2><p><a id="%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F"></a></p>
-<h2 id="计算顺序"><a href="#计算顺序" class="headerlink" title="计算顺序"></a>计算顺序</h2><p><a id="%E6%94%B9%E5%8F%98%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F"></a></p>
-<h2 id="改变计算顺序"><a href="#改变计算顺序" class="headerlink" title="改变计算顺序"></a>改变计算顺序</h2><p><a id="%E5%85%B3%E8%81%94%E6%80%A7"></a></p>
-<h2 id="关联性"><a href="#关联性" class="headerlink" title="关联性"></a>关联性</h2><p><a id="%E8%A1%A8%E8%BE%BE%E5%BC%8F"></a></p>
-<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<p><a id="list"></a></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p><a id="%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E7%AE%80%E4%BB%8B"></a></p>
+<h2 id="对象和类的简介"><a href="#对象和类的简介" class="headerlink" title="对象和类的简介"></a>对象和类的简介</h2><p><a id="%E5%85%83%E7%BB%84"></a></p>
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p><a id="%E5%AD%97%E5%85%B8"></a></p>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p><a id="%E5%BA%8F%E5%88%97"></a></p>
+<h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><p><a id="%E9%9B%86%E5%90%88"></a></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p><a id="%E5%BC%95%E7%94%A8"></a></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a id="%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"></a></p>
+<h2 id="更多的字符串操作"><a href="#更多的字符串操作" class="headerlink" title="更多的字符串操作"></a>更多的字符串操作</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
           
         
       
@@ -924,7 +930,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -967,7 +973,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1028,7 +1034,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1099,7 +1109,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

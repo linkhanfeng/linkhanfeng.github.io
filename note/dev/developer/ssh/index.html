@@ -111,14 +111,14 @@
 
 
   <meta name="description" content="SSH 通讯  安装 ssh 超时连接中断    安装 首先用密码登陆到你打算使用密钥登陆的用户(假设服务器的用户名为: 小红帽), 然后创建密钥对 1ssh-keygen -t rsa -b 4096 -C &amp;quot;xiaohongmao@gmail.com&amp;quot; 执行上面的命令后,在 ~/.ssh/ 目录下会生成小红帽的 私钥 id_rsa 和公钥 id_rsa.pub  在服务器上">
-<meta name="keywords" content="dev,developer">
+<meta name="keywords" content="server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH 通讯">
 <meta property="og:url" content="https://linkhanfeng.github.io/note/dev/developer/ssh/index.html">
 <meta property="og:site_name" content="韩枫的博客">
 <meta property="og:description" content="SSH 通讯  安装 ssh 超时连接中断    安装 首先用密码登陆到你打算使用密钥登陆的用户(假设服务器的用户名为: 小红帽), 然后创建密钥对 1ssh-keygen -t rsa -b 4096 -C &amp;quot;xiaohongmao@gmail.com&amp;quot; 执行上面的命令后,在 ~/.ssh/ 目录下会生成小红帽的 私钥 id_rsa 和公钥 id_rsa.pub  在服务器上">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-21T11:43:23.000Z">
+<meta property="og:updated_time" content="2018-12-24T15:58:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH 通讯">
 <meta name="twitter:description" content="SSH 通讯  安装 ssh 超时连接中断    安装 首先用密码登陆到你打算使用密钥登陆的用户(假设服务器的用户名为: 小红帽), 然后创建密钥对 1ssh-keygen -t rsa -b 4096 -C &amp;quot;xiaohongmao@gmail.com&amp;quot; 执行上面的命令后,在 ~/.ssh/ 目录下会生成小红帽的 私钥 id_rsa 和公钥 id_rsa.pub  在服务器上">
@@ -379,12 +379,24 @@
                 
               
 
-              <time title="创建时间：2018-12-21 19:29:39 / 修改时间：19:43:23" itemprop="dateCreated datePublished" datetime="2018-12-21T19:29:39+08:00">2018-12-21</time>
+              <time title="创建时间：2018-12-21 19:29:39" itemprop="dateCreated datePublished" datetime="2018-12-21T19:29:39+08:00">2018-12-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-24 23:58:20" itemprop="dateModified" datetime="2018-12-24T23:58:20+08:00">2018-12-24</time>
               
             
           </span>
@@ -474,7 +486,7 @@
 </li>
 </ol>
 <p><a id="ssh-%E8%B6%85%E6%97%B6%E8%BF%9E%E6%8E%A5%E4%B8%AD%E6%96%AD"></a></p>
-<h2 id="ssh-超时连接中断"><a href="#ssh-超时连接中断" class="headerlink" title="ssh 超时连接中断"></a>ssh 超时连接中断</h2><p>可以从客户端和服务器设置定时发送心跳解决, 推荐修改客户端<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">subl /etc/ssh/ssh_config // 客户端</span><br><span class="line">ServerAliveInterval 60 // 每隔 60 秒向服务器发送一个空包,表示我还活着.不要关闭链接</span><br></pre></td></tr></table></figure></p>
+<h2 id="ssh-超时连接中断"><a href="#ssh-超时连接中断" class="headerlink" title="ssh 超时连接中断"></a>ssh 超时连接中断</h2><p>可以从客户端和服务器设置定时发送心跳解决, 推荐修改客户端<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">subl ~<span class="regexp">/.ssh/</span>config <span class="comment">// 如果不可以 可以修改 subl /etc/ssh/ssh_config</span></span><br><span class="line">ServerAliveInterval <span class="number">60</span> <span class="comment">// 每隔 60 秒向服务器发送一个空包,表示我还活着.不要关闭链接</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -498,9 +510,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dev/" rel="tag"># dev</a>
-          
-            <a href="/tags/developer/" rel="tag"># developer</a>
+            <a href="/tags/server/" rel="tag"># server</a>
           
         </div>
       
@@ -522,6 +532,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/note/dev/js/index/" rel="prev" title="index">
+                index <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -591,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -652,7 +666,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -723,7 +741,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

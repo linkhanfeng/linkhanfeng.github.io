@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/ssh/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/unit/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/developer/ssh/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">SSH 通讯</a>
+                <a href="/note/dev/developer/unit/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">从 1Mbps 说起</a>
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2018-12-21 19:29:39 / 修改时间：19:43:23" itemprop="dateCreated datePublished" datetime="2018-12-21T19:29:39+08:00">2018-12-21</time>
+              <time title="创建时间：2018-12-24 20:36:36 / 修改时间：22:59:52" itemprop="dateCreated datePublished" datetime="2018-12-24T20:36:36+08:00">2018-12-24</time>
             
 
             
@@ -443,39 +443,40 @@
       
         
           
-            <h1 id="SSH-通讯"><a href="#SSH-通讯" class="headerlink" title="SSH 通讯"></a>SSH 通讯</h1><!-- MarkdownTOC -->
+            <h1 id="从-1Mbps-说起"><a href="#从-1Mbps-说起" class="headerlink" title="从 1Mbps 说起"></a>从 1Mbps 说起</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
-<li><a href="#ssh-%E8%B6%85%E6%97%B6%E8%BF%9E%E6%8E%A5%E4%B8%AD%E6%96%AD">ssh 超时连接中断</a></li>
+<li><a href="#binary-%E4%BA%8C%E8%BF%9B%E5%88%B6"><code>binary</code> (二进制)</a></li>
+<li><a href="#bit-%7C-binary-digit-%E7%9A%84%E7%BC%A9%E5%86%99-%E7%9B%B4%E8%AF%91%E4%B8%BA-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97-%E9%9F%B3%E8%AF%91%E4%B8%BA-%E6%AF%94%E7%89%B9"><code>Bit | Binary digit 的缩写</code> (直译为: 二进制数字; 音译为: 比特)</a></li>
+<li><a href="#byte">Byte</a></li>
+<li><a href="#mb-%E5%92%8C-mib">MB 和 MiB</a></li>
+<li><a href="#bit-rate-%E6%AF%94%E7%89%B9%E7%8E%87">Bit rate (比特率)</a></li>
+<li><a href="#1mbps">1Mbps</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="%E5%AE%89%E8%A3%85"></a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li><p>首先用密码登陆到你打算使用密钥登陆的用户(假设服务器的用户名为: 小红帽), 然后创建密钥对</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;xiaohongmao@gmail.com&quot;</span><br></pre></td></tr></table></figure>
-<p>执行上面的命令后,在 ~/.ssh/ 目录下会生成小红帽的 私钥 id_rsa 和公钥 id_rsa.pub</p>
-</li>
-<li><p>在服务器上批准使用小红帽的公钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd .ssh</span><br><span class="line">touch authorized_keys</span><br><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br><span class="line">// 确保文件权限如下</span><br><span class="line">chmod 700 ../.ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置 SSH, 打开密钥登录功能 (需要 root 权限)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line">确保 PubkeyAuthentication 不为 no,</span><br><span class="line">PermitRootLogin 是否允许 root 用户登陆</span><br><span class="line">PasswordAuthentication 是否允许密码登陆, 当你完成密钥方式登陆后,再禁用密码登陆</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>必须重启 ssh 服务,使配置生效.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service sshd restart</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制或者下载小红帽的私钥到客户端, 使用它登陆服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 path/to/id_rsa</span><br><span class="line">ssh -i 小红帽的私钥路径 小红帽@服务器IP</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后使用小红帽的私钥登陆服务器, 可以删除小红帽在服务器上的公钥和私钥确保安全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config // PasswordAuthentication yes 改为 no</span><br><span class="line">sudo service sshd restart</span><br><span class="line">rm -fr .ssh/id_rsa*</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后也可以将大灰狼等管理员的公钥, 在服务器上批准使用(重复步骤2), 则可以实现大灰狼不需要小红帽的私钥,用自己的私钥登陆服务器.参考 <a href="#centos7-git">centos7 搭建 git 服务器</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将大灰狼的公钥复制到 服务器 ~/.ssh/authorized_keys 文件中, 一行一个.</span><br><span class="line">ssh 小红帽@服务器IP</span><br></pre></td></tr></table></figure>
-</li>
+<p><a id="binary-%E4%BA%8C%E8%BF%9B%E5%88%B6"></a></p>
+<h2 id="binary-二进制"><a href="#binary-二进制" class="headerlink" title="binary (二进制)"></a><code>binary</code> (二进制)</h2><ol>
+<li>1854年，英国数学家 <code>乔治·布尔</code> 创立了 <code>布尔代数</code>; 他提出的逻辑演算在后来的电子电路设计中起基础性作用</li>
+<li>1937年，<code>克劳德·香农</code> 在 MIT 完成了其硕士论文; 成为现代数字电路的理论基础; 论文题为《继电器与开关电路的符号分析》</li>
 </ol>
-<p><a id="ssh-%E8%B6%85%E6%97%B6%E8%BF%9E%E6%8E%A5%E4%B8%AD%E6%96%AD"></a></p>
-<h2 id="ssh-超时连接中断"><a href="#ssh-超时连接中断" class="headerlink" title="ssh 超时连接中断"></a>ssh 超时连接中断</h2><p>可以从客户端和服务器设置定时发送心跳解决, 推荐修改客户端<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">subl /etc/ssh/ssh_config // 客户端</span><br><span class="line">ServerAliveInterval 60 // 每隔 60 秒向服务器发送一个空包,表示我还活着.不要关闭链接</span><br></pre></td></tr></table></figure></p>
+<p>二进制是一种记数系统; 这一系统中,通常用两个不同的符号 <code>0</code> 和 <code>1</code> 来表示;</p>
+<p><a id="bit-%7C-binary-digit-%E7%9A%84%E7%BC%A9%E5%86%99-%E7%9B%B4%E8%AF%91%E4%B8%BA-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97-%E9%9F%B3%E8%AF%91%E4%B8%BA-%E6%AF%94%E7%89%B9"></a></p>
+<h2 id="Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特"><a href="#Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特" class="headerlink" title="Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特)"></a><code>Bit | Binary digit 的缩写</code> (直译为: 二进制数字; 音译为: 比特)</h2><p>通常缩写成 <code>b</code> (小写);  </p>
+<p>数字电子电路中, <code>逻辑门</code> 的实现直接应用了二进制.<br>因此现代的计算机和依赖计算机的设备里都用到二进制; 每个数字称为一个 <code>Bit</code> (Binary digit 的缩写) </p>
+<p><a id="byte"></a></p>
+<h2 id="Byte"><a href="#Byte" class="headerlink" title="Byte"></a>Byte</h2><p>通常缩写成 <code>B</code> (大写);<br><code>Byte</code> 表示用于<code>编码单个字符</code>所需要的 <code>Bit</code> 数量;</p>
+<p>历史上字节长度曾基于硬件为 1-48 Bit 不等, 最初通常使用 <em>6 Bit</em> 或 <em>9 Bit</em> 为一字节.<br>今日事实标准以 <code>8 Bit</code> 作为一字节,因8为二进制整数</p>
+<p>it is the smallest addressable unit of memory in many computer architectures; (即:我们可操作的最小单位)</p>
+<p><a id="mb-%E5%92%8C-mib"></a></p>
+<h2 id="MB-和-MiB"><a href="#MB-和-MiB" class="headerlink" title="MB 和 MiB"></a>MB 和 MiB</h2><p>MB<br>(Megabyte) (Mega 表示”兆”) 这里的 “兆” 是 1百万; 而不是 <a href="https://baike.baidu.com/item/%E8%AE%A1%E6%95%B0%E5%8D%95%E4%BD%8D/9836030?fr=aladdin" target="_blank" rel="noopener">计数单位</a> 中, <code>亿</code>之后的单位<br>1MB 的容量大小为: 1,000,000 Byte  一百万字节<br>换算关系为 1000; 1MB = 1000KB; 1KB = 1000比特</p>
+<p>MiB (Mebibyte) (Mebi 表示 2的20次方)<br>1MiB 的容量大小为: 1,048,576 Byte  一百万零四万八千五百七十六 字节<br>换算关系为 1024; 即 <code>2的10次方</code></p>
+<p><a id="bit-rate-%E6%AF%94%E7%89%B9%E7%8E%87"></a></p>
+<h2 id="Bit-rate-比特率"><a href="#Bit-rate-比特率" class="headerlink" title="Bit rate (比特率)"></a>Bit rate (比特率)</h2><p>是单位时间内传输或处理的比特的数量; 当表示<code>传输</code>的时候和 <code>带宽</code> 是同义词</p>
+<p>经常和国际单位制词头关联在一起，如 <code>千</code>(Kbit/s或Kbps) <code>兆</code>(Mbit/s或Mbps)</p>
+<p><a id="1mbps"></a></p>
+<h2 id="1Mbps"><a href="#1Mbps" class="headerlink" title="1Mbps"></a>1Mbps</h2><p>Mbps 中 <code>ps</code> (per second 的缩写, 每秒的意思)<br><strong>注意:</strong> 此单位的字母 <code>b</code> ,是 <code>小写</code> 的; 代表 <code>比特</code>; 而不是我们通常理解的 <code>字节</code><br>也就是说: 移动联通的 “100M” 与我们正常理解的 <code>100MiB</code> 缩水了 <strong>8.39 倍</strong><br>100Mbps = 100<em>1000</em>1000 bit 每秒<br>100MiB/s = 100<em>1024</em>1024*8 bit 每秒</p>
+<p><a id="%E5%8F%82%E8%80%83"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6" target="_blank" rel="noopener">二进制 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83" target="_blank" rel="noopener">比特 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82" target="_blank" rel="noopener">字节 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/Mebibyte" target="_blank" rel="noopener">Mebibyte - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E6%AF%94%E7%89%B9%E7%8E%87" target="_blank" rel="noopener">比特率 - 维基百科</a> | <a href="https://baike.baidu.com/item/%E8%AE%A1%E6%95%B0%E5%8D%95%E4%BD%8D/9836030?fr=aladdin" target="_blank" rel="noopener">计数单位</a> | <a href="http://service.bj.10086.cn/bjyd/web/support/xieyi/yxxy.html" target="_blank" rel="noopener">家庭有线宽带业务服务协议 - 中国移动官方网站</a></p>
 
           
         
@@ -532,7 +533,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/laradock/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/js/features/conversion/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -552,7 +553,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/developer/laradock/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">laradock</a>
+                <a href="/note/dev/js/features/conversion/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">数据类型的转换</a>
               
             
           </h1>
@@ -577,7 +578,7 @@
                 
               
 
-              <time title="创建时间：2018-12-21 17:45:04 / 修改时间：20:27:57" itemprop="dateCreated datePublished" datetime="2018-12-21T17:45:04+08:00">2018-12-21</time>
+              <time title="创建时间：2018-12-23 20:29:16 / 修改时间：23:52:12" itemprop="dateCreated datePublished" datetime="2018-12-23T20:29:16+08:00">2018-12-23</time>
             
 
             
@@ -606,7 +607,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/developer/" itemprop="url" rel="index"><span itemprop="name">developer</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
 
                 
                 
@@ -642,32 +650,73 @@
       
         
           
-            <h1 id="laradock"><a href="#laradock" class="headerlink" title="laradock"></a>laradock</h1><!-- MarkdownTOC -->
+            <h1 id="数据类型的转换"><a href="#数据类型的转换" class="headerlink" title="数据类型的转换"></a>数据类型的转换</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#linux-%E4%B8%8A%E5%AE%89%E8%A3%85">linux 上安装</a></li>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
+<li><a href="#%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2">强制转换</a><ul>
+<li><a href="#number">Number()</a><ul>
+<li><a href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><strong>原始类型值</strong> 的转换规则:</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><strong>对象</strong> 的转换规则:</a></li>
+<li><a href="#number-%E4%B8%8E-parseint-%E7%9A%84%E5%8C%BA%E5%88%AB"><code>Number()</code> 与 <code>parseInt()</code> 的区别:</a></li>
+</ul>
+</li>
+<li><a href="#string">String()</a><ul>
+<li><a href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC">原始类型值</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1">对象</a></li>
+</ul>
+</li>
+<li><a href="#boolean">Boolean()</a></li>
+</ul>
+</li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2">自动转换</a></li>
 <li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="linux-%E4%B8%8A%E5%AE%89%E8%A3%85"></a></p>
-<h2 id="linux-上安装"><a href="#linux-上安装" class="headerlink" title="linux 上安装"></a>linux 上安装</h2><ol>
-<li><p>检测 docker-compose 是否安装, 如果没有安装需要安装; 安装参考: <a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">docker compose</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker-compose --version</span><br><span class="line">// 如果没有安装的话执行下面的步骤</span><br><span class="line">sudo curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将 repository 克隆到你机器的任意位置,并选择一个最新稳定的 Releases 版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/laradock/laradock.git</span><br><span class="line">// 选择一个稳定的发行版本,基于tag v7.8.0 创建一个新分支&quot;version7.8.0&quot;,并且以后都是基于这个分支操作.</span><br><span class="line">git tag</span><br><span class="line">git checkout -b version7.8.0 v7.8.0</span><br></pre></td></tr></table></figure>
-<p>你的文件夹结构应该如下所示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* laradock</span><br><span class="line">* project-z</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑你的 web 服务器站点配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cp env-example .env</span><br><span class="line">// 更改如下配置</span><br><span class="line">// 必须:</span><br><span class="line">CHANGE_SOURCE=true</span><br><span class="line">MYSQL_VERSION=5.7</span><br><span class="line">WORKSPACE_TIMEZONE=PRC</span><br><span class="line">// WORKSPACE_INSTALL_PYTHON=true    #安装 python</span><br><span class="line">// 可选:</span><br><span class="line">WORKSPACE_NPM_REGISTRY=https://registry.npm.taobao.org</span><br><span class="line">WORKSPACE_COMPOSER_REPO_PACKAGIST=https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>构建容器</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 第一次启动会自动构建这四个容器,php-fpm默认构建</span><br><span class="line">sudo docker-compose up -d nginx mysql workspace</span><br></pre></td></tr></table></figure>
-<p> 2018-12-21 20:27:51</p>
+<p><a href="../index.md">回到系列教程主目录</a></p>
+<p><a id="%E6%A6%82%E8%BF%B0"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JavaScript 是一种动态类型语言，变量没有类型限制，可以随时赋予任意值。</p>
+<p>虽然变量的数据类型是不确定的，但是各种运算符对数据类型是有要求的。<br>如果运算符发现，运算子的类型与预期不符，就会自动转换类型。</p>
+<p>本章主要内容:</p>
+<ol>
+<li>手动强制转换数据类型</li>
+<li>数据类型自动转换的规则</li>
+</ol>
+<p><a id="%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2"></a></p>
+<h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><ul>
+<li>Number()</li>
+<li>String()</li>
+<li>Boolean()</li>
+</ul>
+<p><a id="number"></a></p>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number()"></a>Number()</h3><p><a id="%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"></a></p>
+<h4 id="原始类型值-的转换规则"><a href="#原始类型值-的转换规则" class="headerlink" title="原始类型值 的转换规则:"></a><strong>原始类型值</strong> 的转换规则:</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串 1 如果可以被解析为数值，则转换为相应的数值</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'324'</span>) <span class="comment">// 324</span></span><br><span class="line"><span class="comment">// 字符串 2 如果不可以被解析为数值，返回 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'324abc'</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 字符串 3 空字符串转为0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 布尔值 true 转成 1，false 转成 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// undefined 转成 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// null 转成0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p><a id="%E5%AF%B9%E8%B1%A1-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"></a></p>
+<h4 id="对象-的转换规则"><a href="#对象-的转换规则" class="headerlink" title="对象 的转换规则:"></a><strong>对象</strong> 的转换规则:</h4><p>简单的规则是: 除了 <em>单个数值的数组</em> 外,全部返回 <code>NaN</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">5</span>]) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>背后的原理</strong> 如下代码所示: (了解原理后,可以更改 <code>Number()</code> 的默认行为)  </p>
+<ol>
+<li>调用对象自身的valueOf方法。<br>1.1 如果返回原始类型的值，则 <code>return Number(原始类型)</code>;<br>1.2 如果返回的还是对象，则改为调用对象自身的<code>toString</code>方法。  <pre><code>1.2.1 如果toString方法返回原始类型的值，则`return Number(原始类型)`;  
+1.2.2 如果toString方法返回的是对象，就报错。
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Number</span>(obj)</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> obj.valueOf() === <span class="string">'object'</span>) &#123; <span class="comment">// 1. 真;    valueOf 返回对象本身;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj.toString() === <span class="string">'object'</span>) &#123;<span class="comment">// 2. 假;    toString返回字符串 "[object Object]"</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'无法自动转换'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Number</span>(obj.toString()); <span class="comment">// 3. NaN;   Number("[object Object]") 返回 NaN</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">Number</span>(obj.valueOf());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><a id="%E5%8F%82%E8%80%83"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">docker compose</a></p>
+<p><a id="number-%E4%B8%8E-parseint-%E7%9A%84%E5%8C%BA%E5%88%AB"></a></p>
+<h4 id="Number-与-parseInt-的区别"><a href="#Number-与-parseInt-的区别" class="headerlink" title="Number() 与 parseInt() 的区别:"></a><code>Number()</code> 与 <code>parseInt()</code> 的区别:</h4><p><code>parseInt()</code> 逐个解析字符<br><code>Number()</code> 整体解析字符,只要有 <em>一个</em> 字符无法转成数值,整个字符串就会被转为 <code>NaN</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'42 cats'</span>) <span class="comment">// 42</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'42 cats'</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure></p>
+<p><a id="string"></a></p>
+<h3 id="String"><a href="#String" class="headerlink" title="String()"></a>String()</h3><p><a id="%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC"></a></p>
+<h4 id="原始类型值"><a href="#原始类型值" class="headerlink" title="原始类型值"></a>原始类型值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数值</span></span><br><span class="line"><span class="built_in">String</span>(<span class="number">123</span>) <span class="comment">// "123"</span></span><br><span class="line"><span class="comment">// 布尔值</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">true</span>) <span class="comment">// "true"</span></span><br><span class="line"><span class="comment">// undefined 和 null</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">undefined</span>) <span class="comment">// "undefined"</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">null</span>) <span class="comment">// "null"</span></span><br></pre></td></tr></table></figure>
+<p><a id="%E5%AF%B9%E8%B1%A1"></a></p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
+<li>如果是对象，返回一个类型字符串</li>
+<li>如果是数组，返回该数组的字符串形式<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;) <span class="comment">// "[object Object]"</span></span><br><span class="line"><span class="built_in">String</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// "1,2,3"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>转换对象参数 <strong>背后的原理:</strong><br>String方法背后的转换规则,与Number方法基本相同; 只是互换了valueOf方法和toString方法的执行顺序</p>
+<p><a id="boolean"></a></p>
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean()"></a>Boolean()</h3><p>除了以下五个值的转换结果为 <code>false</code>, 其他的值全部为 <code>true</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(<span class="literal">undefined</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">''</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p>注意: <strong>所有对象(包括空对象)</strong> 的布尔值都是 <code>true</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)) <span class="comment">// true    false的包装对象也是真</span></span><br></pre></td></tr></table></figure></p>
+<p><a id="%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2"></a></p>
+<h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2><p><a id="%E5%8F%82%E8%80%83"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://wangdoc.com/javascript/features/conversion.html" target="_blank" rel="noopener">数据类型的转换 - JavaScript 教程 - 网道</a></p>
 
           
         
@@ -724,7 +773,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/docker/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/js/features/index_features/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -744,7 +793,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/developer/docker/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">centos7 ubuntu16 安装 docker</a>
+                <a href="/note/dev/js/features/index_features/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">语法专题</a>
               
             
           </h1>
@@ -769,7 +818,7 @@
                 
               
 
-              <time title="创建时间：2018-12-21 13:37:06 / 修改时间：17:56:49" itemprop="dateCreated datePublished" datetime="2018-12-21T13:37:06+08:00">2018-12-21</time>
+              <time title="创建时间：2018-12-23 20:05:53 / 修改时间：20:26:03" itemprop="dateCreated datePublished" datetime="2018-12-23T20:05:53+08:00">2018-12-23</time>
             
 
             
@@ -798,7 +847,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/developer/" itemprop="url" rel="index"><span itemprop="name">developer</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
 
                 
                 
@@ -834,88 +890,9 @@
       
         
           
-            <h1 id="centos7-ubuntu16-安装-docker"><a href="#centos7-ubuntu16-安装-docker" class="headerlink" title="centos7 ubuntu16 安装 docker"></a>centos7 ubuntu16 安装 docker</h1><!-- MarkdownTOC -->
-<ul>
-<li><a href="#centos7">centos7</a></li>
-<li><a href="#ubuntu-16">ubuntu 16</a><ul>
-<li><a href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4">安装步骤</a></li>
-<li><a href="#%E5%8F%AF%E9%80%89%E6%AD%A5%E9%AA%A4">可选步骤</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
-</ul>
+            <h1 id="语法专题"><a href="#语法专题" class="headerlink" title="语法专题"></a>语法专题</h1><!-- MarkdownTOC -->
 <!-- /MarkdownTOC -->
-<blockquote>
-<p>新版本的 docker 安装可能有部分不同; 遇到问题请查看文章后的参考链接</p>
-</blockquote>
-<p><a id="centos7"></a></p>
-<h2 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h2><ol>
-<li><p>卸载旧版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保安装 docker 库所依赖的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils \</span><br><span class="line">  device-mapper-persistent-data \</span><br><span class="line">  lvm2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置存储库地址, 注意替换为国内镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line">// 官方源: https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装最新版本 Docker CE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce</span><br></pre></td></tr></table></figure>
-<p>如果提示接受 GPG 密钥，请验证指纹是否匹配 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35，如果匹配 ，则接受它。</p>
-</li>
-<li><p>安装特定版本的 Docker CE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | sort -r</span><br><span class="line">docker-ce.x86_64            18.03.0.ce-1.el7.centos             docker-ce-stable</span><br><span class="line">sudo yum install docker-ce-&lt;VERSION STRING&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动 Docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过运行 hello-world 映像验证 docker 是否已正确安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>非root用户身份管理Docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo groupadd docker //创建docker组。</span><br><span class="line">$ sudo usermod -aG docker $USER //将您的用户添加到该docker组。</span><br><span class="line">$ docker run hello-world // 重启服务器之后,运行此命令,验证你是否可以运行 docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 Docker 以在启动时启动(可选)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 docker-compose(可选) 如果使用 laradock 则必须安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a id="ubuntu-16"></a></p>
-<h2 id="ubuntu-16"><a href="#ubuntu-16" class="headerlink" title="ubuntu 16"></a>ubuntu 16</h2><p><a id="%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"></a></p>
-<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><ol>
-<li><p>卸载旧版本的 docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保安装 docker 库所依赖的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    linux-image-extra-$(uname -r) \</span><br><span class="line">    linux-image-extra-virtual</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置存储库地址, 注意替换为国内镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> $ sudo apt-get update</span><br><span class="line"> // 安装软件包，以允许 apt 通过 HTTPS 使用镜像仓库：</span><br><span class="line"> $ sudo apt-get install \</span><br><span class="line">     apt-transport-https \</span><br><span class="line">     ca-certificates \</span><br><span class="line">     curl \</span><br><span class="line">     software-properties-common</span><br><span class="line">// 添加 Docker 的官方 GPG 密钥：</span><br><span class="line"> $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">// 验证密钥指纹是否为 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88。</span><br><span class="line"> $ sudo apt-key fingerprint 0EBFCD88</span><br><span class="line"> // 使用下列命令设置 stable 镜像仓库。</span><br><span class="line">$ sudo add-apt-repository \</span><br><span class="line">    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">    $(lsb_release -cs) \</span><br><span class="line">    stable&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 Docker CE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ apt-cache madison docker-ce // 查看 docker-ce 所有版本</span><br><span class="line">$ sudo apt-get install docker-ce=&lt;VERSION&gt; // &lt;VERSION&gt; 在上一条命令的结果中选</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证是否安装成功(Docker 守护进程将自动启动。)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>如果出现 <code>Hello from Docker!</code> 字样, 则安装成功</p>
-</li>
-</ol>
-<p><a id="%E5%8F%AF%E9%80%89%E6%AD%A5%E9%AA%A4"></a></p>
-<h3 id="可选步骤"><a href="#可选步骤" class="headerlink" title="可选步骤"></a>可选步骤</h3><ol>
-<li><p>以非 root 用户身份管理 Docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 创建 docker 组。</span><br><span class="line"> $ sudo groupadd docker</span><br><span class="line"> // 查看docker组是否存在</span><br><span class="line"> $ grep docker /etc/group</span><br><span class="line">// 向 docker 组中添加您的用户。</span><br><span class="line"> $ sudo usermod -aG docker $USER</span><br><span class="line"> $ grep docker /etc/group // 查看 $USER 是否添加成功</span><br><span class="line">// 注销并重新登录，以便对您的组成员资格进行重新评估。</span><br><span class="line">// 验证您是否可以在不使用 sudo 的情况下运行 docker 命令。</span><br><span class="line"> $ docker run hello-world</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将 Docker 配置为在启动时启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// systemd</span><br><span class="line">$ sudo systemctl enable docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 docker-compose(可选) 如果使用 laradock 则必须安装</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a id="%E5%8F%82%E8%80%83"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">docker centos</a> | <a href="https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">docker ubuntu</a> | <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user" target="_blank" rel="noopener">docker Linux的安装后步骤</a> | <a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">docker compose</a></p>
+<p><a href="../index.md">回到系列教程主目录</a></p>
 
           
         
@@ -961,7 +938,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1004,7 +981,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1065,7 +1042,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1136,7 +1117,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
