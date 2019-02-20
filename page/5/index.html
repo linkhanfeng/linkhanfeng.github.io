@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/aliyun/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/shadowsocket/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/developer/aliyun/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/5/index.html">阿里云-云服务器 (ECS) docker+laradock+git</a>
+                <a href="/note/dev/developer/shadowsocket/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/5/index.html">阿里云 ecs 安装 shadowsocket</a>
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2018-12-15 20:06:13" itemprop="dateCreated datePublished" datetime="2018-12-15T20:06:13+08:00">2018-12-15</time>
+              <time title="创建时间：2018-12-20 11:34:03" itemprop="dateCreated datePublished" datetime="2018-12-20T11:34:03+08:00">2018-12-20</time>
             
 
             
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-24 22:24:32" itemprop="dateModified" datetime="2018-12-24T22:24:32+08:00">2018-12-24</time>
+                <time title="修改时间：2018-12-25 09:41:24" itemprop="dateModified" datetime="2018-12-25T09:41:24+08:00">2018-12-25</time>
               
             
           </span>
@@ -455,116 +455,41 @@
       
         
           
-            <h1 id="阿里云-云服务器-ECS-docker-laradock-git"><a href="#阿里云-云服务器-ECS-docker-laradock-git" class="headerlink" title="阿里云-云服务器 (ECS) docker+laradock+git"></a>阿里云-云服务器 (ECS) docker+laradock+git</h1><!-- MarkdownTOC -->
+            <h1 id="阿里云-ecs-安装-shadowsocket"><a href="#阿里云-ecs-安装-shadowsocket" class="headerlink" title="阿里云 ecs 安装 shadowsocket"></a>阿里云 ecs 安装 shadowsocket</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88">云服务器是什么</a></li>
-<li><a href="#ssh-%E5%AF%86%E9%92%A5%E5%AF%B9">SSH 密钥对</a></li>
-<li><a href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85">系统安装</a><ul>
-<li><a href="#%E6%9B%B4%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">更换操作系统</a></li>
-<li><a href="#%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96%E7%B3%BB%E7%BB%9F">重装系统(初始化系统)</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8">使用密钥登录服务器</a></li>
-<li><a href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E5%B9%B6%E5%B0%86sudo%E7%BB%84%E4%BD%9C%E4%B8%BA%E9%99%84%E5%8A%A0%E7%BB%84">新建一个用户,并将sudo组作为附加组</a></li>
-<li><a href="#ssh%E9%80%9A%E8%AE%AF">SSH通讯</a></li>
-<li><a href="#zsh--oh-my-zsh-%E5%8F%AF%E9%80%89">zsh + oh my zsh (可选)</a></li>
-<li><a href="#docker-%E5%AE%89%E8%A3%85">docker 安装</a></li>
-<li><a href="#laradock-%E5%AE%89%E8%A3%85">laradock 安装</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-shadowsocks-libev">安装 shadowsocks-libev</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE">配置</a></li>
+<li><a href="#%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3">开放服务器端口</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8">启动</a></li>
+<li><a href="#git-%E8%AE%BE%E7%BD%AE-socks5-%E4%BB%A3%E7%90%86">git 设置 socks5 代理</a></li>
+<li><a href="#%E6%90%AD%E6%A2%AF%E5%AD%90">搭梯子</a></li>
 <li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88"></a></p>
-<h2 id="云服务器是什么"><a href="#云服务器是什么" class="headerlink" title="云服务器是什么"></a>云服务器是什么</h2><p>参考上一篇博文 <a href="./tengxunyun.md">腾讯云的使用</a></p>
-<p>阿里云中的术语:</p>
-<ul>
-<li><code>地域和可用区</code>: 指服务器的地理位置</li>
-<li><code>实例</code>: 等同于一台虚拟机(包括cpu,内存,操作系统等)</li>
-<li><code>实例规格</code>: 虚拟机的配置(如cpu核数,内存大小)</li>
-<li><code>镜像</code>: 虚拟机的操作系统(如windows,linux)</li>
-<li><code>块存储</code>：基于分布式的<code>云盘</code>, <code>共享盘</code> 和 基于物理机本地硬盘的 <code>本地存储</code></li>
-<li><code>安全组</code>：一种虚拟防火墙，用于设置实例的网络访问控制。<br>参考:<a href="https://help.aliyun.com/document_detail/25367.html?spm=5176.8789780.1092592.1.185557a80v0qSE" target="_blank" rel="noopener">阿里云产品介绍</a>:</li>
-</ul>
-<p><a id="ssh-%E5%AF%86%E9%92%A5%E5%AF%B9"></a></p>
-<h2 id="SSH-密钥对"><a href="#SSH-密钥对" class="headerlink" title="SSH 密钥对"></a>SSH 密钥对</h2><blockquote>
-<p>控制台-&gt;ECS-&gt;网络和安全-&gt;密钥对-&gt;创建密钥对</p>
+<blockquote>
+<p>推荐使用 <code>shadowsocks-libev</code> 占用内存少</p>
 </blockquote>
-<p>创建完成需要从浏览器下载到本地保存起来,以后使用此密钥登录服务器</p>
-<p>参考: <a href="https://help.aliyun.com/document_detail/51792.html?spm=5176.11065259.1996646101.searchclickresult.2c11367f5M02q4" target="_blank" rel="noopener">ssh 方式登录的优势</a> | <a href="https://help.aliyun.com/document_detail/51793.html?spm=a2c4g.11186623.2.15.264dcc5awJLNzC#concept_wy4_th1_ydb" target="_blank" rel="noopener">创建SSH密钥对</a><br><a id="%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"></a></p>
-<h2 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h2><p><a id="%E6%9B%B4%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"></a></p>
-<h3 id="更换操作系统"><a href="#更换操作系统" class="headerlink" title="更换操作系统"></a>更换操作系统</h3><blockquote>
-<p>控制台-&gt;ECS-&gt;选择一个实例-&gt;右侧更多-&gt;磁盘和镜像-&gt;更换系统盘</p>
-</blockquote>
-<ol>
-<li>公共镜像：Ubuntu 16.04 64 位(或者其他)</li>
-<li>密钥对: 选择刚才创建的密钥对</li>
-</ol>
-<p>参考: <a href="https://help.aliyun.com/document_detail/50134.html?spm=a2c4g.11186623.2.25.2dab55fdejwX7j#concept-n4k-x3j-ydb" target="_blank" rel="noopener">更换系统盘</a><br><a id="%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96%E7%B3%BB%E7%BB%9F"></a></p>
-<h3 id="重装系统-初始化系统"><a href="#重装系统-初始化系统" class="headerlink" title="重装系统(初始化系统)"></a>重装系统(初始化系统)</h3><blockquote>
-<p>控制台-&gt;ECS-&gt;选择一个实例-&gt;右侧更多-&gt;磁盘和镜像-&gt;初始化磁盘</p>
-</blockquote>
-<p>安全设置选择密钥登录,然后选择刚才创建的密钥对</p>
-<p><a id="%E4%BD%BF%E7%94%A8%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8"></a></p>
-<h2 id="使用密钥登录服务器"><a href="#使用密钥登录服务器" class="headerlink" title="使用密钥登录服务器"></a>使用密钥登录服务器</h2><ol>
-<li>找到你在 <code>创建 SSH 密钥对</code> 时下载.pem私钥文件</li>
-<li><p>运行命令修改私钥文件权限 (只开发当前用户的读权限;为了安全)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 /path/to/密钥</span><br></pre></td></tr></table></figure>
+<p><a id="%E5%AE%89%E8%A3%85-shadowsocks-libev"></a></p>
+<h2 id="安装-shadowsocks-libev"><a href="#安装-shadowsocks-libev" class="headerlink" title="安装 shadowsocks-libev"></a>安装 shadowsocks-libev</h2><p>Ubuntu 14.04 and 16.04 users, please install from PPA:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install software-properties-common -y</span><br><span class="line">sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev -y</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install shadowsocks-libev</span><br></pre></td></tr></table></figure></p>
+<p><a id="%E9%85%8D%E7%BD%AE"></a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Configure and start the service<br><strong>注意</strong> 服务器ip 填写 <code>私有ip</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 编辑配置文件(修改配置后需 restart)</span><br><span class="line">$ sudo vim /etc/shadowsocks-libev/config.json</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>:<span class="string">"服务器ip地址"</span>, // 重点在这里: ecs 必须填写 私有网络ip (即:vpc 的ip) 或者填写 0.0.0.0</span><br><span class="line">    <span class="string">"server_port"</span>:8989,</span><br><span class="line">    <span class="string">"local_port"</span>:1080,</span><br><span class="line">    <span class="string">"password"</span>:<span class="string">"密码"</span>,</span><br><span class="line">    <span class="string">"timeout"</span>:60,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"aes-128-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a id="%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3"></a></p>
+<h2 id="开放服务器端口"><a href="#开放服务器端口" class="headerlink" title="开放服务器端口"></a>开放服务器端口</h2><p>假如需要 开放 8989 端口:<br>登录 阿里云控制台 -&gt; 网络和安全组 -&gt; 配置规则 -&gt; 添加安全组规则<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">协议类型：自定义TCP</span><br><span class="line">* 端口范围： 8989/8989</span><br><span class="line">* 授权对象：0.0.0.0/0</span><br></pre></td></tr></table></figure></p>
+<p><a id="%E5%90%AF%E5%8A%A8"></a></p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p><strong>注意:</strong> 如果.无法启动尝试重启服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// sysvinit 或 systemctl 方式启动</span><br><span class="line">sudo /etc/init.d/shadowsocks-libev start    <span class="comment"># for sysvinit, or</span></span><br><span class="line">sudo systemctl start shadowsocks-libev      <span class="comment"># for systemd;</span></span><br><span class="line">sudo systemctl restart shadowsocks-libev      <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure></p>
+<p><a id="git-%E8%AE%BE%E7%BD%AE-socks5-%E4%BB%A3%E7%90%86"></a></p>
+<h2 id="git-设置-socks5-代理"><a href="#git-设置-socks5-代理" class="headerlink" title="git 设置 socks5 代理"></a>git 设置 socks5 代理</h2><ol>
+<li><p>设置 <code>https</code> 方式的代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 查看设置</span><br><span class="line">git config --global -l</span><br><span class="line">// 全部https设置代理</span><br><span class="line">git config --global http.proxy 127.0.0.1:1087</span><br><span class="line">// 取消全部</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">// 只对 github.com 设置代理</span><br><span class="line">git config --global http.https://github.com.proxy 127.0.0.1:1087</span><br><span class="line">// 取消代理</span><br><span class="line">git config --global --unset http.https://github.com.proxy</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>运行命令连接至服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i /path/to/密钥 root@公网IP地址</span><br></pre></td></tr></table></figure>
+<li><p>设置 <code>ssh</code> 方式的代理 (也就是 git@方式开头)<br>修改 <code>~/.ssh/config</code> 文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    // 127.0.0.1:1086 是 socket 地址</span><br><span class="line">    ProxyCommand nc -v -x 127.0.0.1:1086 %h %p</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>参考: <a href="https://help.aliyun.com/document_detail/51792.html?spm=5176.11065259.1996646101.searchclickresult.2c11367f5M02q4" target="_blank" rel="noopener">ssh 方式登录的优势</a> | <a href="https://help.aliyun.com/document_detail/51798.html?spm=a2c4g.11186623.2.20.264dcc5awJLNzC#concept_ucj_wrx_wdb" target="_blank" rel="noopener">使用SSH密钥对连接Linux实例</a></p>
-<p><a id="%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E5%B9%B6%E5%B0%86sudo%E7%BB%84%E4%BD%9C%E4%B8%BA%E9%99%84%E5%8A%A0%E7%BB%84"></a></p>
-<h2 id="新建一个用户-并将sudo组作为附加组"><a href="#新建一个用户-并将sudo组作为附加组" class="headerlink" title="新建一个用户,并将sudo组作为附加组"></a>新建一个用户,并将sudo组作为附加组</h2><ul>
-<li><p>新建用户和组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd -g 1992 testuser</span><br><span class="line">useradd -c<span class="string">"testuser"</span> -u 1992 -d/home/testuser -g 1992 -G sudo testuser</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置用户密码</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd testuser</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建 testuser 家目录, 并更改 testuser/ 目录的所有权; <code>testuser用户:testuser组</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/testuser</span><br><span class="line">chown testuser:testuser /home/testuser</span><br><span class="line">ls -l /home</span><br><span class="line">su testuser</span><br><span class="line"><span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a id="ssh%E9%80%9A%E8%AE%AF"></a></p>
-<h2 id="SSH通讯"><a href="#SSH通讯" class="headerlink" title="SSH通讯"></a>SSH通讯</h2><p>参考 <a href="./ssh.md">ssh安装</a></p>
-<ol>
-<li><p>创建密钥对 <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">ssh-agent</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;linkhanfeng_aliyun@gmail.com&quot;</span><br></pre></td></tr></table></figure>
-<p>执行上面的命令后,在 <code>~/.ssh/</code> 目录下会生成 <code>私钥 id_rsa</code> 和 <code>公钥 id_rsa.pub</code></p>
-</li>
-<li><p>批准使用上一步生成的 <code>公钥</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">touch .ssh/authorized_keys</span><br><span class="line">cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys</span><br><span class="line">// 确保文件权限如下</span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>切换到客户端操作; 复制第1步创建的私钥到客户端, 使用它登陆服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 path/to/id_rsa</span><br><span class="line">ssh -i path/to/id_rsa 用户名@服务器IP</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第3步成功后;可以删除服务器上的公钥和私钥确保安全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -fr .ssh/id_rsa*</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a id="zsh--oh-my-zsh-%E5%8F%AF%E9%80%89"></a></p>
-<h2 id="zsh-oh-my-zsh-可选"><a href="#zsh-oh-my-zsh-可选" class="headerlink" title="zsh + oh my zsh (可选)"></a>zsh + oh my zsh (可选)</h2><p>参考: <a href="https://www.jianshu.com/p/1661b8c03edd" target="_blank" rel="noopener">Linux修改某用户默认shell</a></p>
-<ol>
-<li><p>安装 zsh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh --version // 确认是否安装</span><br><span class="line">apt install zsh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 oh my zsh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>临时切换 zsh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line">zsh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置用户的默认 shell 为 zsh (需要 sudo 权限)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -s /bin/zsh testuser</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a id="docker-%E5%AE%89%E8%A3%85"></a></p>
-<h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><p>参考: <a href="./docker.md">docker</a></p>
-<p><a id="laradock-%E5%AE%89%E8%A3%85"></a></p>
-<h2 id="laradock-安装"><a href="#laradock-安装" class="headerlink" title="laradock 安装"></a>laradock 安装</h2><p>参考: <a href="./laradock.md">laradock</a></p>
+<p><a id="%E6%90%AD%E6%A2%AF%E5%AD%90"></a></p>
+<h2 id="搭梯子"><a href="#搭梯子" class="headerlink" title="搭梯子"></a>搭梯子</h2><p>如果 <code>fq</code> 的话购买香港节点的实例即可; 如果已经购买,可转节点或退款重新购买; 阿里云的退款服务没有腾讯云好</p>
 <p><a id="%E5%8F%82%E8%80%83"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://help.aliyun.com/document_detail/25367.html?spm=5176.8789780.1092592.1.185557a80v0qSE" target="_blank" rel="noopener">ECS</a> | <a href="https://help.aliyun.com/document_detail/51792.html?spm=5176.11065259.1996646101.searchclickresult.2c11367f5M02q4" target="_blank" rel="noopener">ssh</a> | <a href="https://help.aliyun.com/document_detail/51793.html?spm=a2c4g.11186623.2.15.264dcc5awJLNzC#concept_wy4_th1_ydb" target="_blank" rel="noopener">创建SSH密钥对</a> | <a href="https://help.aliyun.com/document_detail/50134.html?spm=a2c4g.11186623.2.25.2dab55fdejwX7j#concept-n4k-x3j-ydb" target="_blank" rel="noopener">更换系统盘</a> | <a href="https://help.aliyun.com/document_detail/51798.html?spm=a2c4g.11186623.2.20.264dcc5awJLNzC#concept_ucj_wrx_wdb" target="_blank" rel="noopener">使用SSH密钥对连接Linux实例</a> | <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">ssh-agent</a> | <a href="https://www.jianshu.com/p/1661b8c03edd" target="_blank" rel="noopener">Linux修改某用户默认shell</a> | <a href="./ssh.md">ssh安装</a> | <a href="./docker.md">docker</a> | <a href="./laradock.md">laradock</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://help.aliyun.com/document_detail/34217.html?spm=a2c4g.11174359.6.542.50324bffXFqhpX" target="_blank" rel="noopener">什么是专有网络 VPC-阿里云</a> | <a href="https://help.aliyun.com/document_detail/25475.html?spm=5176.2020520101.121.1.2ecc4df5wGib8m" target="_blank" rel="noopener">安全组应用案例 ECS-阿里云</a> | <a href="https://github.com/shadowsocks/shadowsocks-libev#debian--ubuntu" target="_blank" rel="noopener">shadowsocks-libev</a> | <a href="https://git-scm.com/docs/git-config" target="_blank" rel="noopener">Git - git-config Documentation</a> | <a href="https://gist.github.com/chuyik/02d0d37a49edc162546441092efae6a1" target="_blank" rel="noopener">macOS 给 Git(Github) 设置代理（HTTP/SSH）</a> | <a href="https://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy" target="_blank" rel="noopener">Connect with SSH through a proxy - Stack Overflow</a> | <a href="https://gist.github.com/laispace/666dd7b27e9116faece6" target="_blank" rel="noopener">git 设置和取消代理</a></p>
 
           
         
@@ -621,7 +546,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/git/index/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/linux/commands/data-display/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -641,7 +566,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/git/index/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/5/index.html">git 学习笔记</a>
+                <a href="/note/dev/linux/commands/data-display/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/5/index.html">数据的显示</a>
               
             
           </h1>
@@ -666,7 +591,7 @@
                 
               
 
-              <time title="创建时间：2018-12-15 11:13:20" itemprop="dateCreated datePublished" datetime="2018-12-15T11:13:20+08:00">2018-12-15</time>
+              <time title="创建时间：2018-12-18 16:12:24" itemprop="dateCreated datePublished" datetime="2018-12-18T16:12:24+08:00">2018-12-18</time>
             
 
             
@@ -707,7 +632,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/linux/commands/" itemprop="url" rel="index"><span itemprop="name">commands</span></a></span>
 
                 
                 
@@ -743,12 +675,27 @@
       
         
           
-            <h1 id="git-学习笔记"><a href="#git-学习笔记" class="headerlink" title="git 学习笔记"></a>git 学习笔记</h1><!-- MarkdownTOC -->
+            <h1 id="数据的显示"><a href="#数据的显示" class="headerlink" title="数据的显示"></a>数据的显示</h1><!-- MarkdownTOC -->
+<ul>
+<li><a href="#cat">cat</a><ul>
+<li><a href="#%E5%B0%86%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E5%AF%BC%E5%90%91%E5%88%B0%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA">将标准输入导向到标准输出</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6">显示文件</a></li>
+<li><a href="#%E7%BB%84%E5%90%88%E6%96%87%E4%BB%B6">组合文件</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
-<blockquote>
-<p><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6" target="_blank" rel="noopener">git</a> 是一个流行的 <code>分布式</code> <code>版本控制</code> 系统</p>
-</blockquote>
+<p><a id="cat"></a></p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p><a id="%E5%B0%86%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E5%AF%BC%E5%90%91%E5%88%B0%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA"></a></p>
+<h3 id="将标准输入导向到标准输出"><a href="#将标准输入导向到标准输出" class="headerlink" title="将标准输入导向到标准输出"></a>将标准输入导向到标准输出</h3><p><code>cat a.txt</code> 的作用是: 通过<code>标准输入流</code>读取将文件 a.txt 的内容, 默认将读取的<code>字节流</code>导向到标准输出,显示到屏幕上</p>
+<p><a id="%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6"></a></p>
+<h3 id="显示文件"><a href="#显示文件" class="headerlink" title="显示文件"></a>显示文件</h3><p>将cat标准输入指向 m1，文本会从m1文件流到cat，然后再输出到屏幕上。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &lt; m1 （在屏幕上显示文件 ml 的内容, 重定向标准输入可省略;等同于 cat m1）</span><br><span class="line">cat &lt; m1 &lt; m2 （同时显示文件 ml 和 m2 的内容, 重定向标准输入可省略;等同于 cat m1 m2）</span><br></pre></td></tr></table></figure></p>
+<p><a id="%E7%BB%84%E5%90%88%E6%96%87%E4%BB%B6"></a></p>
+<h3 id="组合文件"><a href="#组合文件" class="headerlink" title="组合文件"></a>组合文件</h3><p>同时重定向 标准输入和标准输出<br>将标准输入指向m1,并将m1的字节流导向到标准输出,然后将标准输出指向 f1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &lt; m1 &gt; f1 (将文件 m1 的内容复制到 文件 f1)</span><br><span class="line">cat m1 m2 &gt; file （将文件 ml 和 m2 合并后放入文件 file 中）</span><br></pre></td></tr></table></figure></p>
+<p><a id="%E5%8F%82%E8%80%83"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://man.linuxde.net/cat" target="_blank" rel="noopener">cat</a> | <a href="../commands/index.md">commands</a></p>
 
           
         
@@ -805,7 +752,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/tengxunyun/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/linux/commands/index/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -825,7 +772,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/developer/tengxunyun/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/5/index.html">腾讯云-云服务器 (CVM) 使用</a>
+                <a href="/note/dev/linux/commands/index/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/5/index.html">命令及分类</a>
               
             
           </h1>
@@ -850,7 +797,7 @@
                 
               
 
-              <time title="创建时间：2018-12-14 22:34:07" itemprop="dateCreated datePublished" datetime="2018-12-14T22:34:07+08:00">2018-12-14</time>
+              <time title="创建时间：2018-12-18 15:35:27" itemprop="dateCreated datePublished" datetime="2018-12-18T15:35:27+08:00">2018-12-18</time>
             
 
             
@@ -867,7 +814,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-21 20:43:39" itemprop="dateModified" datetime="2018-12-21T20:43:39+08:00">2018-12-21</time>
+                <time title="修改时间：2018-12-21 12:47:53" itemprop="dateModified" datetime="2018-12-21T12:47:53+08:00">2018-12-21</time>
               
             
           </span>
@@ -891,7 +838,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/developer/" itemprop="url" rel="index"><span itemprop="name">developer</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/linux/commands/" itemprop="url" rel="index"><span itemprop="name">commands</span></a></span>
 
                 
                 
@@ -927,25 +881,19 @@
       
         
           
-            <h1 id="腾讯云-云服务器-CVM-使用"><a href="#腾讯云-云服务器-CVM-使用" class="headerlink" title="腾讯云-云服务器 (CVM) 使用"></a>腾讯云-云服务器 (CVM) 使用</h1><!-- MarkdownTOC -->
+            <h1 id="命令及分类"><a href="#命令及分类" class="headerlink" title="命令及分类"></a>命令及分类</h1><!-- MarkdownTOCs -->
 <ul>
-<li><a href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88">云服务器是什么?</a></li>
-<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+<li><a href="./data-display.md">数据的显示</a><ul>
+<li><a href="./data-display.md#cat">cat</a></li>
+<li><a href="./data-display.md#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
-<!-- /MarkdownTOC -->
-<p><a id="%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88"></a></p>
-<h2 id="云服务器是什么"><a href="#云服务器是什么" class="headerlink" title="云服务器是什么?"></a>云服务器是什么?</h2><p>云服务器（Cloud Virtual Machine，CVM）提供 <code>弹性计算服务(Elastic Compute Service)</code><br><code>云 Cloud</code>: 是指: 一种服务模式; 即:租借存储(云存储),租借负载均衡(LBaaS),租借防火墙(FWaaS)等<br><code>虚拟机 Virtual Machine</code>: 是指: 一种 <code>虚拟化技术</code>; 作用是:将计算机资源(cpu,存储等)进行拆分,便于出租.<br><code>弹性 Elastic</code> 是指: 随着业务需求的变化, 可以实时扩展或缩减 <code>计算资源</code><br><code>计算 Compute</code> 是指: cpu核心数量, 内存大小, 公网带宽. 和 服务器数量<br>参考: <a href="https://www.zhihu.com/question/61039231/answer/211518028" target="_blank" rel="noopener">云计算和虚拟机</a></p>
-<p>弹性计算(Elastic Compute Service)的优势:</p>
-<ul>
-<li>节约计算成本: 一般服务商都支持按实际使用的资源计费</li>
-<li>方便运维</li>
+</li>
 </ul>
-<blockquote>
-<p>CVM 支持按实际使用的资源计费，可以为您节约计算成本。使用 CVM 可以极大降低您的软硬件采购成本，简化 IT 运维工作。<br>只需几分钟，您就可以在云端获取和启用 CVM，来实现您的计算需求。随着业务需求的变化，您可以实时扩展或缩减计算资源。<br>CVM 支持按实际使用的资源计费，可以为您节约计算成本。使用 CVM 可以极大降低您的软硬件采购成本，简化 IT 运维工作。 </p>
-</blockquote>
-<p>2018-12-1500 :36:02 $40.28</p>
+<!-- /MarkdownTOCs -->
+<p><a href="./index.md">回到系列教程主目录</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">['file.md',</span> <span class="string">'文件'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['dir.md',</span> <span class="string">'目录'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['data-display.md',</span> <span class="string">'数据的显示'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['users.md',</span> <span class="string">'用户'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">['login.md',</span> <span class="string">'登录注销'</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
 <p><a id="%E5%8F%82%E8%80%83"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.zhihu.com/question/61039231/answer/211518028" target="_blank" rel="noopener">云计算和虚拟机</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.sina.com.cn/s/blog_62cafbc601017ng5.html" target="_blank" rel="noopener">Unix &amp; Linux 命令分类</a></p>
 
           
         
@@ -991,7 +939,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1034,7 +982,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1099,7 +1047,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1178,7 +1134,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1217,7 +1183,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

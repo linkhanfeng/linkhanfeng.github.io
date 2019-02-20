@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/operators-and-expressions/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/problem-solving/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/operators-and-expressions/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/15/index.html">运算符与表达式</a>
+                <a href="/note/dev/python/problem-solving/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/15/index.html">解决问题的思路</a>
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:41:20" itemprop="dateCreated datePublished" datetime="2018-12-09T15:41:20+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 16:06:42" itemprop="dateCreated datePublished" datetime="2018-12-09T16:06:42+08:00">2018-12-09</time>
             
 
             
@@ -455,29 +455,31 @@
       
         
           
-            <h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><!-- MarkdownTOC -->
+            <h1 id="解决问题的思路"><a href="#解决问题的思路" class="headerlink" title="解决问题的思路"></a>解决问题的思路</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a></li>
-<li><a href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E5%92%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E3%80%82">数学运和赋值的快捷方式。</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">计算顺序</a></li>
-<li><a href="#%E6%94%B9%E5%8F%98%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F">改变计算顺序</a></li>
-<li><a href="#%E5%85%B3%E8%81%94%E6%80%A7">关联性</a></li>
-<li><a href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F">表达式</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%BB%B4%E8%A1%80">第一滴血</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%89%88">修改版</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%89%88">第三版</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%89%88">第四版</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E6%94%B9%E8%BF%9B">更多改进</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B">软件开发过程</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
 <blockquote>
-<p>表达式由运算符与操作数构成。例如: <code>2 + 3</code><br><code>+</code> 是运算符: 对相关数据(即操作数)进行运算<br><code>2</code>和<code>3</code>是操作数;<br>表达式,为了得到返回值的语句</p>
+<p>我们已经探索了 Python 的多个部分，从现在开始我们要着眼于把它们糅合在一起工作<br>我们要用它们来设计并且写出可以很好的解决某些事的程序。<br>也就是我们要学习如何以你自己的方式写 Python。</p>
 </blockquote>
-<p><a id="%E8%BF%90%E7%AE%97%E7%AC%A6"></a></p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><a id="%E6%95%B0%E5%AD%A6%E8%BF%90%E5%92%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E3%80%82"></a></p>
-<h2 id="数学运和赋值的快捷方式。"><a href="#数学运和赋值的快捷方式。" class="headerlink" title="数学运和赋值的快捷方式。"></a>数学运和赋值的快捷方式。</h2><p><a id="%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F"></a></p>
-<h2 id="计算顺序"><a href="#计算顺序" class="headerlink" title="计算顺序"></a>计算顺序</h2><p><a id="%E6%94%B9%E5%8F%98%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F"></a></p>
-<h2 id="改变计算顺序"><a href="#改变计算顺序" class="headerlink" title="改变计算顺序"></a>改变计算顺序</h2><p><a id="%E5%85%B3%E8%81%94%E6%80%A7"></a></p>
-<h2 id="关联性"><a href="#关联性" class="headerlink" title="关联性"></a>关联性</h2><p><a id="%E8%A1%A8%E8%BE%BE%E5%BC%8F"></a></p>
-<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<p><a id="%E7%AC%AC%E4%B8%80%E6%BB%B4%E8%A1%80"></a></p>
+<h2 id="第一滴血"><a href="#第一滴血" class="headerlink" title="第一滴血"></a>第一滴血</h2><p><a id="%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"></a></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><a id="%E4%BF%AE%E6%94%B9%E7%89%88"></a></p>
+<h2 id="修改版"><a href="#修改版" class="headerlink" title="修改版"></a>修改版</h2><p><a id="%E7%AC%AC%E4%B8%89%E7%89%88"></a></p>
+<h2 id="第三版"><a href="#第三版" class="headerlink" title="第三版"></a>第三版</h2><p><a id="%E7%AC%AC%E5%9B%9B%E7%89%88"></a></p>
+<h2 id="第四版"><a href="#第四版" class="headerlink" title="第四版"></a>第四版</h2><p><a id="%E6%9B%B4%E5%A4%9A%E6%94%B9%E8%BF%9B"></a></p>
+<h2 id="更多改进"><a href="#更多改进" class="headerlink" title="更多改进"></a>更多改进</h2><p><a id="%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B"></a></p>
+<h2 id="软件开发过程"><a href="#软件开发过程" class="headerlink" title="软件开发过程"></a>软件开发过程</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
           
         
       
@@ -533,7 +535,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/basics/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/data-structures/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -553,7 +555,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/basics/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/15/index.html">基本语法</a>
+                <a href="/note/dev/python/data-structures/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/15/index.html">数据结构</a>
               
             
           </h1>
@@ -578,7 +580,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:36:40" itemprop="dateCreated datePublished" datetime="2018-12-09T15:36:40+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 16:03:43" itemprop="dateCreated datePublished" datetime="2018-12-09T16:03:43+08:00">2018-12-09</time>
             
 
             
@@ -655,39 +657,33 @@
       
         
           
-            <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><!-- MarkdownTOC -->
+            <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E6%B3%A8%E9%87%8A">注释</a></li>
-<li><a href="#%E6%96%87%E5%AD%97%E5%B8%B8%E9%87%8F">文字常量</a></li>
-<li><a href="#%E6%95%B0%E5%AD%97">数字</a></li>
-<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
-<li><a href="#%E5%8F%98%E9%87%8F">变量</a></li>
-<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D">标识符命名</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1">对象</a></li>
-<li><a href="#%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99-python-%E7%A8%8B%E5%BA%8F%EF%BC%9F">如何编写 Python 程序？</a></li>
-<li><a href="#%E9%80%BB%E8%BE%91%E8%A1%8C%E5%92%8C%E7%89%A9%E7%90%86%E8%A1%8C">逻辑行和物理行</a></li>
-<li><a href="#%E7%BC%A9%E8%BF%9B">缩进</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#list">List</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E7%AE%80%E4%BB%8B">对象和类的简介</a></li>
+<li><a href="#%E5%85%83%E7%BB%84">元组</a></li>
+<li><a href="#%E5%AD%97%E5%85%B8">字典</a></li>
+<li><a href="#%E5%BA%8F%E5%88%97">序列</a></li>
+<li><a href="#%E9%9B%86%E5%90%88">集合</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C">更多的字符串操作</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
 <blockquote>
-<p>仅仅打印输出 hello world 是不够的<br>你还想要: 通过一些输入，操作它并从中得到一些东西等<br>在本章中我们还会学习其它的一些概念</p>
+<p>数据结构是: 存储相关数据的集合<br>四种内置的数据结构: list, tuple, dictionary, set</p>
 </blockquote>
-<p><a id="%E6%B3%A8%E9%87%8A"></a></p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p><a id="%E6%96%87%E5%AD%97%E5%B8%B8%E9%87%8F"></a></p>
-<h2 id="文字常量"><a href="#文字常量" class="headerlink" title="文字常量"></a>文字常量</h2><p><a id="%E6%95%B0%E5%AD%97"></a></p>
-<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p><a id="%E5%AD%97%E7%AC%A6%E4%B8%B2"></a></p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p><a id="%E5%8F%98%E9%87%8F"></a></p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p><a id="%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D"></a></p>
-<h2 id="标识符命名"><a href="#标识符命名" class="headerlink" title="标识符命名"></a>标识符命名</h2><p><a id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"></a></p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a id="%E5%AF%B9%E8%B1%A1"></a></p>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p><a id="%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99-python-%E7%A8%8B%E5%BA%8F%EF%BC%9F"></a></p>
-<h2 id="如何编写-Python-程序？"><a href="#如何编写-Python-程序？" class="headerlink" title="如何编写 Python 程序？"></a>如何编写 Python 程序？</h2><p><a id="%E9%80%BB%E8%BE%91%E8%A1%8C%E5%92%8C%E7%89%A9%E7%90%86%E8%A1%8C"></a></p>
-<h2 id="逻辑行和物理行"><a href="#逻辑行和物理行" class="headerlink" title="逻辑行和物理行"></a>逻辑行和物理行</h2><p><a id="%E7%BC%A9%E8%BF%9B"></a></p>
-<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<p><a id="list"></a></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p><a id="%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E7%AE%80%E4%BB%8B"></a></p>
+<h2 id="对象和类的简介"><a href="#对象和类的简介" class="headerlink" title="对象和类的简介"></a>对象和类的简介</h2><p><a id="%E5%85%83%E7%BB%84"></a></p>
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p><a id="%E5%AD%97%E5%85%B8"></a></p>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p><a id="%E5%BA%8F%E5%88%97"></a></p>
+<h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><p><a id="%E9%9B%86%E5%90%88"></a></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p><a id="%E5%BC%95%E7%94%A8"></a></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a id="%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"></a></p>
+<h2 id="更多的字符串操作"><a href="#更多的字符串操作" class="headerlink" title="更多的字符串操作"></a>更多的字符串操作</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
           
         
       
@@ -743,7 +739,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/first-steps/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/python/modules/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -763,7 +759,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/python/first-steps/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/15/index.html">第一步</a>
+                <a href="/note/dev/python/modules/" class="post-title-link" itemprop="https://linkhanfeng.github.io/page/15/index.html">模块</a>
               
             
           </h1>
@@ -788,7 +784,7 @@
                 
               
 
-              <time title="创建时间：2018-12-09 15:32:23" itemprop="dateCreated datePublished" datetime="2018-12-09T15:32:23+08:00">2018-12-09</time>
+              <time title="创建时间：2018-12-09 15:56:21" itemprop="dateCreated datePublished" datetime="2018-12-09T15:56:21+08:00">2018-12-09</time>
             
 
             
@@ -865,36 +861,35 @@
       
         
           
-            <h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><!-- MarkdownTOC -->
+            <h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%8F%90%E7%A4%BA%E7%AC%A6">使用交互式提示符</a></li>
-<li><a href="#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%99%A8">选择一个编辑器</a></li>
-<li><a href="#pycharm">PyCharm</a></li>
-<li><a href="#vim">Vim</a></li>
-<li><a href="#emacs">Emacs</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E6%BA%90%E6%96%87%E4%BB%B6">使用源文件</a></li>
-<li><a href="#%E8%8E%B7%E5%BE%97%E5%B8%AE%E5%8A%A9">获得帮助</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#%E6%A8%A1%E5%9D%97">模块</a></li>
+<li><a href="#%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6-pyc">字节码文件 .pyc</a></li>
+<li><a href="#fromimport-%E8%AF%AD%E5%8F%A5">from..import 语句</a></li>
+<li><a href="#%E6%A8%A1%E5%9D%97%E7%9A%84__name__">模块的<code>__name__</code></a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9D%97">创建你自己的模块</a></li>
+<li><a href="#dir-%E5%87%BD%E6%95%B0">dir 函数</a></li>
+<li><a href="#%E7%A8%8B%E5%BA%8F%E5%8C%85">程序包</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
 </ul>
 <!-- /MarkdownTOC -->
 <p><a href="./index.md">回到系列教程主目录</a></p>
-<ul>
-<li>‘Hello World’ 这将教你如何编写、保存和运行 Python 程序。  </li>
-<li>运行Python的两种方法:<ol>
-<li>使用交互式解释器提示符</li>
-<li>使用源文件</li>
+<p>你已经看到了如何在你的程序中重复使用代码——只需定义一次<code>函数</code>就可以对其重复调用了。<br>如果你想在其他程序中复用你写的大量的函数时，怎么办？可能你已经猜到了，答案就是<code>模块</code>。</p>
+<p>编写模块的方式:</p>
+<ol>
+<li>最简单的方式就是创建一个包含很多方法和变量并以 .py 为扩展的文件。</li>
+<li>用编写 Python 解释器的语言来编写模块。例如，你可以用 C 语言 来写模块，在使用标准 Python 解释器中进行编译时，这些模块会从你的 Python 代码中调用。</li>
 </ol>
-</li>
-</ul>
-<p><a id="%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%8F%90%E7%A4%BA%E7%AC%A6"></a></p>
-<h2 id="使用交互式提示符"><a href="#使用交互式提示符" class="headerlink" title="使用交互式提示符"></a>使用交互式提示符</h2><p><a id="%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%99%A8"></a></p>
-<h2 id="选择一个编辑器"><a href="#选择一个编辑器" class="headerlink" title="选择一个编辑器"></a>选择一个编辑器</h2><p><a id="pycharm"></a></p>
-<h2 id="PyCharm"><a href="#PyCharm" class="headerlink" title="PyCharm"></a>PyCharm</h2><p><a id="vim"></a></p>
-<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><p><a id="emacs"></a></p>
-<h2 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h2><p><a id="%E4%BD%BF%E7%94%A8%E6%BA%90%E6%96%87%E4%BB%B6"></a></p>
-<h2 id="使用源文件"><a href="#使用源文件" class="headerlink" title="使用源文件"></a>使用源文件</h2><p><a id="%E8%8E%B7%E5%BE%97%E5%B8%AE%E5%8A%A9"></a></p>
-<h2 id="获得帮助"><a href="#获得帮助" class="headerlink" title="获得帮助"></a>获得帮助</h2><p><a id="%E6%80%BB%E7%BB%93"></a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<p>使用模块的方法:</p>
+<p><a id="%E6%A8%A1%E5%9D%97"></a></p>
+<h2 id="模块-1"><a href="#模块-1" class="headerlink" title="模块"></a>模块</h2><p><a id="%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6-pyc"></a></p>
+<h2 id="字节码文件-pyc"><a href="#字节码文件-pyc" class="headerlink" title="字节码文件 .pyc"></a>字节码文件 .pyc</h2><p><a id="fromimport-%E8%AF%AD%E5%8F%A5"></a></p>
+<h2 id="from-import-语句"><a href="#from-import-语句" class="headerlink" title="from..import 语句"></a>from..import 语句</h2><p><a id="%E6%A8%A1%E5%9D%97%E7%9A%84__name__"></a></p>
+<h2 id="模块的-name"><a href="#模块的-name" class="headerlink" title="模块的__name__"></a>模块的<code>__name__</code></h2><p><a id="%E5%88%9B%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9D%97"></a></p>
+<h2 id="创建你自己的模块"><a href="#创建你自己的模块" class="headerlink" title="创建你自己的模块"></a>创建你自己的模块</h2><p><a id="dir-%E5%87%BD%E6%95%B0"></a></p>
+<h2 id="dir-函数"><a href="#dir-函数" class="headerlink" title="dir 函数"></a>dir 函数</h2><p><a id="%E7%A8%8B%E5%BA%8F%E5%8C%85"></a></p>
+<h2 id="程序包"><a href="#程序包" class="headerlink" title="程序包"></a>程序包</h2><p><a id="%E5%B0%8F%E7%BB%93"></a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
           
         
       
@@ -939,7 +934,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -982,7 +977,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1047,7 +1042,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1126,7 +1129,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1165,7 +1178,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

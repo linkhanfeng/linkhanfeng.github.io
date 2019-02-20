@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/unit/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/paradigm/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -353,7 +353,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/developer/unit/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">从 1Mbps 说起</a>
+                <a href="/note/dev/developer/paradigm/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">常见的编程范式 (草稿)</a>
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2018-12-24 20:36:36 / 修改时间：22:59:52" itemprop="dateCreated datePublished" datetime="2018-12-24T20:36:36+08:00">2018-12-24</time>
+              <time title="创建时间：2019-02-20 20:59:20 / 修改时间：23:14:29" itemprop="dateCreated datePublished" datetime="2019-02-20T20:59:20+08:00">2019-02-20</time>
             
 
             
@@ -443,40 +443,50 @@
       
         
           
-            <h1 id="从-1Mbps-说起"><a href="#从-1Mbps-说起" class="headerlink" title="从 1Mbps 说起"></a>从 1Mbps 说起</h1><!-- MarkdownTOC -->
+            <h1 id="常见的编程范式-草稿"><a href="#常见的编程范式-草稿" class="headerlink" title="常见的编程范式 (草稿)"></a>常见的编程范式 (草稿)</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#binary-%E4%BA%8C%E8%BF%9B%E5%88%B6"><code>binary</code> (二进制)</a></li>
-<li><a href="#bit-%7C-binary-digit-%E7%9A%84%E7%BC%A9%E5%86%99-%E7%9B%B4%E8%AF%91%E4%B8%BA-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97-%E9%9F%B3%E8%AF%91%E4%B8%BA-%E6%AF%94%E7%89%B9"><code>Bit | Binary digit 的缩写</code> (直译为: 二进制数字; 音译为: 比特)</a></li>
-<li><a href="#byte">Byte</a></li>
-<li><a href="#mb-%E5%92%8C-mib">MB 和 MiB</a></li>
-<li><a href="#bit-rate-%E6%AF%94%E7%89%B9%E7%8E%87">Bit rate (比特率)</a></li>
-<li><a href="#1mbps">1Mbps</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A8%8B-%E5%92%8C-%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%BC%96%E7%A8%8B-%E7%9A%84%E5%AF%B9%E6%AF%94">命令式编程 和 声明式编程 的对比</a><ul>
+<li><a href="#%E6%A6%82%E5%BF%B5">概念</a></li>
+<li><a href="#%E4%BE%8B%E5%AD%90">例子</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A3%B0%E6%98%8E%E5%BC%8F-%E5%92%8C-%E5%87%BD%E6%95%B0%E5%BC%8F-%E7%9A%84%E5%85%B3%E7%B3%BB">声明式 和 函数式 的关系</a></li>
+<li><a href="#%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB-programming-paradigm">编程范式之间的关系 Programming paradigm</a></li>
 <li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a id="binary-%E4%BA%8C%E8%BF%9B%E5%88%B6"></a></p>
-<h2 id="binary-二进制"><a href="#binary-二进制" class="headerlink" title="binary (二进制)"></a><code>binary</code> (二进制)</h2><ol>
-<li>1854年，英国数学家 <code>乔治·布尔</code> 创立了 <code>布尔代数</code>; 他提出的逻辑演算在后来的电子电路设计中起基础性作用</li>
-<li>1937年，<code>克劳德·香农</code> 在 MIT 完成了其硕士论文; 成为现代数字电路的理论基础; 论文题为《继电器与开关电路的符号分析》</li>
+<p><a id="%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A8%8B-%E5%92%8C-%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%BC%96%E7%A8%8B-%E7%9A%84%E5%AF%B9%E6%AF%94"></a></p>
+<h2 id="命令式编程-和-声明式编程-的对比"><a href="#命令式编程-和-声明式编程-的对比" class="headerlink" title="命令式编程 和 声明式编程 的对比"></a>命令式编程 和 声明式编程 的对比</h2><p><a id="%E6%A6%82%E5%BF%B5"></a></p>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>命令式: 需要用算法来明确的指出每一步该怎么做(即:明确流程)<br>声明式: 让计算机明白目标, 而非流程</p>
+<p>命令式: 告诉计算机“如何”去计算; (默认程序不知道怎么做)<br>声明式: 告诉计算机需要计算“什么”而不是“如何”去计算 (默认程序已经明白怎么做)</p>
+<p><a id="%E4%BE%8B%E5%AD%90"></a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>筛选出数组 <code>numbers</code> 中大于 5 的数字<br><strong>命令式编程的实现方式</strong><br>需要一步一步告诉计算机改怎么做</p>
+<ol>
+<li>创建一个存储结果的数组 <code>results</code>;</li>
+<li>遍历 <code>numbers</code> 数组</li>
+<li>一个一个的判断 <code>numbers</code> 数组中的数字是否大于 5, 满足条件则添加到 <code>results</code> 中;<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> results = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (numbers[i] &gt; <span class="number">5</span>) &#123;</span><br><span class="line">        results.push(numbers[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(results); <span class="comment">// [6,7]</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>二进制是一种记数系统; 这一系统中,通常用两个不同的符号 <code>0</code> 和 <code>1</code> 来表示;</p>
-<p><a id="bit-%7C-binary-digit-%E7%9A%84%E7%BC%A9%E5%86%99-%E7%9B%B4%E8%AF%91%E4%B8%BA-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97-%E9%9F%B3%E8%AF%91%E4%B8%BA-%E6%AF%94%E7%89%B9"></a></p>
-<h2 id="Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特"><a href="#Bit-Binary-digit-的缩写-直译为-二进制数字-音译为-比特" class="headerlink" title="Bit | Binary digit 的缩写 (直译为: 二进制数字; 音译为: 比特)"></a><code>Bit | Binary digit 的缩写</code> (直译为: 二进制数字; 音译为: 比特)</h2><p>通常缩写成 <code>b</code> (小写);  </p>
-<p>数字电子电路中, <code>逻辑门</code> 的实现直接应用了二进制.<br>因此现代的计算机和依赖计算机的设备里都用到二进制; 每个数字称为一个 <code>Bit</code> (Binary digit 的缩写) </p>
-<p><a id="byte"></a></p>
-<h2 id="Byte"><a href="#Byte" class="headerlink" title="Byte"></a>Byte</h2><p>通常缩写成 <code>B</code> (大写);<br><code>Byte</code> 表示用于<code>编码单个字符</code>所需要的 <code>Bit</code> 数量;</p>
-<p>历史上字节长度曾基于硬件为 1-48 Bit 不等, 最初通常使用 <em>6 Bit</em> 或 <em>9 Bit</em> 为一字节.<br>今日事实标准以 <code>8 Bit</code> 作为一字节,因8为二进制整数</p>
-<p>it is the smallest addressable unit of memory in many computer architectures; (即:我们可操作的最小单位)</p>
-<p><a id="mb-%E5%92%8C-mib"></a></p>
-<h2 id="MB-和-MiB"><a href="#MB-和-MiB" class="headerlink" title="MB 和 MiB"></a>MB 和 MiB</h2><p>MB<br>(Megabyte) (Mega 表示”兆”) 这里的 “兆” 是 1百万; 而不是 <a href="https://baike.baidu.com/item/%E8%AE%A1%E6%95%B0%E5%8D%95%E4%BD%8D/9836030?fr=aladdin" target="_blank" rel="noopener">计数单位</a> 中, <code>亿</code>之后的单位<br>1MB 的容量大小为: 1,000,000 Byte  一百万字节<br>换算关系为 1000; 1MB = 1000KB; 1KB = 1000比特</p>
-<p>MiB (Mebibyte) (Mebi 表示 2的20次方)<br>1MiB 的容量大小为: 1,048,576 Byte  一百万零四万八千五百七十六 字节<br>换算关系为 1024; 即 <code>2的10次方</code></p>
-<p><a id="bit-rate-%E6%AF%94%E7%89%B9%E7%8E%87"></a></p>
-<h2 id="Bit-rate-比特率"><a href="#Bit-rate-比特率" class="headerlink" title="Bit rate (比特率)"></a>Bit rate (比特率)</h2><p>是单位时间内传输或处理的比特的数量; 当表示<code>传输</code>的时候和 <code>带宽</code> 是同义词</p>
-<p>经常和国际单位制词头关联在一起，如 <code>千</code>(Kbit/s或Kbps) <code>兆</code>(Mbit/s或Mbps)</p>
-<p><a id="1mbps"></a></p>
-<h2 id="1Mbps"><a href="#1Mbps" class="headerlink" title="1Mbps"></a>1Mbps</h2><p>Mbps 中 <code>ps</code> (per second 的缩写, 每秒的意思)<br><strong>注意:</strong> 此单位的字母 <code>b</code> ,是 <code>小写</code> 的; 代表 <code>比特</code>; 而不是我们通常理解的 <code>字节</code><br>也就是说: 移动联通的 “100M” 与我们正常理解的 <code>100MiB</code> 缩水了 <strong>8.39 倍</strong><br>100Mbps = 100<em>1000</em>1000 bit 每秒<br>100MiB/s = 100<em>1024</em>1024*8 bit 每秒</p>
+<p><strong>声明式编程的实现方式</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"><span class="comment">// 更确切的说是"函数式编程"的实现方式</span></span><br><span class="line"><span class="built_in">console</span>.log( numbers.filter(<span class="function"><span class="params">num</span> =&gt;</span> num &gt; <span class="number">5</span>) );</span><br></pre></td></tr></table></figure></p>
+<p>它的主要思想是告诉计算机应该做什么，但不指定具体要怎么做<br>SQL 语句是一种典型的声明式编程形式;<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> numbers <span class="keyword">WHERE</span> <span class="keyword">num</span> &gt; <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p>除了 SQL，网页编程中用到的 HTML 和 CSS 也都属于声明式编程。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"www.google.com"</span> <span class="attr">style</span>=<span class="string">"color: #f00;"</span>&gt;</span>google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><a id="%E5%A3%B0%E6%98%8E%E5%BC%8F-%E5%92%8C-%E5%87%BD%E6%95%B0%E5%BC%8F-%E7%9A%84%E5%85%B3%E7%B3%BB"></a></p>
+<h2 id="声明式-和-函数式-的关系"><a href="#声明式-和-函数式-的关系" class="headerlink" title="声明式 和 函数式 的关系"></a>声明式 和 函数式 的关系</h2><p>声明式和函数式的思想是一致的:即只关注做什么而不是怎么做;<br>函数式编程在声明式的基础上新增了 <strong>“函数”</strong> 的概念</p>
+<p>函数式编程中的 <strong>“函数”</strong> 这个术语不是指计算机中的函数（实际上是Subroutine），而是指数学中的函数，即自变量的映射。也就是说一个函数的值仅决定于函数参数的值，不依赖其他状态。比如sqrt(x)函数计算x的平方根，只要x不变，不论什么时候调用，调用几次，值都是不变的。</p>
+<p>纯函数式编程语言中的变量也不是命令式编程语言中的变量，即存储状态的单元，而是代数中的变量，即一个值的名称。变量的值是不可变的（immutable），也就是说不允许像命令式编程语言中那样多次给一个变量赋值。比如说在命令式编程语言我们写 <code>x = x + 1</code> 这依赖可变状态的事实，拿给程序员看说是对的，但拿给数学家看，却被认为这个等式为假。</p>
+<p><a id="%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB-programming-paradigm"></a></p>
+<h2 id="编程范式之间的关系-Programming-paradigm"><a href="#编程范式之间的关系-Programming-paradigm" class="headerlink" title="编程范式之间的关系 Programming paradigm"></a>编程范式之间的关系 Programming paradigm</h2><ol>
+<li>命令式编程 Imperative programming<ol>
+<li>面向对象编程 Object-oriented programming</li>
+</ol>
+</li>
+<li>声明式编程 Declarative programming<ol>
+<li>函数式编程 functional programming</li>
+</ol>
+</li>
+</ol>
 <p><a id="%E5%8F%82%E8%80%83"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6" target="_blank" rel="noopener">二进制 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83" target="_blank" rel="noopener">比特 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82" target="_blank" rel="noopener">字节 - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/Mebibyte" target="_blank" rel="noopener">Mebibyte - 维基百科</a> | <a href="https://zh.wikipedia.org/wiki/%E6%AF%94%E7%89%B9%E7%8E%87" target="_blank" rel="noopener">比特率 - 维基百科</a> | <a href="https://baike.baidu.com/item/%E8%AE%A1%E6%95%B0%E5%8D%95%E4%BD%8D/9836030?fr=aladdin" target="_blank" rel="noopener">计数单位</a> | <a href="http://service.bj.10086.cn/bjyd/web/support/xieyi/yxxy.html" target="_blank" rel="noopener">家庭有线宽带业务服务协议 - 中国移动官方网站</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B" target="_blank" rel="noopener">编程范型 - 维基百科，自由的百科全书</a> | <a href="https://zh.wikipedia.org/wiki/%E6%8C%87%E4%BB%A4%E5%BC%8F%E7%B7%A8%E7%A8%8B" target="_blank" rel="noopener">命令式编程 - 维基百科，自由的百科全书</a> | <a href="https://zh.wikipedia.org/wiki/%E5%AE%A3%E5%91%8A%E5%BC%8F%E7%B7%A8%E7%A8%8B" target="_blank" rel="noopener">声明式编程 - 维基百科，自由的百科全书</a> | <a href="https://juejin.im/post/5950b0c56fb9a06bca0b7c04" target="_blank" rel="noopener">命令式、声明式、面向对象、函数式、控制反转之华山论剑（上） - 掘金</a> | <a href="https://www.jianshu.com/p/bbd0e9798221" target="_blank" rel="noopener">编程范式：命令式编程(Imperative)、声明式编程(Declarative)和函数式编程… - 简书</a> | <a href="http://blog.swanspace.org/oo_vs_fp/" target="_blank" rel="noopener">面向对象编程 VS 函数式编程 | SwanSpace</a> | <a href="https://blog.csdn.net/millis/article/details/76405489" target="_blank" rel="noopener">渣翻——Function、Method、Procedure和Subroutine的区别 - millis的博客 - CSDN博客</a> | <a href="https://www.zhihu.com/question/28292740/answer/40336090" target="_blank" rel="noopener">什么是函数式编程思维？ - 知乎</a></p>
 
           
         
@@ -533,7 +543,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/js/features/conversion/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/developer/vue-react-core/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -553,7 +563,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/js/features/conversion/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">数据类型的转换</a>
+                <a href="/note/dev/developer/vue-react-core/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">Vue React 核心思想</a>
               
             
           </h1>
@@ -578,7 +588,7 @@
                 
               
 
-              <time title="创建时间：2018-12-23 20:29:16 / 修改时间：23:52:12" itemprop="dateCreated datePublished" datetime="2018-12-23T20:29:16+08:00">2018-12-23</time>
+              <time title="创建时间：2019-02-20 19:55:32 / 修改时间：21:53:48" itemprop="dateCreated datePublished" datetime="2019-02-20T19:55:32+08:00">2019-02-20</time>
             
 
             
@@ -607,14 +617,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/developer/" itemprop="url" rel="index"><span itemprop="name">developer</span></a></span>
 
                 
                 
@@ -650,73 +653,19 @@
       
         
           
-            <h1 id="数据类型的转换"><a href="#数据类型的转换" class="headerlink" title="数据类型的转换"></a>数据类型的转换</h1><!-- MarkdownTOC -->
+            <h1 id="Vue-React-核心思想"><a href="#Vue-React-核心思想" class="headerlink" title="Vue React 核心思想"></a>Vue React 核心思想</h1><!-- MarkdownTOC -->
 <ul>
-<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
-<li><a href="#%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2">强制转换</a><ul>
-<li><a href="#number">Number()</a><ul>
-<li><a href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><strong>原始类型值</strong> 的转换规则:</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><strong>对象</strong> 的转换规则:</a></li>
-<li><a href="#number-%E4%B8%8E-parseint-%E7%9A%84%E5%8C%BA%E5%88%AB"><code>Number()</code> 与 <code>parseInt()</code> 的区别:</a></li>
-</ul>
-</li>
-<li><a href="#string">String()</a><ul>
-<li><a href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC">原始类型值</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1">对象</a></li>
-</ul>
-</li>
-<li><a href="#boolean">Boolean()</a></li>
-</ul>
-</li>
-<li><a href="#%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2">自动转换</a></li>
+<li><a href="#%E5%A3%B0%E6%98%8E%E5%BC%8F%E6%B8%B2%E6%9F%93">声明式渲染</a></li>
+<li><a href="#%E8%99%9A%E6%8B%9Fdom%E6%B8%B2%E6%9F%93">虚拟DOM渲染</a></li>
+<li><a href="#mvvm">MVVM</a></li>
 <li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
 <!-- /MarkdownTOC -->
-<p><a href="../index.md">回到系列教程主目录</a></p>
-<p><a id="%E6%A6%82%E8%BF%B0"></a></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JavaScript 是一种动态类型语言，变量没有类型限制，可以随时赋予任意值。</p>
-<p>虽然变量的数据类型是不确定的，但是各种运算符对数据类型是有要求的。<br>如果运算符发现，运算子的类型与预期不符，就会自动转换类型。</p>
-<p>本章主要内容:</p>
-<ol>
-<li>手动强制转换数据类型</li>
-<li>数据类型自动转换的规则</li>
-</ol>
-<p><a id="%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2"></a></p>
-<h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><ul>
-<li>Number()</li>
-<li>String()</li>
-<li>Boolean()</li>
-</ul>
-<p><a id="number"></a></p>
-<h3 id="Number"><a href="#Number" class="headerlink" title="Number()"></a>Number()</h3><p><a id="%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"></a></p>
-<h4 id="原始类型值-的转换规则"><a href="#原始类型值-的转换规则" class="headerlink" title="原始类型值 的转换规则:"></a><strong>原始类型值</strong> 的转换规则:</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串 1 如果可以被解析为数值，则转换为相应的数值</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'324'</span>) <span class="comment">// 324</span></span><br><span class="line"><span class="comment">// 字符串 2 如果不可以被解析为数值，返回 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'324abc'</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 字符串 3 空字符串转为0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 布尔值 true 转成 1，false 转成 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// undefined 转成 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// null 转成0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
-<p><a id="%E5%AF%B9%E8%B1%A1-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"></a></p>
-<h4 id="对象-的转换规则"><a href="#对象-的转换规则" class="headerlink" title="对象 的转换规则:"></a><strong>对象</strong> 的转换规则:</h4><p>简单的规则是: 除了 <em>单个数值的数组</em> 外,全部返回 <code>NaN</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">5</span>]) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>背后的原理</strong> 如下代码所示: (了解原理后,可以更改 <code>Number()</code> 的默认行为)  </p>
-<ol>
-<li>调用对象自身的valueOf方法。<br>1.1 如果返回原始类型的值，则 <code>return Number(原始类型)</code>;<br>1.2 如果返回的还是对象，则改为调用对象自身的<code>toString</code>方法。  <pre><code>1.2.1 如果toString方法返回原始类型的值，则`return Number(原始类型)`;  
-1.2.2 如果toString方法返回的是对象，就报错。
-</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Number</span>(obj)</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> obj.valueOf() === <span class="string">'object'</span>) &#123; <span class="comment">// 1. 真;    valueOf 返回对象本身;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj.toString() === <span class="string">'object'</span>) &#123;<span class="comment">// 2. 假;    toString返回字符串 "[object Object]"</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'无法自动转换'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Number</span>(obj.toString()); <span class="comment">// 3. NaN;   Number("[object Object]") 返回 NaN</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">Number</span>(obj.valueOf());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a id="number-%E4%B8%8E-parseint-%E7%9A%84%E5%8C%BA%E5%88%AB"></a></p>
-<h4 id="Number-与-parseInt-的区别"><a href="#Number-与-parseInt-的区别" class="headerlink" title="Number() 与 parseInt() 的区别:"></a><code>Number()</code> 与 <code>parseInt()</code> 的区别:</h4><p><code>parseInt()</code> 逐个解析字符<br><code>Number()</code> 整体解析字符,只要有 <em>一个</em> 字符无法转成数值,整个字符串就会被转为 <code>NaN</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'42 cats'</span>) <span class="comment">// 42</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'42 cats'</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure></p>
-<p><a id="string"></a></p>
-<h3 id="String"><a href="#String" class="headerlink" title="String()"></a>String()</h3><p><a id="%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%80%BC"></a></p>
-<h4 id="原始类型值"><a href="#原始类型值" class="headerlink" title="原始类型值"></a>原始类型值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数值</span></span><br><span class="line"><span class="built_in">String</span>(<span class="number">123</span>) <span class="comment">// "123"</span></span><br><span class="line"><span class="comment">// 布尔值</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">true</span>) <span class="comment">// "true"</span></span><br><span class="line"><span class="comment">// undefined 和 null</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">undefined</span>) <span class="comment">// "undefined"</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">null</span>) <span class="comment">// "null"</span></span><br></pre></td></tr></table></figure>
-<p><a id="%E5%AF%B9%E8%B1%A1"></a></p>
-<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
-<li>如果是对象，返回一个类型字符串</li>
-<li>如果是数组，返回该数组的字符串形式<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;) <span class="comment">// "[object Object]"</span></span><br><span class="line"><span class="built_in">String</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// "1,2,3"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>转换对象参数 <strong>背后的原理:</strong><br>String方法背后的转换规则,与Number方法基本相同; 只是互换了valueOf方法和toString方法的执行顺序</p>
-<p><a id="boolean"></a></p>
-<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean()"></a>Boolean()</h3><p>除了以下五个值的转换结果为 <code>false</code>, 其他的值全部为 <code>true</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(<span class="literal">undefined</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">''</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
-<p>注意: <strong>所有对象(包括空对象)</strong> 的布尔值都是 <code>true</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)) <span class="comment">// true    false的包装对象也是真</span></span><br></pre></td></tr></table></figure></p>
-<p><a id="%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2"></a></p>
-<h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2><p><a id="%E5%8F%82%E8%80%83"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://wangdoc.com/javascript/features/conversion.html" target="_blank" rel="noopener">数据类型的转换 - JavaScript 教程 - 网道</a></p>
+<p><a id="%E5%A3%B0%E6%98%8E%E5%BC%8F%E6%B8%B2%E6%9F%93"></a></p>
+<h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><p><a id="%E8%99%9A%E6%8B%9Fdom%E6%B8%B2%E6%9F%93"></a></p>
+<h2 id="虚拟DOM渲染"><a href="#虚拟DOM渲染" class="headerlink" title="虚拟DOM渲染"></a>虚拟DOM渲染</h2><p><a id="mvvm"></a></p>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p><a id="%E5%8F%82%E8%80%83"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/livoras/blog/issues/13" target="_blank" rel="noopener">深度剖析：如何实现一个 Virtual DOM 算法 · Issue #13 · livoras/blog</a> | <a href="https://github.com/livoras/blog/issues/11" target="_blank" rel="noopener">界面之下：还原真实的MV*模式 · Issue #11 · livoras/blog</a></p>
 
           
         
@@ -773,7 +722,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/js/features/index_features/">
+    <link itemprop="mainEntityOfPage" href="https://linkhanfeng.github.io/note/dev/es6/index/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="han feng">
@@ -793,7 +742,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/note/dev/js/features/index_features/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">语法专题</a>
+                <a href="/note/dev/es6/index/" class="post-title-link" itemprop="https://linkhanfeng.github.io/index.html">es6</a>
               
             
           </h1>
@@ -818,12 +767,24 @@
                 
               
 
-              <time title="创建时间：2018-12-23 20:05:53 / 修改时间：20:26:03" itemprop="dateCreated datePublished" datetime="2018-12-23T20:05:53+08:00">2018-12-23</time>
+              <time title="创建时间：2019-02-19 22:56:16" itemprop="dateCreated datePublished" datetime="2019-02-19T22:56:16+08:00">2019-02-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-20 23:15:32" itemprop="dateModified" datetime="2019-02-20T23:15:32+08:00">2019-02-20</time>
               
             
           </span>
@@ -847,14 +808,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/js/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/es6/" itemprop="url" rel="index"><span itemprop="name">es6</span></a></span>
 
                 
                 
@@ -890,9 +844,10 @@
       
         
           
-            <h1 id="语法专题"><a href="#语法专题" class="headerlink" title="语法专题"></a>语法专题</h1><!-- MarkdownTOC -->
+            <h1 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h1><!-- MarkdownTOC -->
 <!-- /MarkdownTOC -->
-<p><a href="../index.md">回到系列教程主目录</a></p>
+<p><a href="./index.md">回到系列教程主目录</a></p>
+<p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门 - ECMAScript 6入门</a></p>
 
           
         
@@ -938,7 +893,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -981,7 +936,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1046,7 +1001,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1125,7 +1088,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1164,7 +1137,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
