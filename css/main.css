@@ -1779,6 +1779,7 @@ pre .javascript .function {
   text-align: center;
   font-size: 13px;
   color: #999;
+  word-break: keep-all;
 }
 .site-state {
   overflow: hidden;
@@ -1850,7 +1851,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f4aad6;
+  background: #524f1c;
 }
 .links-of-blogroll {
   font-size: 13px;
